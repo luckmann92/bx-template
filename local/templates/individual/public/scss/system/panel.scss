@@ -87,6 +87,12 @@
     padding: 0 5px 10px;
   }
 }
+.group__header {
+  flex-direction: column;
+  .col__line {
+    margin-bottom: 20px;
+  }
+}
 .group__theme-type {
   width: 100%;
 }

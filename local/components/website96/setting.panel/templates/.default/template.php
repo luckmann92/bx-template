@@ -22,17 +22,17 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                         switch ($CODE) {
                             case 'HEADER':?>
                                 <div class="group__panel page__view">
-                                    <div class="group__theme-title">Вид главной страницы</div>
-                                    <div class="group__theme-list">
+                                    <div class="group__theme-title">Вид шапки</div>
+                                    <div class="group__theme-list group__header">
                                         <?foreach ($arFields as $field) {?>
-                                            <div class="col__part">
-                                                <label class="view__label" for="pageView__<?=$field['ID']?>"
+                                            <div class="col__line">
+                                                <label class="view__label view__line" for="headerView__<?=$field['ID']?>"
                                                     <?=$field['PICTURE'] ? 'style="background-image:url(' . $field['PICTURE'] . ')"' : ''?>>
                                                     <input type="radio"
-                                                           name="HOME_PAGE"
-                                                           id="pageView__<?=$field['ID']?>"
+                                                           name="<?=$CODE?>"
+                                                           id="headerView__<?=$field['ID']?>"
                                                            value="<?=$field['ID']?>"
-                                                        <?=$arResult['SETTING']['HOME_PAGE'] == $field['ID'] ? 'checked' : ''?>
+                                                        <?=$arResult['SETTING']['HEADER'] == $field['ID'] ? 'checked' : ''?>
                                                     >
                                                     <span class="pageView__name"><?=$field['NAME']?></span>
                                                 </label>
@@ -41,14 +41,14 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                     </div>
                                 </div>
 
-                                <select name="<?=$CODE?>">
-                                    <?foreach ($arFields as $field) {?>
-                                        <?if ($field['PICTURE']) {?>
-                                            <img src="<?=$field['PICTURE']?>">
-                                        <?}?>
-                                        <option value="<?=$field['ID']?>" <?=$arResult['SETTING']['HEADER'] == $field['ID'] ? 'selected' : ''?>><?=$field['NAME']?></option>
-                                    <?}?>
-                                </select>
+                                <!--<select name="<?/*=$CODE*/?>">
+                                    <?/*foreach ($arFields as $field) {*/?>
+                                        <?/*if ($field['PICTURE']) {*/?>
+                                            <img src="<?/*=$field['PICTURE']*/?>">
+                                        <?/*}*/?>
+                                        <option value="<?/*=$field['ID']*/?>" <?/*=$arResult['SETTING']['HEADER'] == $field['ID'] ? 'selected' : ''*/?>><?/*=$field['NAME']*/?></option>
+                                    <?/*}*/?>
+                                </select>-->
 
                                 <?break;
                             case 'TEMPLATE_TYPE':?>

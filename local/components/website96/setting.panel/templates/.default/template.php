@@ -40,7 +40,6 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                         <?}?>
                                     </div>
                                 </div>
-
                                 <!--<select name="<?/*=$CODE*/?>">
                                     <?/*foreach ($arFields as $field) {*/?>
                                         <?/*if ($field['PICTURE']) {*/?>

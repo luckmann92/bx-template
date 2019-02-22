@@ -2,7 +2,6 @@
 Thumbs.db
 /.idea/
 /bitrix/
-!/bitrix/php_interface/*.php
 /local/templates/individual/public/css/theme/
 /local/templates/build/
 /local/templates/node_modules/

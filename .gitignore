@@ -3,6 +3,9 @@ Thumbs.db
 /.idea/
 /bitrix/
 /local/templates/individual/public/css/theme/
+/local/templates/package.json
+/local/templates/package-lock.json
+/local/templates/individual/.settings.json
 /local/templates/build/
 /local/templates/node_modules/
 /local/templates/globals.js

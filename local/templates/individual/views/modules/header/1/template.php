@@ -12,7 +12,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
                         );?>
                     </a>
                 </div>
-                <div class="col header-search">
+                <div class="col-xl-4 col-lg-auto header-search">
                     <?$APPLICATION->IncludeComponent(
                         "bitrix:search.suggest.input",
                         ".default",
@@ -32,7 +32,26 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
                     <?=GetContentSvgIcon('address')?>
                     <div class="header-shop__text">
                         <span>г. Екатеринбург</span>
-                        <span></span>
+                        <span>ул. Генеральская, 3</span>
+                    </div>
+                </div>
+                <div class="col header-shop__block header-shop__address">
+                    <?=GetContentSvgIcon('phone')?>
+                    <div class="header-shop__text">
+                        <a class="header-shop__number" href="tel:<?$APPLICATION->IncludeFile(
+                            "include/".SITE_ID."/contact/phone.php",
+                            array(), array(
+                                "SHOW_BORDER" => false,
+                                "MODE" => "text"
+                            )
+                        );?>"><?$APPLICATION->IncludeFile(
+                                "include/".SITE_ID."/contact/phone.php",
+                                array(), array(
+                                    "SHOW_BORDER" => true,
+                                    "MODE" => "text"
+                                )
+                            );?></a>
+                        <a href="#" class="header-shop__modal js-init-modal__form">Заказать звонок</a>
                     </div>
                 </div>
             </div>

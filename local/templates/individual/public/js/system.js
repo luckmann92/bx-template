@@ -50,11 +50,13 @@ function showButtonApplySettings() {
 
 $(document).ready(function() {
     if (getCookie('showModalSettings') == 'true') {
-        renderModalSettings();
+        renderModalSettings(0, 0, false);
     }
 
     //constructor
-    $('.settings__panel-show').on('click', renderModalSettings);
+    $('.settings__panel-show').on('click', function() {
+        renderModalSettings(200, 200, true)
+    });
 
     $(document).mouseup(function (e){
         var div = $(".modal__window");
@@ -321,7 +323,7 @@ function applySizeFontForElem(elem, size) {
     elem.style.fontSize = `${ size }px`;
 }
 
-function renderModalSettings() {
+function renderModalSettings(openEffect, closeEffect, hasAnimateOpen) {
     $.arcticmodal({
         type: 'ajax',
         url: '/local/tools/setting_panel.php',
@@ -332,10 +334,10 @@ function renderModalSettings() {
             }
         },
         openEffect: {
-            speed: 200
+            speed: openEffect
         },
         closeEffect: {
-            speed: 200
+            speed: closeEffect
         },
         beforeOpen: function (data, el) {
             $('.arcticmodal-container table').addClass('setting__container');
@@ -343,7 +345,9 @@ function renderModalSettings() {
         },
         afterLoadingOnShow: function (data, el) {
             $('.arcticmodal-container .settings__panel').addClass('modal__window');
-            $('.box__modal-setting').addClass('slideInLeft');
+            if (hasAnimateOpen) {
+                $('.box__modal-setting').addClass('slideInLeft');
+            }
             selectMainFont = new customSelect({
                 elem: 'selectMainfont'
             }, function() {

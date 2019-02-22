@@ -1,19 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
-    var lazyImages = document.querySelectorAll('img[lazy-images');
+    var lazyImages = document.querySelectorAll('img[lazy-images]');
     function handlerLazyLoadImages() {
         Array.prototype.forEach.call(lazyImages, function(img) {
             if ((img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0) && getComputedStyle(img).display != 'none') {
-                $.ajax({
-                    url: img.getAttribute('lazy-images'),
-                    type: 'get',
-                    success: function () {
-                        img.setAttribute('src', img.getAttribute('lazy-images'));
-                        img.removeAttribute('lazy-images');
-                    }
-                });
+                setImage(img);
             }
         });
-        lazyImages = document.querySelectorAll('img[lazy-images');
+        lazyImages = document.querySelectorAll('img[lazy-images]:not([data-loaded="true"])');
+    }
+    function setImage(img) {
+        img.setAttribute('data-loaded', 'true');
+        $.get(img.getAttribute('lazy-images'), function(){
+            img.setAttribute('src', img.getAttribute('lazy-images'));
+            img.removeAttribute('lazy-images');
+            img.removeAttribute('data-loaded');
+        });
     }
     handlerLazyLoadImages();
     document.addEventListener('scroll', handlerLazyLoadImages);

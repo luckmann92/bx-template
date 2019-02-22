@@ -32,6 +32,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
                     <div class="header-shop__pic">
                         <?=GetContentSvgIcon('address')?>
                     </div>
+
                     <div class="header-shop__text">
                         <span>г. Екатеринбург</span>
                         <span>ул. Генеральская, 3</span>

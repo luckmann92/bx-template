@@ -14,6 +14,8 @@ class CWebsiteTemplate {
     public $arHomePage = array();
     public $arSetting = array();
     public $arFontSizes = array();
+    public $arHeaderTypes = array();
+    public $arTemplateTypes = array();
 
     public function __construct()
     {
@@ -25,6 +27,15 @@ class CWebsiteTemplate {
             '13' => '13px',
             '15' => '15px',
             '17' => '17px',
+        );
+        $this->arTemplateTypes = array(
+            'COMPANY' => 'Сайт компании',
+            'CATALOG' => 'Сайт с каталогом/услугами',
+            'SHOP' => 'Интернет-магазин'
+        );
+        $this->arHeaderTypes = array(
+            'default' => '1',
+            '1' => '2'
         );
     }
 
@@ -54,7 +65,7 @@ class CWebsiteTemplate {
 
     private function getViewTemplate($type)
     {
-        $path = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/views/modules/' . $type . '/';
+        $path = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/views/modules/' . $type . '/' . mb_strtolower($this->getTemplateSetting()['TEMPLATE_TYPE']) . '/';
         $arTemplates = array();
 
         if (is_dir($path)) {
@@ -223,6 +234,7 @@ class CWebsiteTemplate {
         );
         return file_exists($templateSettingsFile) ? $this->object_to_array(json_decode(file_get_contents($templateSettingsFile)))
             : $defaultSetting;
+        //return $defaultSetting;
     }
     
     static function onBeforeElementUpdateHandler($arFields){
@@ -252,8 +264,9 @@ class CWebsiteTemplate {
     public function result()
     {
         return array(
-            'TEMPLATE_TYPE' => array('COMPANY' => 'Сайт компании', 'CATALOG' => 'Сайт с каталогом/услугами', 'SHOP' => 'Интернет-магазин'),
+            'TEMPLATE_TYPE' => $this->arTemplateTypes,
             'FONTS' => $this->arFonts,
+            'HEADERS' => $this->arHeaderTypes,
             'COLORS' => $this->arColors,
             'HOME_PAGE' => $this->arHomePage,
             'FONT_SIZE' => $this->arFontSizes,

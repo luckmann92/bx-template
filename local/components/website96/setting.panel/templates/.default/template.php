@@ -16,8 +16,17 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                 <div class="settings__panel-content active">
                     <?=bitrix_sessid_post()?>
                     <input type="hidden" value="Y" name="SET_SETTING">
-                    <?foreach ($arResult['FIELDS'] as $CODE => $arFields) {
+                    <?
+
+                    foreach ($arResult['FIELDS'] as $CODE => $arFields) {
                         switch ($CODE) {
+                            case 'HEADERS':?>
+                                <select name="<?=$CODE?>">
+                                    <?foreach ($arFields as $id => $field) {?>
+                                        <option value="<?=$id?>" <?=$arResult['SETTING']['HEADER'] == $id ? 'selected' : ''?>><?=$field?></option>
+                                    <?}?>
+                                </select>
+                                <?break;
                             case 'TEMPLATE_TYPE':?>
                                 <div class="group__panel" id="template-type">
                                     <div class="group__theme-title">Готовое решение</div>

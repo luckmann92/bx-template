@@ -3,8 +3,14 @@ document.addEventListener("DOMContentLoaded", function() {
     function handlerLazyLoadImages() {
         Array.prototype.forEach.call(lazyImages, function(img) {
             if ((img.getBoundingClientRect().top <= window.innerHeight && img.getBoundingClientRect().bottom >= 0) && getComputedStyle(img).display != 'none') {
-                img.setAttribute('src', img.getAttribute('lazy-images'));
-                img.removeAttribute('lazy-images');
+                $.ajax({
+                    url: img.getAttribute('lazy-images'),
+                    type: 'get',
+                    success: function () {
+                        img.setAttribute('src', img.getAttribute('lazy-images'));
+                        img.removeAttribute('lazy-images');
+                    }
+                });
             }
         });
         lazyImages = document.querySelectorAll('img[lazy-images');

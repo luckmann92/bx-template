@@ -73,7 +73,7 @@ $APPLICATION->IncludeFile(
 
 if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
     $APPLICATION->IncludeFile(
-        "views/modules/home_page/" . mb_strtolower($arSetting['TEMPLATE_TYPE']) . "/" . $arSetting['HOME_PAGE'] . "/template.php",
+        "views/modules/home_page/" . $arSetting['HOME_PAGE'] . "/template.php",
         array(
             "CONTENT" => $pageContent,
             "SETTING" => $arSetting

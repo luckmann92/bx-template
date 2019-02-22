@@ -20,10 +20,10 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
 
                     foreach ($arResult['FIELDS'] as $CODE => $arFields) {
                         switch ($CODE) {
-                            case 'HEADERS':?>
-                                <select name="HEADER">
-                                    <?foreach ($arFields as $id => $field) {?>
-                                        <option value="<?=$id?>" <?=$arResult['SETTING']['HEADER'] == $id ? 'selected' : ''?>><?=$field?></option>
+                            case 'HEADER':?>
+                                <select name="<?=$CODE?>">
+                                    <?foreach ($arFields as $field) {?>
+                                        <option value="<?=$field['ID']?>" <?=$arResult['SETTING']['HEADER'] == $field['ID'] ? 'selected' : ''?>><?=$field['NAME']?></option>
                                     <?}?>
                                 </select>
                                 <?break;

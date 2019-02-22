@@ -33,10 +33,7 @@ class CWebsiteTemplate {
             'CATALOG' => 'Сайт с каталогом/услугами',
             'SHOP' => 'Интернет-магазин'
         );
-        $this->arHeaderTypes = array(
-            'default' => '1',
-            '1' => '2'
-        );
+        $this->arHeaderTypes = $this->getViewTemplate('header');
     }
 
     public function setTemplateSetting($arSetting)
@@ -65,7 +62,7 @@ class CWebsiteTemplate {
 
     private function getViewTemplate($type)
     {
-        $path = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/views/modules/' . $type . '/' . mb_strtolower($this->getTemplateSetting()['TEMPLATE_TYPE']) . '/';
+        $path = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/views/modules/' . $type . '/';
         $arTemplates = array();
 
         if (is_dir($path)) {
@@ -266,8 +263,8 @@ class CWebsiteTemplate {
         return array(
             'TEMPLATE_TYPE' => $this->arTemplateTypes,
             'FONTS' => $this->arFonts,
-            'HEADERS' => $this->arHeaderTypes,
             'COLORS' => $this->arColors,
+            'HEADER' => $this->arHeaderTypes,
             'HOME_PAGE' => $this->arHomePage,
             'FONT_SIZE' => $this->arFontSizes,
         );

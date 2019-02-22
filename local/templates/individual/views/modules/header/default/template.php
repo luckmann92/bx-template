@@ -119,7 +119,7 @@
             </div>
         </div>
     </div>
-    <?if($arParams['SETTING']['HOME_PAGE'] != 'sidebar') {?>
+    <?if($arParams['SETTING']['HOME_PAGE'] != 'sidebar' && $arParams['SETTING']['TEMPLATE_TYPE'] != 'COMPANY') {?>
         <nav class="header-bottom">
             <div class="container">
                 <div class="row row-line"><?$APPLICATION->IncludeFile(

@@ -21,7 +21,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                     foreach ($arResult['FIELDS'] as $CODE => $arFields) {
                         switch ($CODE) {
                             case 'HEADERS':?>
-                                <select name="<?=$CODE?>">
+                                <select name="HEADER">
                                     <?foreach ($arFields as $id => $field) {?>
                                         <option value="<?=$id?>" <?=$arResult['SETTING']['HEADER'] == $id ? 'selected' : ''?>><?=$field?></option>
                                     <?}?>

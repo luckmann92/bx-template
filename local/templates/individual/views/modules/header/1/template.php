@@ -29,14 +29,18 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
                     );?>
                 </div>
                 <div class="col header-shop__block header-shop__address">
-                    <?=GetContentSvgIcon('address')?>
+                    <div class="header-shop__pic">
+                        <?=GetContentSvgIcon('address')?>
+                    </div>
                     <div class="header-shop__text">
                         <span>г. Екатеринбург</span>
                         <span>ул. Генеральская, 3</span>
                     </div>
                 </div>
                 <div class="col header-shop__block header-shop__address">
-                    <?=GetContentSvgIcon('phone')?>
+                    <div class="header-shop__pic">
+                        <?=GetContentSvgIcon('phone')?>
+                    </div>
                     <div class="header-shop__text">
                         <a class="header-shop__number" href="tel:<?$APPLICATION->IncludeFile(
                             "include/".SITE_ID."/contact/phone.php",

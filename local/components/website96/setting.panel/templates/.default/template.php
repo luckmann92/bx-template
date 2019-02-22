@@ -21,6 +21,26 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                     foreach ($arResult['FIELDS'] as $CODE => $arFields) {
                         switch ($CODE) {
                             case 'HEADER':?>
+                                <div class="group__panel page__view">
+                                    <div class="group__theme-title">Вид главной страницы</div>
+                                    <div class="group__theme-list">
+                                        <?foreach ($arFields as $field) {?>
+                                            <div class="col__part">
+                                                <label class="view__label" for="pageView__<?=$field['ID']?>"
+                                                    <?=$field['PICTURE'] ? 'style="background-image:url(' . $field['PICTURE'] . ')"' : ''?>>
+                                                    <input type="radio"
+                                                           name="HOME_PAGE"
+                                                           id="pageView__<?=$field['ID']?>"
+                                                           value="<?=$field['ID']?>"
+                                                        <?=$arResult['SETTING']['HOME_PAGE'] == $field['ID'] ? 'checked' : ''?>
+                                                    >
+                                                    <span class="pageView__name"><?=$field['NAME']?></span>
+                                                </label>
+                                            </div>
+                                        <?}?>
+                                    </div>
+                                </div>
+
                                 <select name="<?=$CODE?>">
                                     <?foreach ($arFields as $field) {?>
                                         <?if ($field['PICTURE']) {?>
@@ -29,6 +49,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                         <option value="<?=$field['ID']?>" <?=$arResult['SETTING']['HEADER'] == $field['ID'] ? 'selected' : ''?>><?=$field['NAME']?></option>
                                     <?}?>
                                 </select>
+
                                 <?break;
                             case 'TEMPLATE_TYPE':?>
                                 <div class="group__panel" id="template-type">

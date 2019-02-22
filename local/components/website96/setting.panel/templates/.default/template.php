@@ -23,6 +23,9 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                             case 'HEADER':?>
                                 <select name="<?=$CODE?>">
                                     <?foreach ($arFields as $field) {?>
+                                        <?if ($field['PICTURE']) {?>
+                                            <img src="<?=$field['PICTURE']?>">
+                                        <?}?>
                                         <option value="<?=$field['ID']?>" <?=$arResult['SETTING']['HEADER'] == $field['ID'] ? 'selected' : ''?>><?=$field['NAME']?></option>
                                     <?}?>
                                 </select>

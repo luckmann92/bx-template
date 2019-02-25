@@ -45,6 +45,7 @@ $pageTitle = $APPLICATION->GetPageProperty('title') ?: $APPLICATION->GetTitle();
 if ($USER->IsAdmin()) {
     $APPLICATION->ShowPanel();
 }
+
 if ($arSetting['SHOW_PANEL'] == 'Y'){
     echo '<button class="settings__panel-show"></button>';
 }

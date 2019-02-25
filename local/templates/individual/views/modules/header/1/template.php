@@ -4,60 +4,58 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
     <nav class="header-shop__top">
         <div class="container">
             <div class="row justify-content-between align-items-center">
-                <div class="col-12">
-                    <div class="col d-flex align-items-center header-shop__logo">
-                        <a href="<?=SITE_DIR?>" class="d-flex align-items-center">
-                            <?$APPLICATION->IncludeFile('include/'.SITE_ID.'/logo.php',
-                                ['SETTING' => $arParams['SETTING']],
-                                ['SHOW_BORDER' => false, 'MODE' => 'php']
-                            );?>
-                        </a>
-                    </div>
-                    <div class="col-xl-4 col-lg-auto header-search">
-                        <?$APPLICATION->IncludeComponent(
-                            "bitrix:search.suggest.input",
-                            ".default",
-                            array(
-                                "DROPDOWN_SIZE" => "10",
-                                "INPUT_SIZE" => "20",
-                                "NAME" => "q",
-                                "VALUE" => "Поиск по сайту",
-                                "COMPONENT_TEMPLATE" => ".default",
-                                "COMPOSITE_FRAME_MODE" => "Y",
-                                "COMPOSITE_FRAME_TYPE" => "STATIC"
-                            ),
-                            false
+                <div class="col-lg-auto d-flex align-items-center header-shop__logo">
+                    <a href="<?=SITE_DIR?>" class="d-flex align-items-center">
+                        <?$APPLICATION->IncludeFile('include/'.SITE_ID.'/logo.php',
+                            ['SETTING' => $arParams['SETTING']],
+                            ['SHOW_BORDER' => false, 'MODE' => 'php']
                         );?>
+                    </a>
+                </div>
+                <div class="col-xl-4 col-lg-auto header-search">
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:search.suggest.input",
+                        ".default",
+                        array(
+                            "DROPDOWN_SIZE" => "10",
+                            "INPUT_SIZE" => "20",
+                            "NAME" => "q",
+                            "VALUE" => "Поиск по сайту",
+                            "COMPONENT_TEMPLATE" => ".default",
+                            "COMPOSITE_FRAME_MODE" => "Y",
+                            "COMPOSITE_FRAME_TYPE" => "STATIC"
+                        ),
+                        false
+                    );?>
+                </div>
+                <div class="col-lg-auto header-shop__block header-shop__address">
+                    <div class="header-shop__pic">
+                        <?=GetContentSvgIcon('address')?>
                     </div>
-                    <div class="col header-shop__block header-shop__address">
-                        <div class="header-shop__pic">
-                            <?=GetContentSvgIcon('address')?>
-                        </div>
-                        <div class="header-shop__text">
-                            <span>г. Екатеринбург</span>
-                            <span>ул. Генеральская, 3</span>
-                        </div>
+                    <div class="header-shop__text">
+                        <span>г. Екатеринбург</span>
+                        <span>ул. Генеральская, 3</span>
                     </div>
-                    <div class="col header-shop__block header-shop__address">
-                        <div class="header-shop__pic">
-                            <?=GetContentSvgIcon('phone')?>
-                        </div>
-                        <div class="header-shop__text">
-                            <a class="header-shop__number" href="tel:<?$APPLICATION->IncludeFile(
+                </div>
+                <div class="col-lg-auto header-shop__block header-shop__address">
+                    <div class="header-shop__pic">
+                        <?=GetContentSvgIcon('phone')?>
+                    </div>
+                    <div class="header-shop__text">
+                        <a class="header-shop__number" href="tel:<?$APPLICATION->IncludeFile(
+                            "include/".SITE_ID."/contact/phone.php",
+                            array(), array(
+                                "SHOW_BORDER" => false,
+                                "MODE" => "text"
+                            )
+                        );?>"><?$APPLICATION->IncludeFile(
                                 "include/".SITE_ID."/contact/phone.php",
                                 array(), array(
-                                    "SHOW_BORDER" => false,
+                                    "SHOW_BORDER" => true,
                                     "MODE" => "text"
                                 )
-                            );?>"><?$APPLICATION->IncludeFile(
-                                    "include/".SITE_ID."/contact/phone.php",
-                                    array(), array(
-                                        "SHOW_BORDER" => true,
-                                        "MODE" => "text"
-                                    )
-                                );?></a>
-                            <a href="#" class="header-shop__modal js-init-modal__form">Заказать звонок</a>
-                        </div>
+                            );?></a>
+                        <a href="#" class="header-shop__modal js-init-modal__form">Заказать звонок</a>
                     </div>
                 </div>
             </div>

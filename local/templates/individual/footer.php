@@ -1,10 +1,9 @@
-<?php
+<?if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 /**
  * @var CMain $APPLICATION
  * @var string $headerContent
  */
 
-if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 $pageContent = ob_get_clean();
 $pageContent = trim(implode("", $APPLICATION->buffer_content)) . $pageContent;
 $APPLICATION->RestartBuffer();
@@ -45,6 +44,7 @@ $pageTitle = $APPLICATION->GetPageProperty('title') ?: $APPLICATION->GetTitle();
 if ($USER->IsAdmin()) {
     $APPLICATION->ShowPanel();
 }
+
 if ($arSetting['SHOW_PANEL'] == 'Y'){
     echo '<button class="settings__panel-show"></button>';
 }

@@ -7,7 +7,7 @@
  */
 
 ?>
-<section class="section-about section-about__1 section-about__catalog">
+<section class="section-about section-about__1 section-about__catalog section-about__company-block">
     <div class="container">
         <div class="about-item">
             <div class="row">

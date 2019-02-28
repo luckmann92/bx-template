@@ -4,7 +4,8 @@
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  padding: 7px 0 100px;
+  padding: 410px 0 100px;
+  margin-top: -340px;
   z-index: 0;
   &__2 {
     padding-top:0;
@@ -21,6 +22,10 @@
     margin-top: 60px;
     padding-top: 60px;
     padding-bottom: 100px;
+  }
+  &__company-block {
+    margin-top: 90px;
+    padding-top: 90px;
   }
   .section__title {
     color:#fff;

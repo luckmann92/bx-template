@@ -1,5 +1,5 @@
 .section-about {
-  margin: 100px 0;
+  margin-top: -350px;
   z-index:2;
   &__2 {
     margin-top:0;
@@ -12,6 +12,9 @@
   }
   &__company {
     margin-top:60px;
+  }
+  &__company-block {
+    margin-top: 100px;
   }
 }
 .about-item_content {

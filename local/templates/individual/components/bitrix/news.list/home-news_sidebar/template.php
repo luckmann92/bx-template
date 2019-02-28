@@ -14,7 +14,8 @@ $this->setFrameMode(true);
 
 ?>
 <?if($arResult['ITEMS']){?>
-<section class="section-news section-news__2 section-news__<?=mb_strtolower($arParams['SETTING']['TEMPLATE_TYPE'])?>" <?=$arParams['BG_IMAGE'] && ($arParams['SETTING']['HOME_TYPE'] == 1) ? 'style="background-image:url('.$arParams['BG_IMAGE'].');"' : '';?>>
+<section class="section-news section-news__2 section-news__<?=mb_strtolower($arParams['SETTING']['TEMPLATE_TYPE'])?> <?=$arParams['SETTING']['TEMPLATE_TYPE'] == 'COMPANY' ? ' section-news__company-block' : ''?>"
+    <?=$arParams['BG_IMAGE'] && ($arParams['SETTING']['HOME_TYPE'] == 1) ? 'style="background-image:url('.$arParams['BG_IMAGE'].');"' : '';?>>
     <div class="section-title">
         <div>
             <div class="row justify-content-md-between justify-content-sm-start align-items-end align-items-md-center">

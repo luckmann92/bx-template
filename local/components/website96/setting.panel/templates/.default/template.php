@@ -156,7 +156,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                                            id="mainColor_<?=$id?>"
                                                            value="<?=$field['COLOR_CODE']?>"
                                                         <?=$arResult['SETTING']['COLORS']['MAIN'] == $field['COLOR_CODE'] ? 'checked' : ''?>>
-                                                    <span style="background-color: #<?=$field['COLOR_HEX']?>"></span>
+                                                    <span style="background-color: #<?=$field['COLOR_CODE'] == 'default' ? 'fff' : $field['COLOR_HEX']?>"></span>
                                                 </label>
                                             </div>
                                         <?}?>

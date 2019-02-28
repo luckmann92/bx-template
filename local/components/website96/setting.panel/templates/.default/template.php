@@ -168,8 +168,11 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                 <div class="group__panel page__view">
                                     <div class="group__theme-title">Вид главной страницы</div>
                                     <div class="group__theme-list">
-                                        <?foreach ($arFields as $field) {?>
-                                            <div class="col__part">
+                                        <?foreach ($arFields as $field) {
+                                            if($arResult['SETTING']['TEMPLATE_TYPE'] == 'COMPANY' && $field['ID'] != 'default') {
+                                                break;
+                                            } else {?>
+                                            <div class="col__part" data-view-type="<?=$field['ID']?>">
                                                 <label class="view__label" for="pageView__<?=$field['ID']?>"
                                                     <?=$field['PICTURE'] ? 'style="background-image:url(' . $field['PICTURE'] . ')"' : ''?>>
                                                     <input type="radio"
@@ -181,6 +184,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                                     <span class="pageView__name"><?=$field['NAME']?></span>
                                                 </label>
                                             </div>
+                                            <?}?>
                                         <?}?>
                                     </div>
                                 </div>

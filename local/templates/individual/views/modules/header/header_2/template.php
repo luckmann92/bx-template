@@ -4,7 +4,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
     <nav class="header-shop__top">
         <div class="container">
             <div class="row justify-content-between align-items-center">
-                <div class="col d-flex align-items-center header-shop__logo">
+                <div class="col-lg-auto d-flex align-items-center header-shop__logo">
                     <a href="<?=SITE_DIR?>" class="d-flex align-items-center">
                         <?$APPLICATION->IncludeFile('include/'.SITE_ID.'/logo.php',
                             ['SETTING' => $arParams['SETTING']],
@@ -28,21 +28,16 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
                         false
                     );?>
                 </div>
-                <div class="col header-shop__block header-shop__address">
+                <div class="col-lg-auto header-shop__block header-shop__address">
                     <div class="header-shop__pic">
                         <?=GetContentSvgIcon('address')?>
                     </div>
                     <div class="header-shop__text">
-                        <?$APPLICATION->IncludeFile(
-                            "include/".SITE_ID."/contact/address.php",
-                            array(), array(
-                                "SHOW_BORDER" => true,
-                                "MODE" => "text"
-                            )
-                        );?>
+                        <span>г. Екатеринбург</span>
+                        <span>ул. Генеральская, 3</span>
                     </div>
                 </div>
-                <div class="col header-shop__block header-shop__address">
+                <div class="col-lg-auto header-shop__block header-shop__address">
                     <div class="header-shop__pic">
                         <?=GetContentSvgIcon('phone')?>
                     </div>
@@ -60,33 +55,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
                                     "MODE" => "text"
                                 )
                             );?></a>
-                        <?$APPLICATION->IncludeComponent(
-                                "website96:forms",
-                                ".default",
-                                array(
-                                    "CACHE_TIME" => "3600",
-                                    "CACHE_TYPE" => "A",
-                                    "FORM_BTN_OPEN" => "Заказать звонок",
-                                    "FORM_BTN_SUBMIT" => "Отправить",
-                                    "FORM_BTN_TYPE" => "header-shop__modal>",
-                                    "FORM_FIELDS" => array(
-                                        0 => "24",
-                                        1 => "25",
-                                    ),
-                                    "FORM_POLITIC_URL" => "/politic/",
-                                    "FORM_PRODUCT_ADD" => "N",
-                                    "FORM_PRODUCT_ID" => "",
-                                    "FORM_REQUIRED_FIELDS" => array(
-                                        0 => "24",
-                                        1 => "25",
-                                    ),
-                                    "FORM_TITLE" => "Оставьте заявку",
-                                    "IBLOCK_ID" => "14",
-                                    "IBLOCK_TYPE" => "forms",
-                                    "COMPONENT_TEMPLATE" => ".default"
-                                ),
-                                false
-                            );?>
+                        <a href="#" class="header-shop__modal js-init-modal__form">Заказать звонок</a>
                     </div>
                 </div>
             </div>
@@ -95,27 +64,31 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
     <nav class="header-shop__bottom">
         <div class="container">
             <div class="row row-line">
-                <?$APPLICATION->IncludeComponent(
-                    "bitrix:menu",
-                    "header_2-top",
-                    array(
-                        "ALLOW_MULTI_SELECT" => "N",
-                        "CHILD_MENU_TYPE" => "top",
-                        "DELAY" => "N",
-                        "MAX_LEVEL" => "1",
-                        "MENU_CACHE_GET_VARS" => array(
-                        ),
-                        "MENU_CACHE_TIME" => "3600",
-                        "MENU_CACHE_TYPE" => "Y",
-                        "MENU_CACHE_USE_GROUPS" => "Y",
-                        "ROOT_MENU_TYPE" => $arParams["SETTING"]["TEMPLATE_TYPE"]!="COMPANY"?"top":"company_top",
-                        "USE_EXT" => "N",
-                        "COMPONENT_TEMPLATE" => "header-top",
-                        "COMPOSITE_FRAME_MODE" => "A",
-                        "COMPOSITE_FRAME_TYPE" => "AUTO"
-                    ),
-                    false
-                ); ?>
+                <div class="col-12">
+                    <ul class="header-shop__list">
+                        <li>
+                            <a href="/catalog/elektronika/">Каталог товаров</a>
+                        </li>
+                        <li>
+                            <a href="/catalog/mebel/">О компании</a>
+                        </li>
+                        <li>
+                            <a href="/catalog/odezhda/">Новости и акции</a>
+                        </li>
+                        <li>
+                            <a href="/catalog/krasota-i-zdorove/">Доставка и оплата</a>
+                        </li>
+                        <li>
+                            <a href="/catalog/sport-i-turizm/">Гарантии</a>
+                        </li>
+                        <li>
+                            <a href="/catalog/uslugi/">Вопрос-ответ</a>
+                        </li>
+                        <li>
+                            <a href="/catalog/uslugi/">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </nav>

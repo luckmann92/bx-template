@@ -6,24 +6,22 @@
   }
   &__logo {
     max-width: 190px;
-    padding: 0;
   }
   &__block {
     display: flex;
     align-items: center;
-    padding: 0;
     max-width: fit-content;
   }
   &__pic {
-    border: 1px solid #EBEBEB;
-    height: 45px;
-    width: 45px;
-    padding: 15px;
-    border-radius: 50px;
-    margin-right: 19px;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 45px;
+    width: 45px;
+    margin-right: 19px;
+    padding: 15px;
+    border: 1px solid #EBEBEB;
+    border-radius: 50px;
   }
   &__text {
     display: flex;

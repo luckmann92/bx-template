@@ -230,7 +230,7 @@ class CWebsiteTemplate {
                 'MAIN' => 'default',
                 'ACTION' => 'default',
             ),
-            'FONT_SIZE' => 'middle',
+            'FONT_SIZE' => '15',
             'FONT' => array(
                 'SIMPLE' => 'default',
                 'TITLE' => 'default'

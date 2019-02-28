@@ -350,8 +350,8 @@ if ($arParams['SETTING']['TEMPLATE_TYPE'] != 'COMPANY') {
 
 $aboutTemplate = $arParams['SETTING']['TEMPLATE_TYPE'] == 'COMPANY' ? 'home-company-about_default' : 'home-about_default';
     $APPLICATION->IncludeComponent(
-	"website96:inline.value", 
-	"home-about_default",
+	"website96:inline.value",
+        $aboutTemplate,
 	array(
 		"BLOCK_DESCRIPTION" => "Y",
 		"BLOCK_IMG" => "/upload/medialibrary/48b/48b1b7a2eee7d91b173c38696b51dbe6.jpg",

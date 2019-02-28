@@ -21,7 +21,7 @@ $arLang = $APPLICATION->GetLang();
 //Подключения файла настроек шаблон
 require_once $_SERVER['DOCUMENT_ROOT'].'/local/tools/settings.php';
 
-$pageTitle = $APPLICATION->GetPageProperty('title') ?: $APPLICATION->GetTitle();
+$pageTitle = $APPLICATION->GetPageProperty('title') ?: $APPLICATION->GetTitle(false);
 ?>
 <!doctype html>
 <html lang="<?=$arLang['LANGUAGE_ID']?>">

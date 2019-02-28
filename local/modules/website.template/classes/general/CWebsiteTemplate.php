@@ -8,6 +8,7 @@ class CWebsiteTemplate {
     public  $module_id = 'website.template';
     private $HLBlockIdColors = 1;
     private $HLBlockIdFonts = 2;
+    private $type_save = '';
 
     public $arColors = array();
     public $arFonts = array();
@@ -17,8 +18,9 @@ class CWebsiteTemplate {
     public $arHeaderTypes = array();
     public $arTemplateTypes = array();
 
-    public function __construct()
+    public function __construct($type_save = 'session')
     {
+        $this->type_save = $type_save;
         $this->arColors = $this->getElementsHLBlock($this->HLBlockIdColors);
         $this->arFonts = $this->getElementsHLBlock($this->HLBlockIdFonts);
         $this->arHomePage = $this->getViewTemplate('home_page');
@@ -57,7 +59,13 @@ class CWebsiteTemplate {
         }
         $templateSettingsFile = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/.settings.json';
 
-        return file_put_contents($templateSettingsFile, json_encode($curSetting)) ? true : false;
+        if ($this->type_save == 'session') {
+            $_SESSION['TEMPLATE_SETTINGS'] = json_encode($curSetting);
+            $res = true;
+        } else {
+            $res = file_put_contents($templateSettingsFile, json_encode($curSetting)) ? true : false;
+        }
+        return $res;
     }
 
     private function getViewTemplate($type)
@@ -229,8 +237,15 @@ class CWebsiteTemplate {
             ),
             'LOGO' => 'default'
         );
-        return file_exists($templateSettingsFile) ? $this->object_to_array(json_decode(file_get_contents($templateSettingsFile)))
-            : $defaultSetting;
+
+        if ($this->type_save == 'session') {
+            $res = strlen($_SESSION['TEMPLATE_SETTINGS']) > 1 ? $this->object_to_array(json_decode($_SESSION['TEMPLATE_SETTINGS']))
+                : $defaultSetting;
+        } else {
+            $res = file_exists($templateSettingsFile) ? $this->object_to_array(json_decode(file_get_contents($templateSettingsFile)))
+                : $defaultSetting;
+        }
+        return $res;
         //return $defaultSetting;
     }
     

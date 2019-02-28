@@ -80,7 +80,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                                         <?foreach ($arFields as $field) {?>
                                                             <option value="<?=$field['FONT_CODE']?>"
                                                                 <?=$arResult['SETTING']['FONT']['SIMPLE'] == $field['FONT_CODE']
-                                                                    ? 'selected' : ''?>><?=$field['FONT_NAME']?><?=$field['FONT_CODE'] == 'default' ? ' (По умолчанию)' : ''?></option>
+                                                                    ? 'selected' : ''?>><?=$field['FONT_NAME']?></option>
                                                         <?}?>
                                                 </select>
                                             </div>
@@ -115,7 +115,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                                     <?foreach ($arFields as $field) {?>
                                                         <option value="<?=$field['FONT_CODE']?>"
                                                             <?=$arResult['SETTING']['FONT']['TITLE'] == $field['FONT_CODE']
-                                                                ? 'selected' : ''?>><?=$field['FONT_NAME']?><?=$field['FONT_CODE'] == 'default' ? ' (По умолчанию)' : ''?></option>
+                                                                ? 'selected' : ''?>><?=$field['FONT_NAME']?></option>
                                                     <?}?>
                                             </select>
                                         </div>

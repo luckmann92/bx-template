@@ -55,7 +55,33 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
                                     "MODE" => "text"
                                 )
                             );?></a>
-                        <a href="#" class="header-shop__modal js-init-modal__form">Заказать звонок</a>
+                        <?$APPLICATION->IncludeComponent(
+                            "website96:forms",
+                            ".default",
+                            array(
+                                "CACHE_TIME" => "3600",
+                                "CACHE_TYPE" => "A",
+                                "FORM_BTN_OPEN" => "Заказать звонок",
+                                "FORM_BTN_SUBMIT" => "Отправить",
+                                "FORM_BTN_TYPE" => "header-shop__modal",
+                                "FORM_FIELDS" => array(
+                                    0 => "24",
+                                    1 => "25",
+                                ),
+                                "FORM_POLITIC_URL" => "/politic/",
+                                "FORM_PRODUCT_ADD" => "N",
+                                "FORM_PRODUCT_ID" => "",
+                                "FORM_REQUIRED_FIELDS" => array(
+                                    0 => "24",
+                                    1 => "25",
+                                ),
+                                "FORM_TITLE" => "Оставьте заявку",
+                                "IBLOCK_ID" => "14",
+                                "IBLOCK_TYPE" => "forms",
+                                "COMPONENT_TEMPLATE" => ".default"
+                            ),
+                            false
+                        );?>
                     </div>
                 </div>
             </div>
@@ -65,29 +91,27 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
         <div class="container">
             <div class="row row-line">
                 <div class="col-12">
-                    <ul class="header-shop__list">
-                        <li>
-                            <a href="/catalog/elektronika/">Каталог товаров</a>
-                        </li>
-                        <li>
-                            <a href="/catalog/mebel/">О компании</a>
-                        </li>
-                        <li>
-                            <a href="/catalog/odezhda/">Новости и акции</a>
-                        </li>
-                        <li>
-                            <a href="/catalog/krasota-i-zdorove/">Доставка и оплата</a>
-                        </li>
-                        <li>
-                            <a href="/catalog/sport-i-turizm/">Гарантии</a>
-                        </li>
-                        <li>
-                            <a href="/catalog/uslugi/">Вопрос-ответ</a>
-                        </li>
-                        <li>
-                            <a href="/catalog/uslugi/">Контакты</a>
-                        </li>
-                    </ul>
+                    <?$APPLICATION->IncludeComponent(
+                        "bitrix:menu",
+                        "header-top_2",
+                        array(
+                            "ALLOW_MULTI_SELECT" => "N",
+                            "CHILD_MENU_TYPE" => "top",
+                            "DELAY" => "N",
+                            "MAX_LEVEL" => "1",
+                            "MENU_CACHE_GET_VARS" => array(
+                            ),
+                            "MENU_CACHE_TIME" => "3600",
+                            "MENU_CACHE_TYPE" => "Y",
+                            "MENU_CACHE_USE_GROUPS" => "Y",
+                            "ROOT_MENU_TYPE" => $arParams["SETTING"]["TEMPLATE_TYPE"]!="COMPANY"?"catalog_top":"company_top",
+                            "USE_EXT" => "Y",
+                            "COMPONENT_TEMPLATE" => "header-top_2",
+                            "COMPOSITE_FRAME_MODE" => "A",
+                            "COMPOSITE_FRAME_TYPE" => "AUTO"
+                        ),
+                        false
+                    ); ?>
                 </div>
             </div>
         </div>

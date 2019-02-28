@@ -15,9 +15,9 @@ use \Bitrix\Main\Localization\Loc;
 $this->setFrameMode(true);
 
 if($arResult['ITEMS']){?>
-<section class="section-home section-products section-products__<?=$arParams['SETTING']['HOME_TYPE']?>">
+<section class="section-home section-products section-products__1">
     <div class="section-title">
-        <div<?=$arParams['SETTING']['HOME_TYPE'] == 1 ? ' class="container"' : '';?>>
+        <div class="container">
             <div class="row justify-content-md-between justify-content-sm-start align-items-end align-items-md-center">
                 <div class="col-auto">
                     <h2><?=$arParams['SECTION_TITLE'] ? $arParams['SECTION_TITLE'] : GetMessage('SECTION_TITLE_DEFAULT')?></h2>
@@ -29,11 +29,13 @@ if($arResult['ITEMS']){?>
         </div>
     </div>
 
-    <div<?=$arParams['SETTING']['HOME_TYPE'] == 1 ? ' class="container"' : '';?>>
+    <div class="container">
         <div class="row justify-content-start">
             <?foreach ($arResult['ITEMS'] as $key => $arProduct){
                 $this->AddEditAction($arProduct['ID'], $arProduct['EDIT_LINK'], CIBlock::GetArrayByID($arProduct["IBLOCK_ID"], "ELEMENT_EDIT"));
                 $this->AddDeleteAction($arProduct['ID'], $arProduct['DELETE_LINK'], CIBlock::GetArrayByID($arProduct["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+
+                $labelProduct = is_array($arProduct['PROPERTIES']['PRODUCT_LABEL']['VALUE_XML_ID']) ? 'label__' . $arProduct['PROPERTIES']['PRODUCT_LABEL']['VALUE_XML_ID'][0] : false;
                 ?>
                 <div class="product__item col-lg-3 col-md-4 col-sm-6 col-12 <?=$arProduct['PRODUCT_LABEL']?>" id="<?=$this->GetEditAreaId($arProduct['ID']);?>">
                     <div class="product__item-image">
@@ -49,7 +51,6 @@ if($arResult['ITEMS']){?>
                             <a href="<?=$arProduct['PARENT_SECTION']['SECTION_PAGE_URL']?>" class="product__item-category"><?=$arProduct['PARENT_SECTION']['NAME']?></a>
                         <?}?>
                     </div>
-
                     <div class="product__item-action">
                         <?if(strlen($arProduct['PROPERTIES']['PRODUCT_PRICE']['VALUE']) > 0){?>
                             <div class="product__item-price">
@@ -70,19 +71,6 @@ if($arResult['ITEMS']){?>
                             <?}?>
                         <?}?>
                     </div>
-
-                    <?/*if(strlen($arProduct['PROPERTIES']['PRODUCT_PRICE']['VALUE']) > 0){*/?><!--
-                        <div class="product__item-price">
-                            <div class="product-price price__new"><?/*=number_format($arProduct['PROPERTIES']['PRODUCT_PRICE']['VALUE'], 0, '', ' ')*/?></div>
-
-                            <?/*if(strlen($arProduct['PROPERTIES']['PRODUCT_OLD_PRICE']['VALUE']) > 0){*/?>
-                                <div class="product-price price__old"><?/*=number_format($arProduct['PROPERTIES']['PRODUCT_OLD_PRICE']['VALUE'], 0, '', ' ')*/?></div>
-                            <?/*}*/?>
-                        </div>
-                    <?/*}*/?>
-                    <div class="product__item-buy">
-                        <button class="js-init-add__cart btn-primary btn" data-id="<?/*=$arProduct['ID']*/?>" data-price="<?/*=$arProduct['PROPERTIES']['PRODUCT_PRICE']['VALUE']*/?>">В корзину</button>
-                    </div>-->
                 </div>
             <?}?>
         </div>

@@ -112,8 +112,8 @@
     position: absolute;
     opacity: 0;
     &:checked + span {
-      border: 2px solid #fff;
-      &:after {
+      border: 2px solid black;
+      /*&:after {
         content: '';
         position: absolute;
         display: block;
@@ -122,7 +122,7 @@
         top: 0;
         left: 0;
         background: url(../images/icons/Vector.png) center no-repeat;
-      }
+      }*/
     }
   }
   span {

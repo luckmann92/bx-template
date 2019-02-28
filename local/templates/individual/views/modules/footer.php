@@ -83,7 +83,7 @@
                     <?$APPLICATION->IncludeFile("include/".SITE_ID."/copyright.php", [], ["SHOW_BORDER" => true, "MODE" => "text"]);?>
                 </div>
                 <div class="col-auto developer">
-                    <a rel="nofollow" href="http://website96.ru/" title="Разработано Website96"><?=GetContentSvgIcon('website96')?></a>
+                    <a rel="nofollow" href="http://website96.ru/" target="_blank" title="Разработано Website96"><?=GetContentSvgIcon('website96')?></a>
                 </div>
             </div>
         </div>

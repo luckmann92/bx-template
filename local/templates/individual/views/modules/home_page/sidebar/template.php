@@ -404,7 +404,7 @@
                 $arrFilter = array('PROPERTY_PRODUCT_ON_HOME_VALUE' => 'Да');
                 $APPLICATION->IncludeComponent(
                 "bitrix:catalog.section",
-                "home-catalog_sidebar",
+                'home-' . strtolower($arParams['SETTING']['TEMPLATE_TYPE']) . '_sidebar',
                     array(
                         "SECTION_TITLE" => "",
                         "SECTION_LINK" => "",

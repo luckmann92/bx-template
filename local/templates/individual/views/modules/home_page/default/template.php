@@ -259,7 +259,7 @@ if ($arParams['SETTING']['TEMPLATE_TYPE'] != 'COMPANY') {
     $arrFilter = array('PROPERTY_PRODUCT_ON_HOME_VALUE' => 'Да');
     $APPLICATION->IncludeComponent(
         "bitrix:catalog.section",
-        'home-catalog_default',
+        'home-' . strtolower($arParams['SETTING']['TEMPLATE_TYPE']) . '_default',
         array(
             "SECTION_TITLE" => "",
             "SECTION_LINK" => "",

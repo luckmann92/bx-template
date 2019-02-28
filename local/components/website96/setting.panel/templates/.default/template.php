@@ -80,7 +80,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                                         <?foreach ($arFields as $field) {?>
                                                             <option value="<?=$field['FONT_CODE']?>"
                                                                 <?=$arResult['SETTING']['FONT']['SIMPLE'] == $field['FONT_CODE']
-                                                                    ? 'selected' : ''?>><?=$field['FONT_NAME']?><?=$field['FONT_CODE'] == 'default' ? ' (По умолчанию)' : ''?></option>
+                                                                    ? 'selected' : ''?>><?=$field['FONT_NAME']?></option>
                                                         <?}?>
                                                 </select>
                                             </div>
@@ -115,7 +115,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                                     <?foreach ($arFields as $field) {?>
                                                         <option value="<?=$field['FONT_CODE']?>"
                                                             <?=$arResult['SETTING']['FONT']['TITLE'] == $field['FONT_CODE']
-                                                                ? 'selected' : ''?>><?=$field['FONT_NAME']?><?=$field['FONT_CODE'] == 'default' ? ' (По умолчанию)' : ''?></option>
+                                                                ? 'selected' : ''?>><?=$field['FONT_NAME']?></option>
                                                     <?}?>
                                             </select>
                                         </div>
@@ -156,7 +156,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                                            id="mainColor_<?=$id?>"
                                                            value="<?=$field['COLOR_CODE']?>"
                                                         <?=$arResult['SETTING']['COLORS']['MAIN'] == $field['COLOR_CODE'] ? 'checked' : ''?>>
-                                                    <span style="background-color: #<?=$field['COLOR_HEX']?>"></span>
+                                                    <span style="background-color: #<?=$field['COLOR_CODE'] == 'default' ? 'fff' : $field['COLOR_HEX']?>"></span>
                                                 </label>
                                             </div>
                                         <?}?>

@@ -7,12 +7,13 @@ CModule::IncludeModule('highloadblock');
 IncludeModuleLangFile($_SERVER["DOCUMENT_ROOT"].BX_ROOT."/modules/main/options.php");
 IncludeModuleLangFile(__FILE__);
 
+$WB = new CWebsiteTemplate();
 $RIGHT = $APPLICATION->GetGroupRight($module_id);
 
 $showRightsTab = false;
 $arColors = [];
 
-foreach (CWebsiteTemplate::GetColorsList() as $color){
+foreach ($WB->arColors as $color){
     $arColors['REFERENCE'][] = $color['UF_COLOR_NAME'];
     $arColors['REFERENCE_ID'][] = $color['UF_COLOR_CODE'];
 }
@@ -72,6 +73,16 @@ if($RIGHT >= "R") {
 
 //Опции
     $arOptions = array(
+        'WEBSITE_TEMPLATE_SETTING_VIEW_TYPE_SAVE' => [
+            'GROUP' => 'SETTING_VIEW_GROUP_MAIN',
+            'TITLE' => GetMessage('WEBSITE_TEMPLATE_SETTING_VIEW_TYPE_SAVE'),
+            'TYPE' => 'SELECT',
+            'VALUES' => [
+                'REFERENCE_ID' => ['file', 'session'],
+                'REFERENCE' => ['В файле', 'В сессии']
+            ],
+            'SORT' => 50
+        ],
         'WEBSITE_TEMPLATE_SETTING_VIEW_PANEL' => [
             'GROUP' => 'SETTING_VIEW_GROUP_MAIN',
             'TITLE' => GetMessage('WEBSITE_TEMPLATE_SETTING_VIEW_PANEL'),

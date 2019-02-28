@@ -351,7 +351,7 @@ function renderModalSettings(openEffect, closeEffect, hasAnimateOpen) {
             selectMainFont = new customSelect({
                 elem: 'selectMainfont'
             }, function() {
-                var fontsLi = document.querySelectorAll('#custom-dropdown-selectMainfont li:not(:first-child)');
+                var fontsLi = document.querySelectorAll('#custom-dropdown-selectMainfont li');
                 Array.prototype.forEach.call(fontsLi, function(li) {
                     applyFontForElem(li, li.innerText);
                 });
@@ -361,7 +361,7 @@ function renderModalSettings(openEffect, closeEffect, hasAnimateOpen) {
             selectTitleFont = new customSelect({
                 elem: 'selectTitlefont'
             }, function() {
-                var fontsLi = document.querySelectorAll('#custom-dropdown-selectTitlefont li:not(:first-child)');
+                var fontsLi = document.querySelectorAll('#custom-dropdown-selectTitlefont li');
                 Array.prototype.forEach.call(fontsLi, function(li) {
                     applyFontForElem(li, li.innerText);
                 });

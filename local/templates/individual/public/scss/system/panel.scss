@@ -151,6 +151,7 @@
   align-items: flex-start;
   .group__panel {
     flex: 1 1;
+    width: 50%;
     &:nth-child(odd) {
       margin-right: 15px;
     }

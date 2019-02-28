@@ -198,8 +198,8 @@ footer {
 }
 .type__list {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: column;
+  flex-wrap: nowrap;
 }
 .type__label {
   position: relative;
@@ -395,7 +395,7 @@ footer {
 .custom-dropdown__button {
   position: relative;
   width: 100%;
-  padding: 13px 20px;
+  padding: 15px 40px 15px 20px;
   background: #fff;
   border: none;
   border-radius: 5px;
@@ -404,6 +404,11 @@ footer {
   &:hover, &:focus {
     outline: none;
   }
+}
+.custom-dropdown_button__value {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .custom-dropdown_button__name {

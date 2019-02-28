@@ -121,6 +121,7 @@ $(document).ready(function() {
             .closest('.settings__panel').find('.settings__panel-content').removeClass('active').eq($(this).index()).addClass('active');
     });
 
+
     /*$('.cart__panel-show').on('click', function(){
         $.arcticmodal({
             type: 'ajax',
@@ -386,6 +387,21 @@ function renderModalSettings(openEffect, closeEffect, hasAnimateOpen) {
             });
             Array.prototype.forEach.call(settingsInputs, function(input) {
                 input.addEventListener('change', handlerChageSettings);
+            });
+
+            function sidebarChoiceDelete() {
+                if ($('#pageType__company').is(':checked')) {
+                    $('[for="pageView__sidebar"]').hide();
+                    $('#pageView__default').prop('checked', true);
+                } else {
+                    $('[for="pageView__sidebar"]').show();
+                }
+            }
+
+            sidebarChoiceDelete();
+
+            $('.type__list').on( "click", function() {
+                sidebarChoiceDelete();
             });
         },
         beforeClose: function (data, el) {

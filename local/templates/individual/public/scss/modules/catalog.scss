@@ -11,12 +11,14 @@
 }
 .product__item-image {
   display: flex;
-  background-color: #fff;
   justify-content: center;
   align-items: center;
   margin-bottom: 10px;
   .product__item-link {
     height: 200px;
+  }
+  img {
+    height: 100%;
   }
 }
 .product__item-link {
@@ -28,10 +30,6 @@
   text-decoration: none;
   color:#333;
   transition: 50ms;
-  padding: 10px;
-  img {
-    max-height: 180px;
-  }
 }
 .product__item-desc {
   display: flex;
@@ -111,6 +109,11 @@
       z-index:10;
       transition: 50ms;
     }
+  }
+}
+.product__detail-description {
+  h2 {
+    width: auto!important;
   }
 }
 .product__item, .product__detail {

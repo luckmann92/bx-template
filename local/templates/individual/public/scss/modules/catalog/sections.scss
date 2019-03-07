@@ -2,15 +2,21 @@
   display:grid;
   display:-ms-grid;
   overflow: hidden;
-  grid-template-columns:  repeat(4, 255px);
+  grid-template-columns: repeat(4, 255px);
   grid-template-rows: 265px 265px;
   grid-gap:30px;
 
   -ms-grid-columns: 255px 30px 255px 30px 255px 30px 255px;
   -ms-grid-rows: 265px 30px 265px;
   &.catalog-section {
-    grid-template-columns:  repeat(3, 255px);
-    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px;
+    .section-item {
+      height: 210px;
+      margin: 0 15px 30px;
+      flex: 0 1 calc(100% / 3 - 15px*2);
+    }
   }
 }
 .item-1 {

@@ -10,7 +10,9 @@
   }
   /* SECTIONS CATALOG HOME */
   .container-section.catalog-section {
-    grid-template-columns:  100%;
+    .section-item {
+      flex: 0 1 calc(100% / 2 - 15px*2);
+    }
   }
   .container-section {
     grid-template-columns:  100%;

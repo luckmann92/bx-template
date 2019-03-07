@@ -46,8 +46,9 @@
   /* CATALOG SECTIONS */
   .container-section {
     &.catalog-section {
-      grid-template-columns:  repeat(2, 210px);
-      -ms-grid-columns: 210px 30px 210px;
+      .section-item {
+        flex: 0 1 calc(100% / 2 - 15px*2);
+      }
     }
   }
 

@@ -312,7 +312,7 @@ function modalClose(event) {
 }
 
 
-var fz152Module = (function () {
+function fz152Module() {
     var baseUrl = '',
         modalClass = 'js-cookie--modal';
 
@@ -348,7 +348,7 @@ var fz152Module = (function () {
             $('body').append(modal);
         }
     };
-})();
+}
 
 //input number
 $(function() {

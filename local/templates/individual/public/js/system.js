@@ -298,14 +298,15 @@ function handlerChageSettings(e) {
     var name = e.target.name;
     var value = e.target.value;
     showButtonApplySettings();
+    var data = {
+        sessid: document.querySelector('input[name="sessid"]').value,
+        SET_SETTING: 'Y'
+    };
+    data[name] = value;
     $.ajax({
         type: 'get',
         url: '/local/tools/setting_panel.php',
-        data: {
-            [name]: value,
-            sessid: document.querySelector('input[name="sessid"]').value,
-            SET_SETTING: 'Y'
-        },
+        data: data,
         dataType: 'json',
         success: function(data) {
             // if (data.success) {
@@ -316,12 +317,12 @@ function handlerChageSettings(e) {
 }
 
 function applyFontForElem(elem, fontName) {
-    elem.style.fontFamily = `'${ fontName }', sans-serif`;
+    elem.style.fontFamily = '"' + fontName + '", sans-serif';
     elem.style.lineHeight = '26px';
 }
 
 function applySizeFontForElem(elem, size) {
-    elem.style.fontSize = `${ size }px`;
+    elem.style.fontSize = '"' + size + 'px';
 }
 
 function renderModalSettings(openEffect, closeEffect, hasAnimateOpen) {

@@ -28,7 +28,10 @@ $(document).ready(function () {
 
 
 
-    function addCart(event, id, cb, quantity = 1) {
+    function addCart(event, id, cb, quantity) {
+        if (quantity === undefined) {
+            quantity = 1;
+        }
         $.ajax({
             method: 'GET',
             data: {

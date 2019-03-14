@@ -524,5 +524,12 @@
   .quantity-box {
     margin: 5px 0;
   }
+  .advantage-item {
+    display: flex;
+    align-items: center;
+    .row:first-child {
+      margin-right: 0;
+    }
+  }
 
 }

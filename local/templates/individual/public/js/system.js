@@ -350,7 +350,7 @@ function renderModalSettings(openEffect, closeEffect, hasAnimateOpen) {
             $('.arcticmodal-container .settings__panel').addClass('modal__window');
             if (hasAnimateOpen) {
                 $('.box__modal-setting').addClass('slideInLeft');
-            }
+            };
             selectMainFont = new customSelect({
                 elem: 'selectMainfont'
             }, function() {

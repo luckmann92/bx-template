@@ -176,6 +176,9 @@ $(document).ready(function() {
             beforeOpen: function() {
                 $('.head-nav__modal').show().addClass('animated').addClass('slideInUp');
                 $('.js-init__menu').addClass('box-modal_close').addClass('fixed');
+                setTimeout(function() {
+                    $('.arcticmodal-container .animated').css('min-height', '100vh');
+                }, 1500);
             },
             beforeClose: function() {
                 $('.js-init__menu').removeClass('fixed').removeClass('box-modal_close');

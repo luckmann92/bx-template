@@ -109,7 +109,7 @@ if (stripos($APPLICATION->GetCurPage(), 'cart') === true && $arSetting['TEMPLATE
 }
 
 $APPLICATION->IncludeFile(
-    "views/modules/footer.php",
+    "views/modules/footer/" . $arSetting['FOOTER'] . "/template.php",
     array(
         "SETTING" => $arSetting,
     ),

@@ -5,7 +5,6 @@
 ?>
 <div class="page page--home">
 <?
-
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"home-slider_default",

@@ -40,15 +40,27 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                         <?}?>
                                     </div>
                                 </div>
-                                <!--<select name="<?/*=$CODE*/?>">
-                                    <?/*foreach ($arFields as $field) {*/?>
-                                        <?/*if ($field['PICTURE']) {*/?>
-                                            <img src="<?/*=$field['PICTURE']*/?>">
-                                        <?/*}*/?>
-                                        <option value="<?/*=$field['ID']*/?>" <?/*=$arResult['SETTING']['HEADER'] == $field['ID'] ? 'selected' : ''*/?>><?/*=$field['NAME']*/?></option>
-                                    <?/*}*/?>
-                                </select>-->
-
+                                <?break;
+                            case 'FOOTER':?>
+                                <div class="group__panel page__view">
+                                    <div class="group__theme-title">Вид футера</div>
+                                    <div class="group__theme-list group__header">
+                                        <?foreach ($arFields as $field) {?>
+                                            <div class="col__line">
+                                                <label class="view__label view__line" for="footerView__<?=$field['ID']?>"
+                                                    <?=$field['PICTURE'] ? 'style="background-image:url(' . $field['PICTURE'] . ')"' : ''?>>
+                                                    <input type="radio"
+                                                           name="<?=$CODE?>"
+                                                           id="footerView__<?=$field['ID']?>"
+                                                           value="<?=$field['ID']?>"
+                                                        <?=$arResult['SETTING']['FOOTER'] == $field['ID'] ? 'checked' : ''?>
+                                                    >
+                                                    <span class="pageView__name"><?=$field['NAME']?></span>
+                                                </label>
+                                            </div>
+                                        <?}?>
+                                    </div>
+                                </div>
                                 <?break;
                             case 'TEMPLATE_TYPE':?>
                                 <div class="group__panel" id="template-type">

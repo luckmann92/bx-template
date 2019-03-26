@@ -78,7 +78,7 @@
                 </div>
             </nav>
             <div class="col-md-3 col-sm-6 col-6 head-logo d-flex align-items-center">
-                <a href="<?=SITE_DIR?>" class="d-inline-flex align-items-center head-logo__link">
+                <a href="<?=SITE_DIR?>" class="d-inline-flex align-items-center head-logo__link" style="height:70px">
                     <?$APPLICATION->IncludeFile('include/'.SITE_ID.'/logo.php',
                         ['SETTING' => $arParams['SETTING']],
                         ['SHOW_BORDER' => false, 'MODE' => 'php']

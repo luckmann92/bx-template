@@ -165,6 +165,17 @@
     margin-bottom: 30px;
   }
 
+  .footer_3-info {
+    margin-top: 20px;
+  }
+
+  .footer_3-bottom {
+    .socicons {
+      justify-content: flex-start;
+      margin: 15px 0;
+    }
+  }
+
   .developer {
     width: 100%;
     align-items: flex-start!important;
@@ -215,7 +226,7 @@
   }
   .news__detail-image {
     width:100%;
-    justify-content: center;
+    justify-content: flex-start;
     a {
       width:50%;
     }
@@ -342,6 +353,7 @@
       height: auto;
       min-width: 100%;
       min-height: 100%;
+      max-height: none;
     }
   }
   .modal__box {

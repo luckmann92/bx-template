@@ -82,6 +82,9 @@
   &.fixed {
     position:fixed;
     z-index:1001;
+    top: 20px;
+    left: 15px;
+    pointer-events: all;
     &:after {
       width:18px;
       top:calc(50% - 1px);
@@ -136,4 +139,37 @@
 .head-logo__link {
   width: 100%;
   justify-content: center;
+  svg, img {
+    max-height: 70px;
+  }
+}
+//NAV DESKTOP
+.head-nav__content--desktop {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-left: 0;
+}
+.head-nav__modal--desktop {
+  min-height: 100vh;
+  padding-top: 140px;
+}
+.head-nav__col {
+  width: 277px;
+  margin-bottom: 100px;
+}
+.head-nav__category-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.head-nav__category-list {
+  padding: 0;
+  list-style-type: none;
+  li:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  a {
+    color: black;
+  }
 }

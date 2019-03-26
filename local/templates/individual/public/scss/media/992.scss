@@ -3,7 +3,7 @@
   .header {
     display:none;
   }
-  .header-shop {
+  .header-shop, .header-3, .header-4, .header-5, .header-6 {
     display: none;
   }
   .header-responsive {
@@ -53,11 +53,6 @@
   }
 
   /* CATALOG ADVANTAGE */
-  .catalog-advantages {
-    .row {
-      margin-bottom: -20px;
-    }
-  }
   .advantage-item {
     margin-bottom:20px;
   }
@@ -83,6 +78,27 @@
       ul {
         columns:1;
       }
+    }
+  }
+
+  .footer_2-nav{
+    &.two-columns {
+      ul {
+        display: block;
+        column-gap: 30px;
+        columns:2;
+      }
+      a {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  .footer_3-contact {
+    flex-direction: column;
+    align-items: flex-start;
+    .btn-white {
+      margin-top: 15px;
     }
   }
 

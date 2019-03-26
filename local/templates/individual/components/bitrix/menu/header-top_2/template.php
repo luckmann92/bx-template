@@ -4,7 +4,7 @@
  */
 ?>
 <?if (!empty($arResult)){?>
-    <ul class="header-shop__list">
+    <ul class="header__list">
         <?foreach ($arResult as $arItem){?>
             <li <?=$arItem["SELECTED"] ? 'class="active"' : ''?>>
                 <a href="<?=$arItem["LINK"]?>"><?=$arItem["TEXT"]?></a>

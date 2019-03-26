@@ -5,11 +5,9 @@
   .header-phone {
     margin-right: 15px;
   }
-  .header-shop__logo {
-    max-width: 160px;
-  }
-  .header-shop__pic {
-    margin-right: 9px;
+  .header-search__min {
+    flex-grow: inherit;
+    width: 270px;
   }
   /* BODY */
   body {
@@ -27,6 +25,11 @@
   /* HEADER */
   .header-logo {
     max-width:190px;
+  }
+  .header-logo--desc {
+    svg {
+      max-width: 170px;
+    }
   }
   .header-top_navbar {
     li {

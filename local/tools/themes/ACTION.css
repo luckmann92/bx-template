@@ -15,6 +15,7 @@
 .page-section ul li:focus a,
 .page-section ul li:hover a,
 .stock-title span,
+.header__phone a,
 a {
     color: ACTION;
 }

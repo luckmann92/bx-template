@@ -13,6 +13,7 @@ class CWebsiteTemplate {
     public $arColors = array();
     public $arFonts = array();
     public $arHomePage = array();
+    public $arFooterTypes = array();
     public $arSetting = array();
     public $arFontSizes = array();
     public $arHeaderTypes = array();
@@ -24,6 +25,7 @@ class CWebsiteTemplate {
         $this->arColors = $this->getElementsHLBlock($this->HLBlockIdColors);
         $this->arFonts = $this->getElementsHLBlock($this->HLBlockIdFonts);
         $this->arHomePage = $this->getViewTemplate('home_page');
+        $this->arFooterTypes = $this->getViewTemplate('footer');
         $this->arSetting = $this->getTemplateSetting();
         $this->arFontSizes = array(
             '13' => '13px',
@@ -226,6 +228,7 @@ class CWebsiteTemplate {
             'HEADER' => 'default',
             'HOME_PAGE' => 'default',
             'FAST_ORDER' => 'Y',
+            'FOOTER' => 'default',
             'COLORS' => array(
                 'MAIN' => 'default',
                 'ACTION' => 'default',

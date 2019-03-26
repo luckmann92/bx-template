@@ -1,11 +1,14 @@
 <?php
-if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
-<header class="header-shop">
-    <nav class="header-shop__top">
+if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
+\Bitrix\Main\Page\Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/views/modules/header/' . $arParams['SETTING']['HEADER'] . '/style.css');
+?>
+
+<header class="header">
+    <nav class="header__top">
         <div class="container">
             <div class="row justify-content-between align-items-center">
-                <div class="col-lg-auto d-flex align-items-center header-shop__logo">
-                    <a href="<?=SITE_DIR?>" class="d-flex align-items-center">
+                <div class="col-lg-auto d-flex align-items-center header__logo header-logo--desc">
+                    <a href="<?=SITE_DIR?>">
                         <?$APPLICATION->IncludeFile('include/'.SITE_ID.'/logo.php',
                             ['SETTING' => $arParams['SETTING']],
                             ['SHOW_BORDER' => false, 'MODE' => 'php']
@@ -28,21 +31,21 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
                         false
                     );?>
                 </div>
-                <div class="col-lg-auto header-shop__block header-shop__address">
-                    <div class="header-shop__pic">
+                <div class="col-lg-auto header__block header__address">
+                    <div class="header__pic">
                         <?=GetContentSvgIcon('address')?>
                     </div>
-                    <div class="header-shop__text">
-                        <span>г. Екатеринбург</span>
-                        <span>ул. Генеральская, 3</span>
+                    <div class="header__text">
+                        <div>г. Екатеринбург</div>
+                        <div>ул. Генеральская, 3</div>
                     </div>
                 </div>
-                <div class="col-lg-auto header-shop__block header-shop__address">
-                    <div class="header-shop__pic">
+                <div class="col-lg-auto header__block header__address">
+                    <div class="header__pic">
                         <?=GetContentSvgIcon('phone')?>
                     </div>
-                    <div class="header-shop__text">
-                        <a class="header-shop__number" href="tel:<?$APPLICATION->IncludeFile(
+                    <div class="header__text">
+                        <a class="header__number" href="tel:<?$APPLICATION->IncludeFile(
                             "include/".SITE_ID."/contact/phone.php",
                             array(), array(
                                 "SHOW_BORDER" => false,
@@ -63,7 +66,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
                                 "CACHE_TYPE" => "A",
                                 "FORM_BTN_OPEN" => "Заказать звонок",
                                 "FORM_BTN_SUBMIT" => "Отправить",
-                                "FORM_BTN_TYPE" => "header-shop__modal",
+                                "FORM_BTN_TYPE" => "header__modal",
                                 "FORM_FIELDS" => array(
                                     0 => "24",
                                     1 => "25",
@@ -87,7 +90,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die(); ?>
             </div>
         </div>
     </nav>
-    <nav class="header-shop__bottom">
+    <nav class="header__bottom">
         <div class="container">
             <div class="row row-line">
                 <div class="col-12">

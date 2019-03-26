@@ -1,16 +1,22 @@
-.header-shop {
+.header {
   background-color: #fff;
   &__top {
     border-bottom: 1px solid #ECECEC;
     padding: 30px 0;
   }
   &__logo {
-    max-width: 190px;
+    a {
+      max-width: 180px;
+      flex: 0 1 190px;
+      height: 51px;
+      display: block;
+    }
   }
   &__block {
     display: flex;
     align-items: center;
     max-width: fit-content;
+    flex: 1 1 auto;
   }
   &__pic {
     display: flex;
@@ -130,5 +136,14 @@
         }
       }
     }
+  }
+}
+
+@media screen and (min-width:320px) and (max-width:1200px) {
+  .header__logo {
+    max-width: 160px;
+  }
+  .header__pic {
+    margin-right: 9px;
   }
 }

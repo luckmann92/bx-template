@@ -18,6 +18,8 @@ if (function_exists("getmoduleevents")) {
 $pageLayout = $APPLICATION->GetPageProperty("PAGE_LAYOUT", AppGetCascadeDirProperties("PAGE_LAYOUT", "column1"));
 $arLang = $APPLICATION->GetLang();
 
+\Bitrix\Main\Page\Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("public/css/main.css"));
+
 //Подключения файла настроек шаблон
 require_once $_SERVER['DOCUMENT_ROOT'].'/local/tools/settings.php';
 
@@ -28,13 +30,10 @@ $pageTitle = $APPLICATION->GetPageProperty('title') ?: $APPLICATION->GetTitle(fa
     <head>
         <base href="/">
         <link rel="shortcut icon" href="<?=SITE_DIR?>favicon.ico">
-        <?$APPLICATION->IncludeFile("views/modules/meta.php",
-            array(
-                "SETTING" => $arSetting
-            ), array(
-                "SHOW_BORDER" => false,
-                "MODE" => "php",
-            ));
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="UTF-8">
+        <?
         $APPLICATION->ShowHead();
         ?>
         <title><?=$arLang["SITE_NAME"] ? $pageTitle . ' - ' . $arLang["SITE_NAME"] : $pageTitle?></title>
@@ -73,7 +72,7 @@ $APPLICATION->IncludeFile(
 
 if ($APPLICATION->GetCurPage(false) == SITE_DIR) {
     $APPLICATION->IncludeFile(
-        "views/modules/home_page/" . $arSetting['HOME_PAGE'] . "/template.php",
+        "views/layouts/home.php",
         array(
             "CONTENT" => $pageContent,
             "SETTING" => $arSetting
@@ -132,6 +131,7 @@ $APPLICATION->IncludeFile(
 );
 
 $APPLICATION->ShowBodyScripts();
+
 ?>
 </body>
 </html>

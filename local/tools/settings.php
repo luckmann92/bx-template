@@ -4,6 +4,10 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $module_id = "website.template";
 CModule::IncludeModule($module_id);
 
-$wb = new CWebsiteTemplate('session');
+$CWb = new CWebsiteTemplate('session');
+$CWb->load();
 
-$arSetting = $wb->arSetting;
+$arSetting = $CWb->settings;
+$CWb->loadCss();
+
+

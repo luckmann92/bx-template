@@ -10,62 +10,86 @@ class CWebsiteTemplate {
     private $HLBlockIdFonts = 2;
     private $type_save = '';
 
-    public $arColors = array();
-    public $arFonts = array();
-    public $arHomePage = array();
-    public $arFooterTypes = array();
-    public $arSetting = array();
-    public $arFontSizes = array();
-    public $arHeaderTypes = array();
-    public $arTemplateTypes = array();
+    public $colors = array();
+    public $fonts = array();
+    public $footers = array();
+    public $font_sizes = array();
+    public $headers = array();
+    public $settings = array();
+    public $type_templates = array();
 
     public function __construct($type_save = 'session')
     {
         $this->type_save = $type_save;
-        $this->arColors = $this->getElementsHLBlock($this->HLBlockIdColors);
-        $this->arFonts = $this->getElementsHLBlock($this->HLBlockIdFonts);
-        $this->arHomePage = $this->getViewTemplate('home_page');
-        $this->arFooterTypes = $this->getViewTemplate('footer');
-        $this->arSetting = $this->getTemplateSetting();
-        $this->arFontSizes = array(
-            '13' => '13px',
-            '15' => '15px',
-            '17' => '17px',
-        );
-        $this->arTemplateTypes = array(
+        $this->settings = $this->getTemplateSetting();
+        return $this->settings;
+    }
+
+    public function loadCss()
+    {
+        if ($this->settings['COLORS']) {
+            foreach ($this->settings['COLORS'] as $code => $value) {
+                $this->getCssColorTheme($code, $value);
+            }
+        }
+
+        if ($this->settings['FONT']) {
+            foreach ($this->settings['FONT'] as $code => $value) {
+                $this->getCssFonts($code, $value);
+            }
+        }
+
+        if ($this->settings['FONT_SIZE']) {
+            $this->getCssSizeFonts($this->settings['FONT_SIZE']);
+        }
+    }
+
+    public function load()
+    {
+        $this->type_templates = array(
             'COMPANY' => 'Сайт компании',
             'CATALOG' => 'Сайт с каталогом/услугами',
             'SHOP' => 'Интернет-магазин'
         );
-        $this->arHeaderTypes = $this->getViewTemplate('header');
+        $this->colors = $this->getElementsHLBlock($this->HLBlockIdColors);
+        $this->fonts = $this->getElementsHLBlock($this->HLBlockIdFonts);
+        $this->font_sizes = array(
+            '13' => '13px',
+            '15' => '15px',
+            '17' => '17px',
+        );
+        $this->headers = $this->getViewTemplate('header');
+        $this->footers = $this->getViewTemplate('footer');
+
     }
 
-    public function setTemplateSetting($arSetting)
+    public function setTemplateSetting($settings)
     {
-        if (empty($arSetting)) {
+        if (empty($settings)) {
             return false;
-        } else {
-            $curSetting = $this->arSetting;
-            foreach ($arSetting as $code => $value) {
-                if (isset($curSetting[$code])) {
-                    if (is_array($value)) {
-                        foreach ($value as $k => $val) {
-                            $curSetting[$code][$k] = $val;
-                        }
-                    } else {
-                        $curSetting[$code] = $value;
-                    }
-                }
-
-            }
         }
+
+        $cur_setting = $this->settings;
+        foreach ($settings as $code => $value) {
+            if (isset($cur_setting[$code])) {
+                if (is_array($value)) {
+                    foreach ($value as $k => $val) {
+                        $cur_setting[$code][$k] = $val;
+                    }
+                } else {
+                    $cur_setting[$code] = $value;
+                }
+            }
+
+        }
+
         $templateSettingsFile = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/.settings.json';
 
         if ($this->type_save == 'session') {
-            $_SESSION['TEMPLATE_SETTINGS'] = json_encode($curSetting);
+            $_SESSION['TEMPLATE_SETTINGS'] = json_encode($cur_setting);
             $res = true;
         } else {
-            $res = file_put_contents($templateSettingsFile, json_encode($curSetting)) ? true : false;
+            $res = file_put_contents($templateSettingsFile, json_encode($cur_setting)) ? true : false;
         }
         return $res;
     }
@@ -141,16 +165,16 @@ class CWebsiteTemplate {
         if (empty($font_type)) {
             return false;
         }
-        $key = $this->recursive_array_search($font_code, $this->arFonts);
-        if ($key && !empty($this->arFonts[$key])) {
-            if ($this->arFonts[$key]['FONT_SRC']) {
-                \Bitrix\Main\Page\Asset::getInstance()->addCss($this->arFonts[$key]['FONT_SRC']);
+        $key = $this->recursive_array_search($font_code, $this->fonts);
+        if ($key && !empty($this->fonts[$key])) {
+            if ($this->fonts[$key]['FONT_SRC']) {
+                \Bitrix\Main\Page\Asset::getInstance()->addCss($this->fonts[$key]['FONT_SRC']);
             }
             $css = SITE_TEMPLATE_PATH . '/public/css/fonts/' . $font_type . '_' . $font_code . '.css';
             if (!file_exists($_SERVER['DOCUMENT_ROOT'] . $css)) {
                 $path = $_SERVER['DOCUMENT_ROOT'] . '/local/tools/fonts/' . $font_type . '.css';
                 $content = file_get_contents($path);
-                $content = str_replace($font_type, $this->arFonts[$key]['FONT_NAME'], $content);
+                $content = str_replace($font_type, $this->fonts[$key]['FONT_NAME'], $content);
                 //return $css;
                 if (file_put_contents($_SERVER['DOCUMENT_ROOT'] . $css, $content)) {
                     \Bitrix\Main\Page\Asset::getInstance()->addCss($css);
@@ -170,6 +194,7 @@ class CWebsiteTemplate {
         if (empty($size)) {
             return false;
         }
+
         $css = SITE_TEMPLATE_PATH . '/public/css/fonts/size' . $size . '.css';
         if (!file_exists($_SERVER['DOCUMENT_ROOT'] . $css)) {
             $path = $_SERVER['DOCUMENT_ROOT'] . '/local/tools/fonts/FONT_SIZE.css';
@@ -192,13 +217,13 @@ class CWebsiteTemplate {
         if (empty($color_type)) {
             return false;
         }
-        $key = $this->recursive_array_search($color_code, $this->arColors);
-        if ($key && !empty($this->arColors[$key])) {
+        $key = $this->recursive_array_search($color_code, $this->colors);
+        if ($key && !empty($this->colors[$key])) {
             $css = SITE_TEMPLATE_PATH . '/public/css/theme/' . $color_type . '_' . $color_code . '.css';
             if (!file_exists($_SERVER['DOCUMENT_ROOT'] . $css)) {
                 $path = $_SERVER['DOCUMENT_ROOT'] . '/local/tools/themes/' . $color_type . '.css';
                 $content = file_get_contents($path);
-                $content = str_replace($color_type, '#' . $this->arColors[$key]['COLOR_HEX'], $content);
+                $content = str_replace($color_type, '#' . $this->colors[$key]['COLOR_HEX'], $content);
                 file_put_contents($_SERVER['DOCUMENT_ROOT'] . $css, $content);
             }
             \Bitrix\Main\Page\Asset::getInstance()->addCss($css);
@@ -226,7 +251,6 @@ class CWebsiteTemplate {
             'SHOW_PANEL' => COption::GetOptionString($this->module_id, 'WEBSITE_TEMPLATE_SETTING_VIEW_PANEL', 'Y', SITE_ID),
             'TEMPLATE_TYPE' => 'CATALOG',
             'HEADER' => 'default',
-            'HOME_PAGE' => 'default',
             'FAST_ORDER' => 'Y',
             'FOOTER' => 'default',
             'COLORS' => array(
@@ -251,16 +275,6 @@ class CWebsiteTemplate {
         return $res;
         //return $defaultSetting;
     }
-    
-    static function onBeforeElementUpdateHandler($arFields){
-        // чтение параметров модуля
-        // $iblock_id = COption::GetOptionString(self::$MODULE_ID, "iblock_id");
-
-        // Активная деятельность
-
-        // Результат
-        return true;
-    }
 
     function object_to_array($data)
     {
@@ -279,12 +293,12 @@ class CWebsiteTemplate {
     public function result()
     {
         return array(
-            'TEMPLATE_TYPE' => $this->arTemplateTypes,
-            'FONTS' => $this->arFonts,
-            'COLORS' => $this->arColors,
-            'HEADER' => $this->arHeaderTypes,
-            'HOME_PAGE' => $this->arHomePage,
-            'FONT_SIZE' => $this->arFontSizes,
+            'TEMPLATE_TYPE' => $this->type_templates,
+            'FONTS' => $this->fonts,
+            'FONT_SIZE' => $this->font_sizes,
+            'COLORS' => $this->colors,
+            'HEADER' => $this->headers,
+            'FOOTER' => $this->footers
         );
     }
 }

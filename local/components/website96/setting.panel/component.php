@@ -4,11 +4,12 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 $module_id = "website.template";
 CModule::IncludeModule($module_id);
 
-$wb = new CWebsiteTemplate();
+$CWb = new CWebsiteTemplate();
+$CWb->load();
 
 $arResult = array(
-    'FIELDS' => $wb->result(),
-    'SETTING' => $wb->arSetting
+    'FIELDS' => $CWb->result(),
+    'SETTING' => $CWb->getTemplateSetting()
 );
 
 if(check_bitrix_sessid() && $_REQUEST['SET_SETTING'] == 'Y') {
@@ -25,7 +26,7 @@ if(check_bitrix_sessid() && $_REQUEST['SET_SETTING'] == 'Y') {
             }
         }
     }
-    $json['success'] = $wb->setTemplateSetting($arSetting);
+    $json['success'] = $CWb->setTemplateSetting($arSetting);
     echo json_encode($json);
     die();
 } else {

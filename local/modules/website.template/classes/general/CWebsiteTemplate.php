@@ -13,10 +13,14 @@ class CWebsiteTemplate {
     public $colors = array();
     public $fonts = array();
     public $footers = array();
-    public $font_sizes = array();
     public $headers = array();
     public $settings = array();
-    public $type_templates = array();
+    public $type_templates = array(
+        'COMPANY' => 'Сайт компании',
+        'CATALOG' => 'Сайт с каталогом/услугами',
+        'SHOP' => 'Интернет-магазин'
+    );
+    public $font_sizes = array();
 
     public function __construct($type_save = 'session')
     {
@@ -46,17 +50,10 @@ class CWebsiteTemplate {
 
     public function load()
     {
-        $this->type_templates = array(
-            'COMPANY' => 'Сайт компании',
-            'CATALOG' => 'Сайт с каталогом/услугами',
-            'SHOP' => 'Интернет-магазин'
-        );
         $this->colors = $this->getElementsHLBlock($this->HLBlockIdColors);
         $this->fonts = $this->getElementsHLBlock($this->HLBlockIdFonts);
         $this->font_sizes = array(
-            '13' => '13px',
-            '15' => '15px',
-            '17' => '17px',
+
         );
         $this->headers = $this->getViewTemplate('header');
         $this->footers = $this->getViewTemplate('footer');
@@ -273,7 +270,6 @@ class CWebsiteTemplate {
                 : $defaultSetting;
         }
         return $res;
-        //return $defaultSetting;
     }
 
     function object_to_array($data)
@@ -295,7 +291,11 @@ class CWebsiteTemplate {
         return array(
             'TEMPLATE_TYPE' => $this->type_templates,
             'FONTS' => $this->fonts,
-            'FONT_SIZE' => $this->font_sizes,
+            'FONT_SIZE' => array(
+                '13' => '13px',
+                '15' => '15px',
+                '17' => '17px'
+            ),
             'COLORS' => $this->colors,
             'HEADER' => $this->headers,
             'FOOTER' => $this->footers

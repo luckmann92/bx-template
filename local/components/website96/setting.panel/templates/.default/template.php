@@ -2,6 +2,24 @@
 
 if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
     <div class="box__modal-setting animated">
+        <div class="settings__tabs">
+            <ul class="settings__tabs-menu">
+                <li><a href="#">Общие настройки</a></li>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Каталог</a></li>
+                <li><a href="#">Общие настройки</a></li>
+                <li><a href="#">Футер</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+            <a class="settings__tabs-reset">
+                <svg width="27" height="27" viewBox="0 0 27 27" fill="transparent" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20.4286 7.92857C18.4105 5.52669 15.3843 4 12.0014 4C5.92548 4 1 8.92487 1 15C1 21.0751 5.92548 26 12.0014 26C17.9941 26 22.8678 21.209 23 15.2487" stroke="#FF1E36" stroke-width="2"/>
+                    <path d="M13 8.77832H20.7782V1.00015" stroke="#FF1E36" stroke-width="2"/>
+                </svg>
+                <span>Сбросить</span>
+            </a>
+        </div>
         <div class="settings__panel">
             <div class="settings__panel-buttons-wrap">
                 <div class="settings__panel-buttons">

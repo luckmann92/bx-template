@@ -16,6 +16,7 @@
 .page-section ul li:hover a,
 .stock-title span,
 .header__phone a,
+.settings__tabs-menu a:hover, .settings__tabs-menu a:focus, .settings__tabs-menu a:active, .settings__tabs-menu a.active,
 a {
     color: ACTION;
 }
@@ -36,7 +37,8 @@ a {
 .btn-search, .btn-search:hover, .btn-search:active, .btn-search:focus,
 .btn-primary,
 .btn-default,
-.btn-icon {
+.btn-icon,
+ {
     border-color: ACTION;
 }
 .cart__panel-show,
@@ -51,7 +53,9 @@ a {
 .btn-link:before,
 .product__item:focus .product__item-link:before, .product__item:hover .product__item-link:before,
 .left__menu .catalog__menu>li.active>.submenu,
-.btn-default:hover, .btn-default:active, .btn-default:focus {
+.btn-default:hover, .btn-default:active, .btn-default:focus,
+.settings__tabs-menu a:hover:before, .settings__tabs-menu a:focus:before, .settings__tabs-menu a:active:before, .settings__tabs-menu a.active:before,
+.settings__tabs-reset:hover span:after, .settings__tabs-reset:active span:after, .settings__tabs-reset:focus span:after {
     background: ACTION;
 }
 .logo-circle,
@@ -61,8 +65,12 @@ a {
 .navN li.navn-next a svg path, .navN li.navn-prev a svg path,
 .btn-search:focus path, .btn-search:hover path, .btn-search:active path 
 .btn-default:hover svg, .btn-default:focus svg, .btn-default:active svg ,
-.btn-primary:hover svg, .btn-primary:focus svg, .btn-primary:active svg {
+.btn-primary:hover svg, .btn-primary:focus svg, .btn-primary:active svg,
+ {
     fill:ACTION;
+}
+.settings__tabs-reset svg path {
+    stroke:ACTION;
 }
 .review-nav__image:after {
     border-color: ACTION transparent transparent transparent;

@@ -15,6 +15,8 @@ if (empty($arParams["VALUE"]) || $APPLICATION->get_cookie("confirm_fz152") == 'y
 ?>
 <script type="text/javascript">
     <?=$VISITOR_ID;?>
-    fz152Module().init("<p><?= $arParams["VALUE"]; ?></p>");
-    fz152Module().run("<?= $APPLICATION->GetCurDir(); ?>?CONFIRM_FZ152=Y", "/blank.html");
+    window.onload = function() {
+        fz152Module().init("<p><?= $arParams["VALUE"]; ?></p>");
+        fz152Module().run("<?= $APPLICATION->GetCurDir(); ?>?CONFIRM_FZ152=Y", "/blank.html");   
+    };
 </script>

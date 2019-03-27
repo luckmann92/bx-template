@@ -29,7 +29,9 @@ $(document).ready(function () {
 
 
     function addCart(event, id, cb, quantity) {
-        quantity = quantity || 1;
+        if (quantity === undefined) {
+            quantity = 1;
+        }
         $.ajax({
             method: 'GET',
             data: {
@@ -50,14 +52,38 @@ $(document).ready(function () {
     }
 
     function renderModalMessage(item) {
-        var output = "<div class=\"callback__modal-form modal__box\"><span onclick=\"modalClose(event);\" class=\"modal__close\"></span><div class=\"modal__content\"><div class=\"modal__box-title\">Добавлено в корзину</div><div class=\"form__group product__order-item\"><div class=\"product__order-image\" style=\"background-image: url(".concat(item.img, ")\" ;=\"\"></div><div class=\"product__order-content\"><div class=\"product__order-name\">").concat(item.name, "</div><div class=\"product__order-price\"><span class=\"product-price\">").concat(Number(item.price).toLocaleString(undefined, {minimumFractionDigits: 0,maximumFractionDigits: 2}), "</span></div><div class=\"form__group form__group-btn product__order-buttons\"><button onclick=\"modalClose(event);\" class=\"btn btn-default modal__form-submit modal__form-continue\">Продолжить покупки</button><a href=\"/cart\" class=\"btn btn-primary modal__form-submit\">Оформить</a></div></div></div></div></div>");
+        var output = `<div class="callback__modal-form modal__box">
+                        <span onclick="modalClose(event);" class="modal__close"></span>
+                        <div class="modal__content">
+                        <div class="modal__box-title">Добавлено в корзину</div>
+                            <div class="form__group product__order-item">
+                                <div class="product__order-image" style="background-image: url(${ item.img })" ;="">
+                                </div>
+                                <div class="product__order-content">
+                                    <div class="product__order-name">${ item.name }</div>
+                                        <div class="product__order-price">
+                                            <span class="product-price">${ Number(item.price).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 2}) }</span>
+                                        </div>
+                                        <div class="form__group form__group-btn product__order-buttons">
+                                            <button onclick="modalClose(event);" class="btn btn-default modal__form-submit modal__form-continue">Продолжить покупки</button>
+                                            <a href="/cart" class="btn btn-primary modal__form-submit">Оформить</a>
+                                        </div>                                                                 
+                                     </div>
+                                </div>
+                            </div>
+                        </div>`;
         $.arcticmodal({
             content: output,
         });
     }
 
     function renderModalSuccess() {
-        var output = '<div class="callback__modal-form modal__box"><span onclick="modalClose(event);" class="modal__close"></span><div class="modal__content"><div class="modal__box-title">Ваш заказ подтвержен!</div><p class="modal__box-text">Спасибо за Ваш заказ! В ближайшее время наш менеджер свяжется с Вами для уточнения деталей.</p></div>';
+        var output = `<div class="callback__modal-form modal__box">
+                        <span onclick="modalClose(event);" class="modal__close"></span>
+                        <div class="modal__content">
+                        <div class="modal__box-title">Ваш заказ подтвержен!</div>
+                        <p class="modal__box-text">Спасибо за Ваш заказ! В ближайшее время наш менеджер свяжется с Вами для уточнения деталей.</p>
+                        </div>`;
         $.arcticmodal({
             content: output,
         });
@@ -74,17 +100,34 @@ $(document).ready(function () {
     }
 
     function renderModalProduct(product) {
-        var output = "<div class=\"cart__panel-outer\"><div class=\"cart__panel-item\" data-id=\"".concat(product.id, "\"><button class=\"cart__panel-del\"></button><div class=\"cart__panel-left\"><div class=\"cart__panel-pic\" style=\"background-image: url(").concat(product.img, ");\"></div><div class=\"cart__panel-infobox\"><a class=\"cart__panel-name\" href=\"").concat(product.url, "\">").concat(product.name, "</a><div class=\"cart__panel-pricebox\"><div class=\"cart__panel-price\">").concat(Number(product.price).toLocaleString(undefined, {minimumFractionDigits: 0,maximumFractionDigits: 2}), "</div>");
-        if (typeof product.old_price != 'undefined' && product.old_price != null) {
-            output += "<div class=\"cart__panel-oldprice\">".concat(Number(product.old_price).toLocaleString(undefined, {minimumFractionDigits: 0,maximumFractionDigits: 2}), "</div>");
-        }
-        output += "</div></div></div><div class=\"quantity-box\"><button class=\"quantity-arrow-minus\"></button><input class=\"field fieldCount quantity-num\" type=\"number\" value=\"".concat(product.quantity, "\"><button class=\"quantity-arrow-plus\"></button></div><div class=\"cart__panel-itemprice\">").concat(Number(product.total_price).toLocaleString(undefined, {minimumFractionDigits: 0,maximumFractionDigits: 2}), "</div></div></div>");
-        
+        var output = `<div class="cart__panel-outer">
+                        <div class="cart__panel-item" data-id="${ product.id }">
+                            <button class="cart__panel-del"></button>
+                                <div class="cart__panel-left">
+                                    <div class="cart__panel-pic" style="background-image: url(${ product.img });"></div>
+                                    <div class="cart__panel-infobox">
+                                        <a class="cart__panel-name" href="${ product.url }">${ product.name }</a>
+                                        <div class="cart__panel-pricebox">
+                                            <div class="cart__panel-price">${ Number(product.price).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 2}) }</div>`;
+                if (typeof(product.old_price) != 'undefined' && product.old_price != null) {
+                    output += `<div class="cart__panel-oldprice">${ Number(product.old_price).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 2}) }</div>`;
+                }
+                output += `
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="quantity-box">
+                                    <button class="quantity-arrow-minus"></button>
+                                    <input class="field fieldCount quantity-num" type="number" value="${ product.quantity }">
+                                    <button class="quantity-arrow-plus"></button>
+                                </div>
+                                <div class="cart__panel-itemprice">${ Number(product.total_price).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 2}) }</div>
+                            </div>
+                        </div>`;
         $('.cart__panel-inner').append(output);
     }
     function renderModalTotal(price) {
-        var output = "<div class=\"cart__panel-totalprice\"><span>".concat(price.name, ":</span><span class=\"cart__panel-final\">").concat(Number(price.value).toLocaleString(undefined, {minimumFractionDigits: 0,maximumFractionDigits: 2}), "</span></div>");
-        
+        var output = `<div class="cart__panel-totalprice"><span>${ price.name }:</span><span class="cart__panel-final">${ Number(price.value).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 2}) }</span></div>`;
         $('.cart__panel-totalbox').append(output);
     }
 
@@ -98,8 +141,7 @@ $(document).ready(function () {
             $('.cart__panel-item[data-id="' + id + '"] .cart__panel-itemprice').html(Number(response.item.total_price).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 2}));
             $('.cart__panel-totalbox').empty();
             response.prices.forEach(function(price) {
-                var output = "<div class=\"cart__panel-totalprice\"><span>".concat(price.name, ":</span><span class=\"cart__panel-final\">").concat(Number(price.value).toLocaleString(undefined, {minimumFractionDigits: 0,maximumFractionDigits: 2}), "</span></div>");
-                
+                var output = `<div class="cart__panel-totalprice"><span>${ price.name }:</span><span class="cart__panel-final">${ Number(price.value).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 2}) }</span></div>`;
                 $('.cart__panel-totalbox').append(output);
             });
         });
@@ -110,8 +152,7 @@ $(document).ready(function () {
             $('.cart__page-item[data-id="' + id + '"] .cart__page-item-price').html(Number(response.item.total_price).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 2}));
             $('.cart__page-total').empty();
             response.prices.forEach(function(price) {
-                var output = "<div class=\"cart__page-totaldesc\">".concat(price.name, ":</div><div class=\"cart__page-price\">").concat(Number(price.value).toLocaleString(undefined, {minimumFractionDigits: 0,maximumFractionDigits: 2}), "</div>");
-                
+                var output = `<div class="cart__page-totaldesc">${ price.name }:</div><div class="cart__page-price">${ Number(price.value).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 2}) }</div>`;
                 $('.cart__page-total').append(output);
             });
         });
@@ -173,7 +214,7 @@ $(document).ready(function () {
             $('.cart__panel-totalbox').empty();
             if ('prices' in response) {
                 response.prices.forEach(function(price) {
-                    var output = "<div class=\"cart__panel-totalprice\"><span>".concat(price.name, ":</span><span class=\"cart__panel-final\">").concat(Number(price.value).toLocaleString(undefined, {minimumFractionDigits: 0,maximumFractionDigits: 2}), "</span></div>");
+                    var output = `<div class="cart__panel-totalprice"><span>${ price.name }:</span><span class="cart__panel-final">${ Number(price.value).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 2}) }</span></div>`;
                     $('.cart__panel-totalbox').append(output);
                 });
             }
@@ -194,8 +235,7 @@ $(document).ready(function () {
             $('.cart__page-total').empty();
             if ('prices' in response) {
                 response.prices.forEach(function(price) {
-                    var output = "<div class=\"cart__page-totaldesc\">".concat(price.name, ":</div><div class=\"cart__page-price\">").concat(Number(price.value).toLocaleString(undefined, {minimumFractionDigits: 0,maximumFractionDigits: 2}), "</div>");
-                    
+                    var output = `<div class="cart__page-totaldesc">${ price.name }:</div><div class="cart__page-price">${ Number(price.value).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 2}) }</div>`;
                     $('.cart__page-total').append(output);
                 });
             }
@@ -237,9 +277,30 @@ $(document).ready(function () {
                 },
                 dataType: 'json',
                 success: function (data, el, response) {
-                    var cart_panel = "<div class=\"box__modal-cart animated\"><div class=\"cart__panel\"><a onclick=\"modalClose(event);\" href=\"#\" class=\"cart__panel-show\"><?if ($arResult['ALL_COUNT']) {?><span class=\"cart__items-count\"><?=$arResult['ALL_COUNT']?></span><?}?></a><form action=\"\" method=\"\" class=\"cart__panel-form\"><div class=\"cart__panel-content active\"><div class=\"cart__panel-top\"><h3 class=\"cart__panel-title\">Корзина</h3><a onclick=\"modalClose(event);\" href=\"#\" class=\"cart__panel-close modal__close\"></a></div><div class=\"cart__panel-inner\"></div><div class=\"cart__panel-buttons\"><a href=\"#\" class=\"btn btn-default\">Продолжить покупки</a></div></div></form></div></div>";
+                    var cart_panel = `<div class="box__modal-cart animated">
+                        <div class="cart__panel">
+                            <a onclick="modalClose(event);" href="#" class="cart__panel-show">
+                            <?if ($arResult['ALL_COUNT']) {?>
+                                <span class="cart__items-count"><?=$arResult['ALL_COUNT']?></span>
+                            <?}?>
+                            </a>
+                            <form action="" method="" class="cart__panel-form">
+                                <div class="cart__panel-content active">
+                                    <div class="cart__panel-top">
+                                        <h3 class="cart__panel-title">Корзина</h3>
+                                        <a onclick="modalClose(event);" href="#" class="cart__panel-close modal__close"></a>
+                                    </div>
+                                    <div class="cart__panel-inner"></div>
+                                    <div class="cart__panel-buttons">
+                                        <a href="#" class="btn btn-default">Продолжить покупки</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>`;
                     data.body.html(cart_panel);
                     if ('items' in response && Object.keys(response.items).length > 0) {
+                        console.log($('.cart__panel-top', cart_panel));
                         $('.cart__panel-top').after('<div class="cart__panel-tablehead"><div class="cart__panel-colname">Наименование</div><div class="cart__panel-colname">Кол-во</div><div class="cart__panel-colname">Сумма</div></div>');
                         $(".cart__panel-buttons").before('<div class="cart__panel-bottom"><a href="#" class="cart__panel-clean js-init-clear__cart">Очистить корзину</a><div class="cart__panel-totalbox"></div></div>');
                         for (var i in response.items) {
@@ -283,7 +344,21 @@ $(document).ready(function () {
     //окно успешного добавления в корзину
 
     function renderCartMessage() {
-        var cart_message = '<div class="modal__box "><a onclick="modalClose(event);" href="#" class="cart__panel-show"></a><form action="" method=""><div class="cart__panel-content active"><div class="cart__panel-top"><h3 class="cart__panel-title">Корзина</h3><a onclick="modalClose(event);" href="#" class="cart__panel-close modal__close"></a></div><div class="cart__panel-inner"></div><div class="cart__panel-buttons"><a href="#" class="btn btn-default">Продолжить покупки</a></div></div></form></div>';
+        var cart_message = `<div class="modal__box ">
+                                <a onclick="modalClose(event);" href="#" class="cart__panel-show"></a>
+                                <form action="" method="">
+                                    <div class="cart__panel-content active">
+                                        <div class="cart__panel-top">
+                                            <h3 class="cart__panel-title">Корзина</h3>
+                                            <a onclick="modalClose(event);" href="#" class="cart__panel-close modal__close"></a>
+                                        </div>
+                                        <div class="cart__panel-inner"></div>
+                                        <div class="cart__panel-buttons">
+                                            <a href="#" class="btn btn-default">Продолжить покупки</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>`;
         $.arcticmodal({
             content: cart_panel,
             openEffect: {

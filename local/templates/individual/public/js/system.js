@@ -303,7 +303,6 @@ function handlerChageSettings(e) {
         SET_SETTING: 'Y'
     };
     data[name] = value;
-
     $.ajax({
         type: 'get',
         url: '/local/tools/setting_panel.php',
@@ -318,12 +317,12 @@ function handlerChageSettings(e) {
 }
 
 function applyFontForElem(elem, fontName) {
-    elem.style.fontFamily = "'" + fontName + "', sans-serif";
-    elem.style.lineHeight = "26px";
+    elem.style.fontFamily = '"' + fontName + '", sans-serif';
+    elem.style.lineHeight = '26px';
 }
 
 function applySizeFontForElem(elem, size) {
-    elem.style.fontSize = size + "px";
+    elem.style.fontSize = '"' + size + 'px';
 }
 
 function renderModalSettings(openEffect, closeEffect, hasAnimateOpen) {
@@ -350,7 +349,7 @@ function renderModalSettings(openEffect, closeEffect, hasAnimateOpen) {
             $('.arcticmodal-container .settings__panel').addClass('modal__window');
             if (hasAnimateOpen) {
                 $('.box__modal-setting').addClass('slideInLeft');
-            };
+            }
             selectMainFont = new customSelect({
                 elem: 'selectMainfont'
             }, function() {

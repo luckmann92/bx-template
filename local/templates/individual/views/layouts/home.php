@@ -176,7 +176,7 @@ if ($arParams['SETTING']['TEMPLATE_TYPE'] != 'COMPANY') {
                 1 => "",
             ),
             "TOP_DEPTH" => "",
-            "MAX_ELEMENTS" => "6",
+            "MAX_ELEMENTS" => $arParams['SETTING']['SECTIONS'] == 2 ? 8 : 6,
             "SETTING" => $arParams["SETTING"],
             "SECTION_TITLE" => "",
             "SECTION_LINK" => "",

@@ -336,10 +336,10 @@ class CWebsiteTemplate {
                     'NAME' => 'Плитками'
                 ),
                 '2' => array(
-                    'NAME' => 'По 3 в ряд'
+                    'NAME' => 'По 4 в ряд'
                 ),
                 '3' => array(
-                    'NAME' => 'По 4 в ряд'
+                    'NAME' => 'По 3 в ряд'
                 ),
             ),
 

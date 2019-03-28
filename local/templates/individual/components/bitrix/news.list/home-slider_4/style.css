@@ -5,17 +5,20 @@
 .slider-grid {
     display: grid;
     display: -ms-grid;
-    grid-template-columns: 68% 1fr;
-    -ms-grid-columns: 68% 10px 32%;
-    grid-template-rows: 545px;
-    -ms-grid-rows: 545px;
+    grid-template-columns: 100%;
+    -ms-grid-columns: 100%;
+    grid-template-rows: 550px 175px;
+    -ms-grid-rows: 550px 10px 175px;
     grid-gap: 10px;
 }
-.grid div:nth-child(3) {
+.grid div:nth-child(2) {
     -ms-grid-row: 3;
 }
-.grid div:nth-child(4) {
+.grid div:nth-child(3) {
     -ms-grid-row: 5;
+}
+.slider-pics {
+    margin: 0 -5px;
 }
 .slider-pic {
     position: relative;
@@ -23,8 +26,9 @@
     align-items: flex-end;
     padding: 15px 35px;
     height: 175px!important;
-    margin-bottom: 10px;
+    margin: 0 5px;
     overflow: hidden;
+
 }
 .slider-pic.c-shadow:before {
     content: '';
@@ -78,7 +82,7 @@
     position: relative;
     grid-row: 1;
     grid-column: 1;
-    -ms-grid-column: 1;
+    -ms-grid-column: 3;
     -ms-grid-row-span: 5;
 }
 .slider-home, .slick-track, .slick-list {
@@ -263,35 +267,11 @@
 
 @media screen and (min-width: 320px) and (max-width: 992px) {
     .slider-grid {
-        grid-template-rows: 150px 400px;
-        -ms-grid-rows: 150px 10px 400px;
-        grid-template-columns: 100%;
-        -ms-grid-columns: 100%;
-    }
-    .grid div:nth-child(2) {
-        -ms-grid-row: 3;
-    }
-    .grid div:nth-child(3) {
-        -ms-grid-row: 5;
-    }
-    .slider-box {
-        grid-row: 2;
-        grid-column: 1;
-        -ms-grid-column: 1;
-        -ms-grid-row-span: 3;
-    }
-    .slider-pics {
-        margin: 0 -5px;
-    }
-    .slider-pic {
-        margin: 0 5px;
+        grid-template-rows: 400px 150px;
+        -ms-grid-rows: 400px 10px 150px;
     }
 }
 @media screen and (min-width: 320px) and (max-width: 768px) {
-    .slider-grid {
-        grid-template-rows: 150px 300px;
-        -ms-grid-rows: 150px 10px 300px;
-    }
     .slider-pic {
         padding: 10px;
     }
@@ -311,8 +291,8 @@
 }
 @media screen and (min-width: 320px) and (max-width: 480px) {
     .slider-grid {
-        grid-template-rows: 0 300px;
-        -ms-grid-rows: 0 0 300px;
+        grid-template-rows: 300px 0;
+        -ms-grid-rows: 300px 0 0;
     }
     .slider-pic {
         display: none;

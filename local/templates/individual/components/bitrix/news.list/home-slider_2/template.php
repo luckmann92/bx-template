@@ -19,11 +19,14 @@ if($arResult['ITEMS']){?>
             <div class="row">
                 <div class="col-12">
                     <div class="slider-grid">
-                        <?foreach ($arResult['ITEMS'] as $k => $arSlide){?>
-                            <a href="#" class="slider-pic c-shadow" style="background-image: url(<?=$arSlide['PREVIEW_PICTURE']['SRC']?>)">
+                        <div class="slider-pics">
+                            <?foreach ($arResult['ITEMS'] as $k => $arSlide){?>
+                                <a href="#" class="slider-pic c-shadow"">
+                                <div class="slider-pic__image" style="background-image:url(<?=$arSlide['PREVIEW_PICTURE']['SRC']?>)"></div>
                                 <h3 class="slider-pic__title"><?=$arSlide['NAME']?></h3>
-                            </a>
-                        <?}?>
+                                </a>
+                            <?}?>
+                        </div>
                         <div class="slider-box">
                                 <div class="slider-home"
                                      data-dots="<?=count($arResult['ITEMS']) > 0 ? 'true':'false'?>"
@@ -70,5 +73,48 @@ if($arResult['ITEMS']){?>
             </div>
         </div>
     </section>
+
+    <script>
+        $('.slider-pics').slick({
+            autoplay: false,
+            arrows: false,
+            slidesToShow: 3,
+            vertical: true,
+            verticalSwiping: true,
+            slidesToScroll: 1,
+            focusOnSelect: true,
+            asNavFor: '.slider-home',
+            dots: false,
+            prevArrow: '<button type="button" class="product-detail__prev slick-prev"></button>',
+            nextArrow: '<button type="button" class="product-detail__next slick-next"></button>',
+            responsive:[
+                {
+                    breakpoint: 992,
+                    settings: {
+                        vertical: false
+                    }
+                }
+            ]
+        });
+        $('.slider-home').slick({
+            dots: ($('.slider-home').attr('data-dots') == 'true') ? true : false,
+            arrows: ($('.slider-home').attr('data-arrows') == 'true') ? true : false,
+            autoplay: ($('.slider-home').attr('data-autoplay') == 'true') ? true : false,
+            autoplaySpeed:$('.slider-home').attr('data-speed'),
+            appendDots: $('.slider-home-dots'),
+            prevArrow: '<button type="button" class="slide-prev slick-prev"></button>',
+            nextArrow: '<button type="button" class="slide-next slick-next"></button>',
+            adaptiveHeight: true,
+            asNavFor: '.slider-pics',
+            responsive:[
+                {
+                    breakpoint: 750,
+                    settings: {
+                        dots: false
+                    }
+                }
+            ]
+        });
+    </script>
 
 <?}?>

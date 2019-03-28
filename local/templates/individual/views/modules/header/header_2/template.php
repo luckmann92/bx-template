@@ -45,7 +45,6 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                                 )
                             );?>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-lg-auto header__block header__address">

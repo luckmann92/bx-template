@@ -39,8 +39,8 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                     <div class="group__theme-list group__header">
                                         <?foreach ($arFields as $field) {?>
                                             <div class="col__line">
-                                                <label class="view__label view__line" for="footerView__<?=$field['ID']?>"
-                                                    <?=$field['PICTURE'] ? 'style="background-image:url(' . $field['PICTURE'] . ')"' : ''?>>
+                                                <label class="view__label view__line view__footer" for="footerView__<?=$field['ID']?>">
+                                                    <img src="<?=$field['PICTURE']?>" alt="">
                                                     <input type="radio"
                                                            name="<?=$CODE?>"
                                                            id="footerView__<?=$field['ID']?>"
@@ -105,7 +105,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                     <div class="group__theme-list group__header">
                                         <?foreach ($arFields as $id => $field) {?>
                                             <div class="col__line">
-                                                <label class="view__label view__line" for="sectionsView__<?=$id?>"
+                                                <label class="view__label view__line view__category" for="sectionsView__<?=$id?>"
                                                        style="background-image:url(<?=SITE_TEMPLATE_PATH?>/components/bitrix/catalog.section.list/home-sections_<?=$id?>/preview.png)">
                                                     <input type="radio"
                                                            name="<?=$CODE?>"

@@ -14,8 +14,7 @@
 .header__block {
     display: flex;
     align-items: center;
-    max-width: fit-content;
-    flex: 1 1 auto;
+    padding: 0 5px;
 }
 .header__pic {
     display: flex;
@@ -32,6 +31,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+.header__text > div {
+    display: flex;
+    flex-direction: column;
 }
 .header__number {
     font-size: 18px;
@@ -128,10 +131,17 @@
     .header__logo {
         max-width: 160px;
     }
+    .header__logo a {
+        display: flex;
+        align-items: center;
+    }
     .header__pic {
         margin-right: 9px;
     }
     .header__number {
         font-size: 16px;
+    }
+    .header-search {
+        padding: 0;
     }
 }

@@ -263,10 +263,19 @@ footer {
   }
 }
 
-.view__line {
-  height: 125px;
+.view__label--slider {
+  height: 140px;
 }
 
+.view__line {
+  height: 140px;
+}
+.view__footer {
+  height: 230px;
+}
+.view__category {
+  height: 280px;
+}
 .settings__panel-content {
   display: none;
   width: 550px;

@@ -27,6 +27,16 @@
     &:not(:last-child) {
       margin-bottom: 40px;
     }
+    &.active {
+      a:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 7px;
+        height: 100%;
+      }
+    }
   }
   a {
     display: block;

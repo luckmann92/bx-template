@@ -206,7 +206,7 @@ $(document).ready(function() {
             beforeOpen: function() {
                 $('.head-nav__modal--desktop').show().addClass('animated').addClass('slideInUp');
                 $('.js-init__menu--desktop').addClass('box-modal_close').addClass('fixed');
-
+                $('.header__menu').css('margin-right', '44px');
             },
             afterOpen: function() {
                 openModalFix();
@@ -214,6 +214,7 @@ $(document).ready(function() {
             beforeClose: function() {
                 $('.js-init__menu--desktop').removeClass('fixed').removeClass('box-modal_close');
                 $('.head-nav__modal--desktop').removeClass('slideInUp').addClass('slideOutDown');
+                $('.header__menu').css('margin-right', '0px');
                 closeModalFix();
             },
             afterClose: function () {

@@ -264,6 +264,8 @@ class CWebsiteTemplate {
                 'MAIN' => 'default',
                 'ACTION' => 'default',
             ),
+            'SECTIONS' => 'default',
+            'ADVANTAGE' => 'default',
             'FONT_SIZE' => '15',
             'FONT' => array(
                 'SIMPLE' => 'default',
@@ -306,6 +308,25 @@ class CWebsiteTemplate {
                 '13' => '13px',
                 '15' => '15px',
                 '17' => '17px'
+            ),
+            'ADVANTAGE' => array(
+                'default' => array(
+                    'NAME' => 'Вариант 1'
+                ),
+                '2' => array(
+                    'NAME' => 'Вариант 2'
+                ),
+            ),
+            'SECTIONS' => array(
+                'default' => array(
+                    'NAME' => 'Плитками'
+                ),
+                '2' => array(
+                    'NAME' => 'По 3 в ряд'
+                ),
+                '3' => array(
+                    'NAME' => 'По 4 в ряд'
+                ),
             ),
             'SLIDER' => array(
                 'default' => array(

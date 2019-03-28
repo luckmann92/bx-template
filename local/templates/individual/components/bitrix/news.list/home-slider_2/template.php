@@ -19,15 +19,11 @@ if($arResult['ITEMS']){?>
             <div class="row">
                 <div class="col-12">
                     <div class="slider-grid">
-                        <a href="#" class="slider-pic c-shadow" style="background-image: url(/local/templates/individual/public/images/slider-pic.png)">
-                            <h3 class="slider-pic__title">Весенняя коллекция женской одежды</h3>
-                        </a>
-                        <a href="#" class="slider-pic c-shadow" style="background-image: url(/local/templates/individual/public/images/slider-pic.png)">
-                            <h3 class="slider-pic__title">Весенняя коллекция женской одежды</h3>
-                        </a>
-                        <a href="#" class="slider-pic c-shadow" style="background-image: url(/local/templates/individual/public/images/slider-pic.png)">
-                            <h3 class="slider-pic__title">Весенняя коллекция женской одежды</h3>
-                        </a>
+                        <?foreach ($arResult['ITEMS'] as $k => $arSlide){?>
+                            <a href="#" class="slider-pic c-shadow" style="background-image: url(<?=$arSlide['PREVIEW_PICTURE']['SRC']?>)">
+                                <h3 class="slider-pic__title"><?=$arSlide['NAME']?></h3>
+                            </a>
+                        <?}?>
                         <div class="slider-box">
                                 <div class="slider-home"
                                      data-dots="<?=count($arResult['ITEMS']) > 0 ? 'true':'false'?>"

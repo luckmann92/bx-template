@@ -64,14 +64,40 @@
                                    href="tel:<?$APPLICATION->IncludeFile("include/".SITE_ID."/contact/phone.php", [],["SHOW_BORDER" => false,"MODE" => "text"]);?>">
                                     <?$APPLICATION->IncludeFile("include/".SITE_ID."/contact/phone.php", [],["SHOW_BORDER"=>true, "MODE" => "text"]);?></a>
                             </div>
-                            <a class="btn js-init-modal__form btn-default btn-white" href="#">Заказать звонок</a>
+                            <?$APPLICATION->IncludeComponent(
+                                "website96:forms",
+                                ".default",
+                                array(
+                                    "CACHE_TIME" => "3600",
+                                    "CACHE_TYPE" => "A",
+                                    "FORM_BTN_OPEN" => "Заказать звонок",
+                                    "FORM_BTN_SUBMIT" => "Отправить",
+                                    "FORM_BTN_TYPE" => "btn-default btn-white",
+                                    "FORM_FIELDS" => array(
+                                        0 => "24",
+                                        1 => "25",
+                                    ),
+                                    "FORM_POLITIC_URL" => "/politic/",
+                                    "FORM_PRODUCT_ADD" => "N",
+                                    "FORM_PRODUCT_ID" => "",
+                                    "FORM_REQUIRED_FIELDS" => array(
+                                        0 => "24",
+                                        1 => "25",
+                                    ),
+                                    "FORM_TITLE" => "Оставьте заявку",
+                                    "IBLOCK_ID" => "14",
+                                    "IBLOCK_TYPE" => "forms",
+                                    "COMPONENT_TEMPLATE" => ".default"
+                                ),
+                                false
+                            );?>
                         </div>
                         <div class="footer-contact">
                             <div class="footer-contact__content">
-                                <div class="footer-contact__name">Эл. почта</div>
+                                <div class="footer-contact__name"><?$APPLICATION->IncludeFile("include/".SITE_ID."/contact/email__title.php",[],["SHOW_BORDER"=>true,"MODE"=>"text"]);?></div>
                                 <a class="footer-contact__link"
-                                   href="mailto:website@info.ru">
-                                    website@info.ru</a>
+                                   href="mailto:<?$APPLICATION->IncludeFile("include/".SITE_ID."/contact/email.php",[],["SHOW_BORDER"=>false,"MODE"=>"text"]);?>">
+                                    <?$APPLICATION->IncludeFile("include/".SITE_ID."/contact/email.php",[],["SHOW_BORDER"=>true,"MODE"=>"text"]);?></a>
                             </div>
                         </div>
                         <div class="footer-contact">

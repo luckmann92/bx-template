@@ -36,8 +36,16 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         <?=GetContentSvgIcon('address')?>
                     </div>
                     <div class="header__text">
-                        <div>г. Екатеринбург</div>
-                        <div>ул. Генеральская, 3</div>
+                        <div>
+                            <?$APPLICATION->IncludeFile(
+                                "include/".SITE_ID."/contact/address.php",
+                                array(), array(
+                                    "SHOW_BORDER" => true,
+                                    "MODE" => "text"
+                                )
+                            );?>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-lg-auto header__block header__address">

@@ -4,9 +4,9 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
     <div class="box__modal-setting animated">
         <div class="settings__tabs">
             <ul class="settings__tabs-menu">
-                <li><a href="#">Общие настройки</a></li>
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">Футер</a></li>
+                <li class="settings__tabs-menu-item js-tab-trigger active" data-tab="1"><a href="#">Общие настройки</a></li>
+                <li class="settings__tabs-menu-item js-tab-trigger" data-tab="2"><a href="#">Главная</a></li>
+                <li class="settings__tabs-menu-item js-tab-trigger" data-tab="3"><a href="#">Футер</a></li>
             </ul>
             <a class="settings__tabs-reset" data-name="TEMPLATE_RESET" data-value="Y">
                 <svg width="27" height="27" viewBox="0 0 27 27" fill="transparent" xmlns="http://www.w3.org/2000/svg">
@@ -29,7 +29,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
             <form action="<?=POST_FORM_ACTION_URI?>" method="get" enctype="multipart/form-data">
                 <?=bitrix_sessid_post()?>
                 <input type="hidden" value="Y" name="SET_SETTING">
-                <div class="settings__panel-content active">
+                <div data-tab="1" class="settings__panel-content js-tab-content active">
                     <?foreach ($arResult['FIELDS'] as $CODE => $arFields) {
                         switch ($CODE) {
                             case 'SLIDER':?>
@@ -72,7 +72,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                         }
                     }?>
                 </div>
-                <div class="settings__panel-content active">
+                <div data-tab="2" class="settings__panel-content js-tab-content">
                     <?foreach ($arResult['FIELDS'] as $CODE => $arFields) {
                         switch ($CODE) {
                             case 'HEADER':?>
@@ -260,9 +260,26 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                         }
                     }?>
                 </div>
+                <div data-tab="3" class="settings__panel-content js-tab-content">
+                    342345345
+                </div>
             </form>
         </div>
     </div>
+
+    <script>
+        $('.js-tab-trigger').click(function() {
+            var id = $(this).attr('data-tab'),
+                content = $('.js-tab-content[data-tab="'+ id +'"]');
+
+            $('.js-tab-trigger.active').removeClass('active');
+            $(this).addClass('active');
+
+            $('.js-tab-content.active').removeClass('active');
+            content.addClass('active');
+        });
+    </script>
+
     <?foreach ($arResult['FIELDS']['FONTS'] as $font) {?>
         <link href="<?=$font['FONT_SRC']?>" rel="stylesheet">
     <?}

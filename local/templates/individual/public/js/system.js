@@ -348,6 +348,7 @@ function renderModalSettings(openEffect, closeEffect, hasAnimateOpen) {
         },
         afterLoadingOnShow: function (data, el) {
             $('.arcticmodal-container .settings__panel').addClass('modal__window');
+            $('.arcticmodal-container .settings__tabs').addClass('modal__window');
             if (hasAnimateOpen) {
                 $('.box__modal-setting').addClass('slideInLeft');
             }

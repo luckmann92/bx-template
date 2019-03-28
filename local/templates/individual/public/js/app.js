@@ -585,5 +585,3 @@ if($('#cart__page-select').length > 0) {
         elem: 'cart__page-select'
     });
 }
-
-

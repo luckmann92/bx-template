@@ -55,7 +55,8 @@ a {
 .left__menu .catalog__menu>li.active>.submenu,
 .btn-default:hover, .btn-default:active, .btn-default:focus,
 .settings__tabs-menu a:hover:before, .settings__tabs-menu a:focus:before, .settings__tabs-menu a:active:before, .settings__tabs-menu a.active:before,
-.settings__tabs-reset:hover span:after, .settings__tabs-reset:active span:after, .settings__tabs-reset:focus span:after {
+.settings__tabs-reset:hover span:after, .settings__tabs-reset:active span:after, .settings__tabs-reset:focus span:after,
+.container-section--popular .section-item__name:before {
     background: ACTION;
 }
 .logo-circle,

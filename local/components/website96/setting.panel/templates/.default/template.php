@@ -38,7 +38,8 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                     <div class="group__theme-list">
                                         <?foreach ($arFields as $id => $field) {?>
                                             <div class="col__part" data-view-type="default">
-                                                <label class="view__label" for="pageView__<?=$id?>" style="background-image:url(/local/templates/individual/components/bitrix/news.list/home-slider_<?=$id?>/preview.png)">
+                                                <label class="view__label view__label--slider" for="pageView__<?=$id?>" >
+                                                    <img src="/local/templates/individual/components/bitrix/news.list/home-slider_<?=$id?>/preview.png" alt="">
                                                     <input type="radio" name="<?=$CODE?>" id="pageView__<?=$id?>" value="<?=$id?>"
                                                     <?=$arResult['SETTING']['SLIDER'] == $id ? 'checked' : ''?>>
                                                     <span class="pageView__name"><?=$field['NAME']?></span>

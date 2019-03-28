@@ -9,7 +9,7 @@ $CWb->load();
 
 $arResult = array(
     'FIELDS' => $CWb->result(),
-    'SETTING' => $CWb->getTemplateSetting()
+    'SETTING' => $CWb->settings
 );
 
 if(check_bitrix_sessid() && $_REQUEST['SET_SETTING'] == 'Y') {
@@ -26,7 +26,8 @@ if(check_bitrix_sessid() && $_REQUEST['SET_SETTING'] == 'Y') {
             }
         }
     }
-    $json['success'] = $CWb->setTemplateSetting($arSetting);
+   //$json['success'] = $CWb->setTemplateSetting($arSetting);
+    $json['success'] = $arResult['SETTING'];
     echo json_encode($json);
     die();
 } else {

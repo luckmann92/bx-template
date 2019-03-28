@@ -29,6 +29,16 @@ class CWebsiteTemplate {
         return $this->settings;
     }
 
+    public function reset()
+    {
+        if ($this->type_save == 'session') {
+            unset($_SESSION['TEMPLATE_SETTINGS']);
+        } else {
+            $templateSettingsFile = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/.settings.json';
+            return unlink($templateSettingsFile) ? $this->getTemplateSetting() : false;
+        }
+    }
+
     public function loadCss()
     {
         if ($this->settings['COLORS']) {
@@ -259,7 +269,8 @@ class CWebsiteTemplate {
                 'SIMPLE' => 'default',
                 'TITLE' => 'default'
             ),
-            'LOGO' => 'default'
+            'LOGO' => 'default',
+            'SLIDER' => 'default'
         );
 
         if ($this->type_save == 'session') {
@@ -295,6 +306,20 @@ class CWebsiteTemplate {
                 '13' => '13px',
                 '15' => '15px',
                 '17' => '17px'
+            ),
+            'SLIDER' => array(
+                'default' => array(
+                    'NAME' => 'Вариант 1'
+                ),
+                '2' => array(
+                    'NAME' => 'Вариант 2'
+                ),
+                '3' => array(
+                    'NAME' => 'Вариант 3'
+                ),
+                '4' => array(
+                    'NAME' => 'Вариант 4'
+                )
             ),
             'COLORS' => $this->colors,
             'HEADER' => $this->headers,

@@ -12,7 +12,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                 <li><a href="#">Футер</a></li>
                 <li><a href="#">Контакты</a></li>
             </ul>
-            <a class="settings__tabs-reset">
+            <a class="settings__tabs-reset" data-name="TEMPLATE_RESET" data-value="Y">
                 <svg width="27" height="27" viewBox="0 0 27 27" fill="transparent" xmlns="http://www.w3.org/2000/svg">
                     <path d="M20.4286 7.92857C18.4105 5.52669 15.3843 4 12.0014 4C5.92548 4 1 8.92487 1 15C1 21.0751 5.92548 26 12.0014 26C17.9941 26 22.8678 21.209 23 15.2487" stroke="#FF1E36" stroke-width="2"/>
                     <path d="M13 8.77832H20.7782V1.00015" stroke="#FF1E36" stroke-width="2"/>
@@ -31,12 +31,34 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                 </div>  
             </div>
             <form action="<?=POST_FORM_ACTION_URI?>" method="get" enctype="multipart/form-data">
-                <div class="settings__panel-content active">
-                    <?=bitrix_sessid_post()?>
-                    <input type="hidden" value="Y" name="SET_SETTING">
-                    <?
 
-                    foreach ($arResult['FIELDS'] as $CODE => $arFields) {
+                <?dump($arResult['SETTING'])?>
+                <?=bitrix_sessid_post()?>
+                <input type="hidden" value="Y" name="SET_SETTING">
+                <div class="settings__panel-content active">
+                    <?foreach ($arResult['FIELDS'] as $CODE => $arFields) {
+                        switch ($CODE) {
+                            case 'SLIDER':?>
+                                <div class="group__panel page__view">
+                                    <div class="group__theme-title">Типы слайдера</div>
+                                    <div class="group__theme-list">
+                                        <?foreach ($arFields as $id => $field) {?>
+                                            <div class="col__part" data-view-type="default">
+                                                <label class="view__label" for="pageView__<?=$id?>" style="background-image:url(/local/templates/individual/components/bitrix/news.list/home-slider_<?=$id?>/preview.png)">
+                                                    <input type="radio" name="<?=$CODE?>" id="pageView__<?=$id?>" value="<?=$id?>"
+                                                    <?=$arResult['SETTING']['SLIDER'] == $id ? 'checked' : ''?>>
+                                                    <span class="pageView__name"><?=$field['NAME']?></span>
+                                                </label>
+                                            </div>
+                                        <?}?>
+                                    </div>
+                                </div>
+                            <?break;
+                        }
+                    }?>
+                </div>
+                <div class="settings__panel-content active">
+                    <?foreach ($arResult['FIELDS'] as $CODE => $arFields) {
                         switch ($CODE) {
                             case 'HEADER':?>
                                 <div class="group__panel page__view">

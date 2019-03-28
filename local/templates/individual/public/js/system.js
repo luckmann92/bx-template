@@ -341,6 +341,7 @@ function renderModalSettings(openEffect, closeEffect, hasAnimateOpen) {
         closeEffect: {
             speed: closeEffect
         },
+        closeOnOverlayClick: false,
         beforeOpen: function (data, el) {
             $('.arcticmodal-container table').addClass('setting__container');
             setCookie('showModalSettings', 'true');

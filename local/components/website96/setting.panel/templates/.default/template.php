@@ -29,7 +29,36 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
             <form action="<?=POST_FORM_ACTION_URI?>" method="get" enctype="multipart/form-data">
                 <?=bitrix_sessid_post()?>
                 <input type="hidden" value="Y" name="SET_SETTING">
-                <div data-tab="1" class="settings__panel-content js-tab-content active">
+                <div data-tab="3" class="settings__panel-content js-tab-content">
+                    <?foreach ($arResult['FIELDS'] as $CODE => $arFields) {
+                        switch ($CODE) {
+                            case 'FOOTER':
+                                ?>
+                                <div class="group__panel page__view">
+                                    <div class="group__theme-title">Вид футера</div>
+                                    <div class="group__theme-list group__header">
+                                        <?foreach ($arFields as $field) {?>
+                                            <div class="col__line">
+                                                <label class="view__label view__line" for="footerView__<?=$field['ID']?>"
+                                                    <?=$field['PICTURE'] ? 'style="background-image:url(' . $field['PICTURE'] . ')"' : ''?>>
+                                                    <input type="radio"
+                                                           name="<?=$CODE?>"
+                                                           id="footerView__<?=$field['ID']?>"
+                                                           value="<?=$field['ID']?>"
+                                                        <?=$arResult['SETTING']['FOOTER'] == $field['ID'] ? 'checked' : ''?>
+                                                    >
+                                                    <span class="pageView__name"><?=$field['NAME']?></span>
+                                                </label>
+                                            </div>
+                                        <?}?>
+                                    </div>
+                                </div>
+                                <?
+                                break;
+                        }
+                    }?>
+                </div>
+                <div data-tab="2" class="settings__panel-content js-tab-content">
                     <?foreach ($arResult['FIELDS'] as $CODE => $arFields) {
                         switch ($CODE) {
                             case 'SLIDER':?>
@@ -55,13 +84,13 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                     <div class="group__theme-list group__header">
                                         <?foreach ($arFields as $id => $field) {?>
                                             <div class="col__line">
-                                                <label class="view__label view__line" for="headerView__<?=$id?>"
-                                                       style="background-image:url(<?=SITE_TEMPLATE_PATH?>/components/bitrix/catalog.section.list/home-sections_<?=$id?>)">
+                                                <label class="view__label view__line" for="advantageView__<?=$id?>"
+                                                       style="background-image:url(<?=SITE_TEMPLATE_PATH?>/components/bitrix/news.list/home-advanatges_<?=$id?>/preview.png)">
                                                     <input type="radio"
                                                            name="<?=$CODE?>"
-                                                           id="headerView__<?=$id?>"
+                                                           id="advantageView__<?=$id?>"
                                                            value="<?=$id?>"
-                                                        <?=$arResult['SETTING']['ADVANTAGE'] == $id ? 'checked' : ''?>
+                                                        <?=$arResult['SETTING'][$CODE] == $id ? 'checked' : ''?>
                                                     >
                                                     <span class="pageView__name"><?=$field['NAME']?></span>
                                                 </label>
@@ -70,10 +99,31 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                     </div>
                                 </div>
                             <?break;
+                            case 'SECTION':?>
+                                <div class="group__panel page__view">
+                                    <div class="group__theme-title">Категории каталога</div>
+                                    <div class="group__theme-list group__header">
+                                        <?foreach ($arFields as $id => $field) {?>
+                                            <div class="col__line">
+                                                <label class="view__label view__line" for="advantageView__<?=$id?>"
+                                                       style="background-image:url(<?=SITE_TEMPLATE_PATH?>/components/bitrix/catalog.section.list/home-sections_<?=$id?>/preview.png)">
+                                                    <input type="radio"
+                                                           name="<?=$CODE?>"
+                                                           id="advantageView__<?=$id?>"
+                                                           value="<?=$id?>"
+                                                        <?=$arResult['SETTING'][$CODE] == $id ? 'checked' : ''?>
+                                                    >
+                                                    <span class="pageView__name"><?=$field['NAME']?></span>
+                                                </label>
+                                            </div>
+                                        <?}?>
+                                    </div>
+                                </div>
+                                <?break;
                         }
                     }?>
                 </div>
-                <div data-tab="2" class="settings__panel-content js-tab-content">
+                <div data-tab="1" class="settings__panel-content js-tab-content active">
                     <?foreach ($arResult['FIELDS'] as $CODE => $arFields) {
                         switch ($CODE) {
                             case 'HEADER':?>
@@ -89,27 +139,6 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                                            id="headerView__<?=$field['ID']?>"
                                                            value="<?=$field['ID']?>"
                                                         <?=$arResult['SETTING']['HEADER'] == $field['ID'] ? 'checked' : ''?>
-                                                    >
-                                                    <span class="pageView__name"><?=$field['NAME']?></span>
-                                                </label>
-                                            </div>
-                                        <?}?>
-                                    </div>
-                                </div>
-                                <?break;
-                            case 'FOOTER':?>
-                                <div class="group__panel page__view">
-                                    <div class="group__theme-title">Вид футера</div>
-                                    <div class="group__theme-list group__header">
-                                        <?foreach ($arFields as $field) {?>
-                                            <div class="col__line">
-                                                <label class="view__label view__line" for="footerView__<?=$field['ID']?>"
-                                                    <?=$field['PICTURE'] ? 'style="background-image:url(' . $field['PICTURE'] . ')"' : ''?>>
-                                                    <input type="radio"
-                                                           name="<?=$CODE?>"
-                                                           id="footerView__<?=$field['ID']?>"
-                                                           value="<?=$field['ID']?>"
-                                                        <?=$arResult['SETTING']['FOOTER'] == $field['ID'] ? 'checked' : ''?>
                                                     >
                                                     <span class="pageView__name"><?=$field['NAME']?></span>
                                                 </label>
@@ -232,37 +261,8 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                 </div>
                                 <?
                                 break;
-                            case 'HOME_PAGE':?>
-                                <div class="group__panel page__view">
-                                    <div class="group__theme-title">Вид главной страницы</div>
-                                    <div class="group__theme-list">
-                                        <?foreach ($arFields as $field) {
-                                            if($arResult['SETTING']['TEMPLATE_TYPE'] == 'COMPANY' && $field['ID'] != 'default') {
-                                                break;
-                                            } else {?>
-                                            <div class="col__part" data-view-type="<?=$field['ID']?>">
-                                                <label class="view__label" for="pageView__<?=$field['ID']?>"
-                                                    <?=$field['PICTURE'] ? 'style="background-image:url(' . $field['PICTURE'] . ')"' : ''?>>
-                                                    <input type="radio"
-                                                           name="HOME_PAGE"
-                                                           id="pageView__<?=$field['ID']?>"
-                                                           value="<?=$field['ID']?>"
-                                                           <?=$arResult['SETTING']['HOME_PAGE'] == $field['ID'] ? 'checked' : ''?>
-                                                    >
-                                                    <span class="pageView__name"><?=$field['NAME']?></span>
-                                                </label>
-                                            </div>
-                                            <?}?>
-                                        <?}?>
-                                    </div>
-                                </div>
-                                <?
-                                break;
                         }
                     }?>
-                </div>
-                <div data-tab="3" class="settings__panel-content js-tab-content">
-                    342345345
                 </div>
             </form>
         </div>

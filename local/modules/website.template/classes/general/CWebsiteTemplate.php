@@ -309,6 +309,20 @@ class CWebsiteTemplate {
                 '15' => '15px',
                 '17' => '17px'
             ),
+            'SLIDER' => array(
+                'default' => array(
+                    'NAME' => 'Вариант 1'
+                ),
+                '2' => array(
+                    'NAME' => 'Вариант 2'
+                ),
+                '3' => array(
+                    'NAME' => 'Вариант 3'
+                ),
+                '4' => array(
+                    'NAME' => 'Вариант 4'
+                )
+            ),
             'ADVANTAGE' => array(
                 'default' => array(
                     'NAME' => 'Вариант 1'
@@ -328,20 +342,7 @@ class CWebsiteTemplate {
                     'NAME' => 'По 4 в ряд'
                 ),
             ),
-            'SLIDER' => array(
-                'default' => array(
-                    'NAME' => 'Вариант 1'
-                ),
-                '2' => array(
-                    'NAME' => 'Вариант 2'
-                ),
-                '3' => array(
-                    'NAME' => 'Вариант 3'
-                ),
-                '4' => array(
-                    'NAME' => 'Вариант 4'
-                )
-            ),
+
             'COLORS' => $this->colors,
             'HEADER' => $this->headers,
             'FOOTER' => $this->footers

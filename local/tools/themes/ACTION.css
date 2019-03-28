@@ -17,10 +17,12 @@
 .stock-title span,
 .header__phone a,
 .settings__tabs-menu a:hover, .settings__tabs-menu a:focus, .settings__tabs-menu a:active, .settings__tabs-menu a.active,
-a {
+a
+{
     color: ACTION;
 }
-.btn-default svg {
+.btn-default svg
+{
     fill: ACTION;
 }
 .review__image,
@@ -37,7 +39,7 @@ a {
 .btn-search, .btn-search:hover, .btn-search:active, .btn-search:focus,
 .btn-primary,
 .btn-default,
-.btn-icon,
+.btn-icon
  {
     border-color: ACTION;
 }
@@ -65,21 +67,25 @@ a {
 .btn-icon svg path,
 .navN li.navn-next a svg path, .navN li.navn-prev a svg path,
 .btn-search:focus path, .btn-search:hover path, .btn-search:active path 
-.btn-default:hover svg, .btn-default:focus svg, .btn-default:active svg ,
-.btn-primary:hover svg, .btn-primary:focus svg, .btn-primary:active svg,
- {
+.btn-default:hover svg, .btn-default:focus svg, .btn-default:active svg,
+.btn-primary:hover svg, .btn-primary:focus svg, .btn-primary:active svg
+{
     fill:ACTION;
 }
-.settings__tabs-reset svg path {
+.settings__tabs-reset svg path
+{
     stroke:ACTION;
 }
-.review-nav__image:after {
+.review-nav__image:after
+{
     border-color: ACTION transparent transparent transparent;
 }
 .review__next:before,
-.btn-link:after {
+.btn-link:after
+{
     border-color: transparent transparent transparent ACTION;
 }
-.review__prev:before {
+.review__prev:before
+{
     border-color: transparent ACTION transparent transparent;
 }

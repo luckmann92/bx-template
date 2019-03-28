@@ -6,8 +6,8 @@ CModule::IncludeModule($module_id);
 
 $CWb = new CWebsiteTemplate('session');
 $CWb->load();
+$CWb->loadCss();
 
 $arSetting = $CWb->settings;
-$CWb->loadCss();
 
 

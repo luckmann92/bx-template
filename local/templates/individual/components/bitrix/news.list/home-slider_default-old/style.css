@@ -1,73 +1,17 @@
 .section-slider {
-    background-color: #EFEFEF;
-    padding: 15px 0;
-}
-.slider-grid {
-    display: grid;
-    display: -ms-grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    -ms-grid-columns: 1fr 10px 1fr 10px 1fr;
-    grid-template-rows: 550px 175px;
-    -ms-grid-rows: 550px 10px 175px;
-    grid-gap: 10px;
-}
-.grid div:nth-child(2) {
-    -ms-grid-row: 3;
-}
-.grid div:nth-child(3) {
-    -ms-grid-row: 5;
-}
-.slider-pic {
     position: relative;
-    display: flex;
-    align-items: flex-end;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
-    padding: 15px 35px;
-}
-.slider-pic.c-shadow:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #000;
-    opacity: 0.4;
-}
-.slider-pic__title {
-    position: relative;
-    font-size: 1.2rem;
-    line-height: 1.733rem;
-    max-width: 250px;
-    color: #fff;
-    z-index: 2;
-}
-.slider-box {
     overflow: hidden;
-    position: relative;
-    grid-row: 1;
-    grid-column: 1/4;
-    -ms-grid-column: 3;
-    -ms-grid-row-span: 5;
-}
-.slider-home, .slick-track, .slick-list {
-    height: 100% !important;
 }
 .section-slider .btn:hover, .section-slider .btn:focus, .section-slider .btn:active {
     border-color: #fff;
     color: #fff;
 }
 .slide-item {
-    display: flex!important;
-    align-items: flex-end;
     position: relative;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
-    padding: 0 95px 70px;
+    padding: 100px 40px 170px;
     user-select: none;
     z-index: 1;
 }
@@ -88,17 +32,8 @@
     background: #000;
     opacity: 0.4;
 }
-.slide-item__caption {
-    z-index: 1;
-    position: relative;
-    max-width: 320px;
-}
-.slide-item__caption .section-title {
-    margin: 0 0 20px 0;
-    padding: 0;
-}
 .slide-item__caption h2 {
-    font-size: 1.867rem;
+    font-size: 2.625rem;
     font-weight: bold;
 }
 .slide-item__caption__2 {
@@ -109,15 +44,14 @@
 }
 .slide-item__caption__2 h2 {
     font-size: 2.375rem;
-    line-height: 2.267rem;
+    line-height: 1.2em;
 }
 .slide-item__anons {
     -webkit-line-clamp: 3;
-    font-size: 1rem;
-    line-height: 1.333rem;
+    font-size: 1.1em;
     max-height: 75px;
     font-weight: 500;
-    margin: 0 0 30px 0;
+    margin: 0 0 70px 0;
     color: #fff;
 }
 .stock-item__caption {
@@ -185,7 +119,7 @@
     width: 100%;
     left: 0;
     right: 0;
-    bottom: 25px;
+    bottom: 90px;
 }
 .slider-dots ul {
     display: flex;
@@ -231,66 +165,4 @@
 .slider-dots__2 .slider-home-dots {
     padding-left: 75px;
     padding-right: 75px;
-}
-
-@media screen and (min-width: 320px) and (max-width: 992px) {
-    .slider-grid {
-        grid-template-rows: 150px 400px;
-        -ms-grid-rows: 150px 10px 400px;
-        grid-template-columns: 1fr 1fr 1fr;
-        -ms-grid-columns: 1fr 10px 33.3% 10px 33.3%;
-    }
-    .grid div:nth-child(2) {
-        -ms-grid-row: 3;
-    }
-    .grid div:nth-child(3) {
-        -ms-grid-row: 5;
-    }
-    .slider-box {
-        grid-row: 2;
-        grid-column: 1/4;
-        -ms-grid-column: 1;
-        -ms-grid-row-span: 3;
-    }
-}
-@media screen and (min-width: 320px) and (max-width: 768px) {
-    .slider-grid {
-        grid-template-rows: 150px 300px;
-        -ms-grid-rows: 150px 10px 300px;
-    }
-    .slider-pic {
-        padding: 10px;
-    }
-    .slider-pic__title {
-        font-size: 0.8667rem;
-        line-height: 1.067rem;
-    }
-    .slide-item {
-        padding: 15px 20px;
-    }
-    .slide-item__caption {
-        max-width: 100%;
-    }
-    .slide-item__caption h2 {
-        font-size: 1.5rem;
-    }
-}
-@media screen and (min-width: 320px) and (max-width: 480px) {
-    .slider-grid {
-        grid-template-rows: 0 300px;
-        -ms-grid-rows: 0 0 300px;
-    }
-    .slider-pic {
-        display: none;
-    }
-    .slider-pic__title {
-        font-size: 0.6667rem;
-        line-height: 0.8667rem;
-    }
-    .slide-item__caption h2 {
-        font-size: 1.5rem;
-    }
-    .slide-item__anons {
-        font-size: 1.1rem;
-    }
 }

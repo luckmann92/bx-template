@@ -18,10 +18,6 @@ if (function_exists("getmoduleevents")) {
 $pageLayout = $APPLICATION->GetPageProperty("PAGE_LAYOUT", AppGetCascadeDirProperties("PAGE_LAYOUT", "column1"));
 $arLang = $APPLICATION->GetLang();
 
-\Bitrix\Main\Page\Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("public/css/main.css"));
-
-//Подключения файла настроек шаблон
-require_once $_SERVER['DOCUMENT_ROOT'].'/local/tools/settings.php';
 
 $pageTitle = $APPLICATION->GetPageProperty('title') ?: $APPLICATION->GetTitle(false);
 ?>
@@ -34,12 +30,16 @@ $pageTitle = $APPLICATION->GetPageProperty('title') ?: $APPLICATION->GetTitle(fa
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="UTF-8">
         <?
+        \Bitrix\Main\Page\Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("public/css/main.css"));
         $APPLICATION->ShowHead();
         ?>
         <title><?=$arLang["SITE_NAME"] ? $pageTitle . ' - ' . $arLang["SITE_NAME"] : $pageTitle?></title>
     </head>
 <body class="app">
 <?
+//Подключения файла настроек шаблон
+require_once $_SERVER['DOCUMENT_ROOT'].'/local/tools/settings.php';
+
 if ($USER->IsAdmin()) {
     $APPLICATION->ShowPanel();
 }
@@ -129,6 +129,7 @@ $APPLICATION->IncludeFile(
         "MODE" => "php"
     )
 );
+
 
 $APPLICATION->ShowBodyScripts();
 

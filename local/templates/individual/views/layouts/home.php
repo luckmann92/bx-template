@@ -7,7 +7,7 @@
 <?
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"home-slider_default",
+	"home-slider_" . $arParams['SETTING']['SLIDER'],
 	array(
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -78,7 +78,7 @@ $APPLICATION->IncludeComponent(
 
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"home-advanatges_default",
+	"home-advanatges_" . $arParams['SETTING']['ADVANTAGE'],
 	array(
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -150,7 +150,7 @@ if ($arParams['SETTING']['TEMPLATE_TYPE'] != 'COMPANY') {
     $arrFilter = array('PROPERTY_PRODUCT_ON_HOME_VALUE' => 'Да');
     $APPLICATION->IncludeComponent(
         "bitrix:catalog.section.list",
-        "home-sections_default",
+        "home-sections_" . $arParams['SETTING']['SECTIONS'],
         array(
             "IBLOCK_TYPE" => "base",
             "IBLOCK_ID" => "1",

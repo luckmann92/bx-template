@@ -85,7 +85,13 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         );?>
                     </a>
                     <div class="header__desc">
-                        <p>Разработка и продвижение сайтов</p>
+                        <p><?$APPLICATION->IncludeFile(
+                                "include/".SITE_ID."/slogan.php",
+                                array(), array(
+                                    "SHOW_BORDER" => true,
+                                    "MODE" => "text"
+                                )
+                            );?></p>
                     </div>
                 </div>
                 <div class="col-lg-auto header__block header__address">
@@ -93,8 +99,13 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         <?=GetContentSvgIcon('address')?>
                     </div>
                     <div class="header__text">
-                        <span>г. Екатеринбург, ул.</span>
-                        <span>Генеральская, 3, оф.208</span>
+                        <?$APPLICATION->IncludeFile(
+                            "include/".SITE_ID."/contact/address.php",
+                            array(), array(
+                                "SHOW_BORDER" => true,
+                                "MODE" => "text"
+                            )
+                        );?>
                     </div>
                 </div>
                 <div class="col-lg-auto header__block header__phone">

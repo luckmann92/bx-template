@@ -14,7 +14,10 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         );?>
                     </a>
                     <div class="header__desc">
-                        <p>Разработка и продвижение сайтов</p>
+                        <p><?$APPLICATION->IncludeFile('include/'.SITE_ID.'/slogan.php',
+                            ['SETTING' => $arParams['SETTING']],
+                            ['SHOW_BORDER' => false, 'MODE' => 'text']
+                        );?></p>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-auto header-search">

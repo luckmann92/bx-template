@@ -26,8 +26,8 @@ if(check_bitrix_sessid() && $_REQUEST['SET_SETTING'] == 'Y') {
             }
         }
     }
-   //$json['success'] = $CWb->setTemplateSetting($arSetting);
-    $json['success'] = $arResult['SETTING'];
+    $json['success'] = $CWb->setTemplateSetting($arSetting);
+    //*$json['success'] = $arResult['SETTING'];
     echo json_encode($json);
     die();
 } else {

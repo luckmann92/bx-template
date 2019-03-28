@@ -18,7 +18,7 @@ if (function_exists("getmoduleevents")) {
 $pageLayout = $APPLICATION->GetPageProperty("PAGE_LAYOUT", AppGetCascadeDirProperties("PAGE_LAYOUT", "column1"));
 $arLang = $APPLICATION->GetLang();
 
-
+\Bitrix\Main\Page\Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("public/css/main.css"));
 $pageTitle = $APPLICATION->GetPageProperty('title') ?: $APPLICATION->GetTitle(false);
 ?>
 <!doctype html>
@@ -30,7 +30,7 @@ $pageTitle = $APPLICATION->GetPageProperty('title') ?: $APPLICATION->GetTitle(fa
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta charset="UTF-8">
         <?
-        \Bitrix\Main\Page\Asset::getInstance()->addCss($APPLICATION->GetTemplatePath("public/css/main.css"));
+
         $APPLICATION->ShowHead();
         ?>
         <title><?=$arLang["SITE_NAME"] ? $pageTitle . ' - ' . $arLang["SITE_NAME"] : $pageTitle?></title>

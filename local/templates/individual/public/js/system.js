@@ -80,6 +80,20 @@ $(document).ready(function() {
         return false;
     });
 
+    $(document).on('click', '.js-init_reset_settings', function () {
+        var sForm = $(this).closest('.settings__panel').find('form');
+        $.ajax({
+            type: sForm.attr('method'),
+            url: sForm.attr('action'),
+            data: sForm.serialize(),
+            dataType: 'html',
+            success: function(response) {
+                location.reload();
+            }
+        });
+        return false;
+    });
+
     $(document).on('change', '.js-init-template_select', function() {
         var arTemplate = {
             name: $(this).attr('name'),

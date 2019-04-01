@@ -98,7 +98,7 @@ $(document).ready(function() {
         ]
     });
 
-    $('.reviews-main__list').slick({
+    /*$('.reviews-main__list').slick({
         slidesToShow: 1,
         autoplay: false,
         slidesToScroll: 1,
@@ -143,7 +143,7 @@ $(document).ready(function() {
                 }
             }
         ]
-    });
+    });*/
 
     $('input[type="tel"]').inputmask('+7 (999) 999-99-99');
 

@@ -8,7 +8,7 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                 <li class="settings__tabs-menu-item js-tab-trigger" data-tab="2"><a href="#">Главная</a></li>
                 <li class="settings__tabs-menu-item js-tab-trigger" data-tab="3"><a href="#">Футер</a></li>
             </ul>
-            <a class="settings__tabs-reset" data-name="TEMPLATE_RESET" data-value="Y">
+            <a class="settings__tabs-reset js-init_reset_settings" data-name="TEMPLATE_RESET" data-value="Y">
                 <svg width="27" height="27" viewBox="0 0 27 27" fill="transparent" xmlns="http://www.w3.org/2000/svg">
                     <path d="M20.4286 7.92857C18.4105 5.52669 15.3843 4 12.0014 4C5.92548 4 1 8.92487 1 15C1 21.0751 5.92548 26 12.0014 26C17.9941 26 22.8678 21.209 23 15.2487" stroke="#FF1E36" stroke-width="2"/>
                     <path d="M13 8.77832H20.7782V1.00015" stroke="#FF1E36" stroke-width="2"/>

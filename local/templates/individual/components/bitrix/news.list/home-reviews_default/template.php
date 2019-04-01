@@ -55,4 +55,53 @@ $this->setFrameMode(true);
             </div>
         </div>
     </section>
+
+    <script>
+        $('.reviews-main__list').slick({
+            slidesToShow: 1,
+            autoplay: false,
+            slidesToScroll: 1,
+            adaptiveHeight: true,
+            fade: true,
+            swipe: true,
+            arrows:false,
+            asNavFor: '.reviews-nav__list'
+        });
+        $('.reviews-nav__list').slick({
+            arrows: true,
+            slidesToShow: Number($('.reviews-main__list').attr('data-slides-to-show')),
+            focusOnSelect: true,
+            slidesToScroll: 1,
+            asNavFor: '.reviews-main__list',
+            dots: false,
+            prevArrow: '<button type="button" class="review__prev review__arrow slick-prev"></button>',
+            nextArrow: '<button type="button" class="review__next review__arrow slick-next"></button>',
+            responsive: [
+                {
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 4
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 3
+                    }
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
+        });
+    </script>
 <?}?>

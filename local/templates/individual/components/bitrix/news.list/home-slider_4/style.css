@@ -103,6 +103,9 @@
     user-select: none;
     z-index: 1;
 }
+.slide-item .c-dark h2, .slide-item .c-dark h3, .slide-item .c-dark {
+    color: #333;
+}
 .slide-item__2 {
     padding: 25px 90px 110px;
 }

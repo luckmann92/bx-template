@@ -10,10 +10,6 @@
 {
     border-color: MAIN;
 }
-.slide-item .c-dark h2, .slide-item .c-dark h3, .slide-item .c-dark
-{
-    color: MAIN;
-}
 .btn.b-dark:hover, .btn.b-dark:focus, .btn.b-dark:active,
 .header-bottom .catalog__menu li a
 {

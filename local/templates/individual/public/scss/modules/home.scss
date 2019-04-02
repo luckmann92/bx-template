@@ -235,7 +235,7 @@ footer {
   position: relative;
   display: flex;
   justify-content: flex-end;
-  height:200px;
+  height:auto;
   flex-direction: column;
   border-radius:5px;
   padding: 15px 28px;
@@ -261,8 +261,11 @@ footer {
       }
     }
   }
+  img {
+    margin-bottom: 10px;
+  }
 }
-
+/*
 .view__label--slider {
   height: 140px;
 }
@@ -271,11 +274,11 @@ footer {
   height: 140px;
 }
 .view__footer {
-  height: 230px;
+  height: 160px;
 }
 .view__category {
   height: 280px;
-}
+}*/
 .settings__panel-content {
   display: none;
   width: 550px;

@@ -20,6 +20,13 @@
     transition: 250ms;
 }
 
+.container-section--popular .section-item {
+    background-image: url(../../../../public/images/image-bg.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
 .section-item:hover .section-item__image {
     -webkit-transform: scale(1.05);
     transform: scale(1.05);

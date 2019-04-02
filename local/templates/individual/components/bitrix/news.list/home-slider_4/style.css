@@ -1,34 +1,24 @@
 .section-slider {
     background-color: #fff;
-    padding: 10px 0;
-}
-.slider-grid {
-    display: grid;
-    display: -ms-grid;
-    grid-template-columns: 100%;
-    -ms-grid-columns: 100%;
-    grid-template-rows: 550px 175px;
-    -ms-grid-rows: 550px 10px 175px;
-    grid-gap: 10px;
-}
-.grid div:nth-child(2) {
-    -ms-grid-row: 3;
-}
-.grid div:nth-child(3) {
-    -ms-grid-row: 5;
+    position: relative;
 }
 .slider-pics {
-    margin: 0 -5px;
+    z-index: 11;
+}
+.slider-pic__box {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
 }
 .slider-pic {
     position: relative;
-    display: flex;
+    display: flex!important;
     align-items: flex-end;
-    padding: 15px 35px;
-    height: 175px!important;
-    margin: 0 5px;
+    height: 33.333333%!important;
+    padding: 15px 0;
     overflow: hidden;
-
+    border: none!important;
 }
 .slider-pic.c-shadow:before {
     content: '';
@@ -62,8 +52,19 @@
     font-size: 1.2rem;
     line-height: 1.733rem;
     max-width: 250px;
+    margin: 0;
+    padding-left: 20px;
     color: #fff;
     z-index: 5;
+}
+.slider-pic.slick-current .slider-pic__title:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 7px;
+    background-color: red;
 }
 .slider-pic:hover .slider-pic__image, .slider-pic.slick-current .slider-pic__image {
     -webkit-transform: scale(1.05);
@@ -80,13 +81,14 @@
 .slider-box {
     overflow: hidden;
     position: relative;
+    z-index: 10;
     grid-row: 1;
     grid-column: 1;
     -ms-grid-column: 3;
     -ms-grid-row-span: 5;
 }
 .slider-home, .slick-track, .slick-list {
-    height: 100% !important;
+    height: 560px !important;
 }
 .section-slider .btn:hover, .section-slider .btn:focus, .section-slider .btn:active {
     border-color: #fff;
@@ -124,7 +126,7 @@
     opacity: 0.4;
 }
 .slide-item__caption {
-    z-index: 1;
+    z-index: 5;
     position: relative;
     max-width: 320px;
 }
@@ -276,20 +278,25 @@
 }
 @media screen and (min-width: 320px) and (max-width: 768px) {
     .slider-pic {
-        padding: 10px;
+        padding: 10px 0;
     }
     .slider-pic__title {
         font-size: 0.8667rem;
         line-height: 1.067rem;
     }
     .slide-item {
-        padding: 15px 20px;
+        padding: 50px 20px;
     }
     .slide-item__caption {
         max-width: 100%;
     }
     .slide-item__caption h2 {
         font-size: 1.5rem;
+    }
+}
+@media screen and (min-width: 320px) and (max-width: 576px) {
+    .slider-pics {
+        display: none;
     }
 }
 @media screen and (min-width: 320px) and (max-width: 480px) {

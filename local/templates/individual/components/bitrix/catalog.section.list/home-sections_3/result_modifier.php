@@ -21,15 +21,10 @@ if($arResult['SECTIONS']){
     foreach ($arResult['SECTIONS'] as $key => $arSection){
         if($index <= $arParams['MAX_ELEMENTS']){
             if($arSection['UF_SECTION_ON_HOME'] != 0){
-                if($index == 3 || $index == 5){
-                    $imgSize = $index == 3 ? $arSizes['horizontal'] : $arSizes['vertical'];
-                } else {
-                    $imgSize = $arSizes['quad'];
-                }
                 if(is_array($arSection['PICTURE'])){
                     $arResult['SECTIONS'][$key]['PICTURE']['SRC'] = CFile::ResizeImageGet(
                         $arSection['PICTURE'],
-                        $imgSize, BX_RESIZE_IMAGE_EXACT,
+                        array('width' => 390, 'height' => 265), BX_RESIZE_IMAGE_EXACT,
                         true)['src'];
                 } else {
                     $arResult['SECTIONS'][$key]['PICTURE']['SRC'] = SITE_TEMPLATE_PATH.'/public/images/noPhoto.png';

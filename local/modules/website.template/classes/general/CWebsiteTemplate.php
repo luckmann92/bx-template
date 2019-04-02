@@ -271,6 +271,7 @@ class CWebsiteTemplate {
                 'SIMPLE' => 'default',
                 'TITLE' => 'default'
             ),
+            'REVIEWS' => 'default',
             'LOGO' => 'default',
             'SLIDER' => 'default'
         );
@@ -308,6 +309,14 @@ class CWebsiteTemplate {
                 '13' => '13px',
                 '15' => '15px',
                 '17' => '17px'
+            ),
+            'REVIEWS' => array(
+                'default' => array(
+                    'NAME' => 'Вариант 1'
+                ),
+                '2' => array(
+                    'NAME' => 'Вариант 2'
+                )
             ),
             'SLIDER' => array(
                 'default' => array(

@@ -63,7 +63,12 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                         switch ($CODE) {
                             case 'SLIDER':?>
                                 <div class="group__panel page__view">
-                                    <div class="group__theme-title">Слайдер на главной</div>
+                                    <div class="group__theme-title group__theme-title--checkbox">
+                                        <span>Слайдер на главной</span>
+                                        <div class="group__theme-checkbox__box">
+                                            <input type="checkbox" id="slider-checkbox"><label class="group__theme-label" for="slider-checkbox">во весь экран</label>
+                                        </div>
+                                    </div>
                                     <div class="group__theme-list">
                                         <?foreach ($arFields as $id => $field) {?>
                                             <div class="col__part" data-view-type="default">

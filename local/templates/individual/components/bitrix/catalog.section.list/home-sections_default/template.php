@@ -32,16 +32,18 @@ $this->setFrameMode(true);
             </div>
         <?}?>
         <div class="container">
-            <div class="container-section">
+            <div class="container-section container-section--popular">
                 <?$i = 1;
                 foreach ($arResult['SECTIONS'] as $arSection){
                     $this->AddEditAction($arSection['ID'], $arSection['EDIT_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "ELEMENT_EDIT"));
                     $this->AddDeleteAction($arSection['ID'], $arSection['DELETE_LINK'], CIBlock::GetArrayByID($arSection["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));?>
                     <a href="<?=$arSection['SECTION_PAGE_URL']?>" class="section-item item-<?=$i?>" id="<?=$this->GetEditAreaId($arSection['ID']);?>">
                         <div class="section-item__image">
-                            <img lazy-images="<?=$arSection['PICTURE']['SRC']?>"
-                                 alt="<?=$arSection['PICTURE']['ALT'] ? $arSection['PICTURE']['ALT'] : $arSection['NAME']?>"
-                                 title="<?=$arSection['PICTURE']['TITLE'] ? $arSection['PICTURE']['TITLE'] : $arSection['NAME']?>">
+                            <img
+                                src="\local\templates\individual\public\images\image-bg.png"
+                                lazy-images="<?=$arSection['PICTURE']['SRC']?>"
+                                alt="<?=$arSection['PICTURE']['ALT'] ? $arSection['PICTURE']['ALT'] : $arSection['NAME']?>"
+                                title="<?=$arSection['PICTURE']['TITLE'] ? $arSection['PICTURE']['TITLE'] : $arSection['NAME']?>">
                         </div>
                         <div class="section-item__name"><?=$arSection['NAME']?></div>
                     </a>

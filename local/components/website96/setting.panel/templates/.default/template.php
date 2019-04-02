@@ -88,7 +88,28 @@ if($arResult['SETTING']['SHOW_PANEL'] == 'Y'){?>
                                                     <img src="<?=SITE_TEMPLATE_PATH?>/components/bitrix/news.list/home-advanatges_<?=$id?>/preview.png" alt="">
                                                     <input type="radio"
                                                            name="<?=$CODE?>"
-                                                           id="advantageView__<?=$id?>"
+                                                           id="<?=$CODE?>View__<?=$id?>"
+                                                           value="<?=$id?>"
+                                                        <?=$arResult['SETTING'][$CODE] == $id ? 'checked' : ''?>
+                                                    >
+                                                    <span class="pageView__name"><?=$field['NAME']?></span>
+                                                </label>
+                                            </div>
+                                        <?}?>
+                                    </div>
+                                </div>
+                                <?break;
+                            case 'REVIEWS':?>
+                                <div class="group__panel page__view">
+                                    <div class="group__theme-title">Блок "Отзывы"</div>
+                                    <div class="group__theme-list group__header">
+                                        <?foreach ($arFields as $id => $field) {?>
+                                            <div class="col__line">
+                                                <label class="view__label view__line" for="<?=$CODE?>View__<?=$id?>">
+                                                    <img src="<?=SITE_TEMPLATE_PATH?>/components/bitrix/news.list/home-reviews_<?=$id?>/preview.png" alt="">
+                                                    <input type="radio"
+                                                           name="<?=$CODE?>"
+                                                           id="<?=$CODE?>View__<?=$id?>"
                                                            value="<?=$id?>"
                                                         <?=$arResult['SETTING'][$CODE] == $id ? 'checked' : ''?>
                                                     >

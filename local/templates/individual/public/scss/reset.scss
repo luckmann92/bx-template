@@ -51,6 +51,9 @@ img {
 header {
   background-color: #fff;
 }
+.header-bottom .catalog__menu li a {
+  color:#333;
+}
 div.fancybox-overlay {
   background: rgba(211, 211, 211, 0.9);
 }
@@ -69,4 +72,29 @@ table {
 
 .logo-font {
   fill: #333;
+}
+.menu__dots {
+  position: absolute;
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: #333;
+  border-radius: 50%;
+  top: calc(50% - 2px);
+  left: 28px;
+}
+.menu__dots:before, .menu__dots:after {
+  content: '';
+  position: absolute;
+  display: inline-block;
+  background: #333;
+  border-radius: 50%;
+  width: 4px;
+  height: 4px;
+}
+.menu__dots:before {
+  left: -7px;
+}
+.menu__dots:after {
+  right: -7px;
 }

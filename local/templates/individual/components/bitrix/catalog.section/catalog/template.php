@@ -82,6 +82,9 @@ if($arResult['ITEMS']){
             <?=$arResult['NAV_STRING']?>
         </div>
     <?}?>
+    <?if ($arResult['DESCRIPTION']) {?>
+        <div class="pin"><?=$arResult['DESCRIPTION']?></div>
+    <?}?>
 <?} elseif($arResult['SECTIONS'] > 0 || $arResult['DESCRIPTION']) {?>
     <div class="pin"><?=$arResult['DESCRIPTION']?></div>
 <?} else {?>

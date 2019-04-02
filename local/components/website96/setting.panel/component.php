@@ -30,6 +30,9 @@ if(check_bitrix_sessid() && $_REQUEST['SET_SETTING'] == 'Y') {
     //*$json['success'] = $arResult['SETTING'];
     echo json_encode($json);
     die();
+} elseif ($_REQUEST['TEMPLATE_RESET'] == 'Y') {
+    $CWb->reset();
+
 } else {
     $this->IncludeComponentTemplate();
 }

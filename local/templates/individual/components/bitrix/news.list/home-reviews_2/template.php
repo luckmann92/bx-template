@@ -27,8 +27,10 @@ $this->setFrameMode(true);
                                     <div class="review-nav__item">
                                         <div class="review-nav__image" style="background-image: url(<?=$arReview['PREVIEW_PICTURE']['SRC']?>)"></div>
                                         <div class="review-nav__info">
-                                            <div class="review-nav__name">Вася Пупкин</div>
-                                            <div class="review-nav__date">27.08.2019</div>
+                                            <div class="review-nav__name"><?=$arReview['NAME']?></div>
+                                            <?if($arReview['PROPERTIES']['REVIEW_CLIENT_ADD_OPTION']['VALUE']){?>
+                                                <div class="review-nav__date"><?=$arReview['PROPERTIES']['REVIEW_CLIENT_ADD_OPTION']['VALUE']?></div>
+                                            <?}?>
                                         </div>
                                     </div>
                                 <?}?>

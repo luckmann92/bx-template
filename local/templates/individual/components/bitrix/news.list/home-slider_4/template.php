@@ -105,6 +105,7 @@ if($arResult['ITEMS']){?>
             prevArrow: '<button type="button" class="slide-prev slick-prev"></button>',
             nextArrow: '<button type="button" class="slide-next slick-next"></button>',
             adaptiveHeight: true,
+            fade: true,
             asNavFor: '.slider-pics',
             responsive:[
                 {

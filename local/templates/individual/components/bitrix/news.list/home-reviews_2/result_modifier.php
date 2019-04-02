@@ -7,8 +7,8 @@ if($arResult['ITEMS']){
             $arResult['ITEMS'][$key]['PREVIEW_PICTURE']['SRC'] = CFile::ResizeImageGet(
                 $arItem['PREVIEW_PICTURE'],
                 array(
-                    'width' => 80,
-                    'height' => 80
+                    'width' => 276,
+                    'height' => 375
                 ), BX_RESIZE_IMAGE_EXACT,
                 true, false,false, 85)['src'];
         }

@@ -440,7 +440,7 @@ $APPLICATION->IncludeComponent(
 
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
-	"home-reviews_default",
+	"home-reviews_" . $arParams['SETTING']['REVIEWS'],
 	array(
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",

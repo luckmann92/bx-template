@@ -86,3 +86,12 @@ footer .developer a {
 footer .developer a:hover, footer .developer a:focus, footer .developer a:active {
     transition: 300ms;
 }
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+    .footer-contact__icon svg {
+        position: absolute;
+        position: absolute;
+        left: calc(50% - 7px);
+        top: calc(50% - 7px);
+    }
+}

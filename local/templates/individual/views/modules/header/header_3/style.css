@@ -55,9 +55,6 @@
     font-size: 14px;
     font-weight: bold;
 }
-.header__bottom {
-    border-bottom: 1px solid #ececec;
-}
 .header__list {
     display: flex;
     width: 100%;

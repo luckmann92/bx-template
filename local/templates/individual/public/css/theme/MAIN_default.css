@@ -13,3 +13,6 @@
 {
     color:#fff;
 }
+.menu__dots, .menu__dots:after, .menu__dots:before {
+    background-color: #fff;
+}

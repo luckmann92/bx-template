@@ -218,6 +218,7 @@
     text-align: left;
     padding: 15px 25px;
     white-space: normal;
+    color: #333;
 }
 .header-bottom .catalog__menu li.more__menu:hover > a:before, .header-bottom .catalog__menu li.more__menu:focus > a:before {
     opacity: 0.1;

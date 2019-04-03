@@ -127,6 +127,7 @@
     text-align: left;
     padding: 15px 25px;
     white-space: normal;
+    color: #333;
 }
 .header__list li.more__menu:hover > a:before, .header__list li.more__menu:focus > a:before {
     opacity: 0.1;

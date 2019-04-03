@@ -2,6 +2,16 @@
     position: relative;
     z-index: 1;
 }
+.header-top:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.05;
+}
 .header-bottom {
     position: relative;
     z-index: 1;
@@ -218,7 +228,6 @@
     text-align: left;
     padding: 15px 25px;
     white-space: normal;
-    color: #333;
 }
 .header-bottom .catalog__menu li.more__menu:hover > a:before, .header-bottom .catalog__menu li.more__menu:focus > a:before {
     opacity: 0.1;

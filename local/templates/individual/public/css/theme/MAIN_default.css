@@ -16,3 +16,7 @@
 .menu__dots, .menu__dots:after, .menu__dots:before {
     background-color: #fff;
 }
+.header-top:before, .advantages__wrapper:before {
+    background-color: #F5F5F5;
+    opacity: 1!important;
+}

@@ -26,6 +26,12 @@ $arTemplateParameters = array(
         'TYPE' => 'STRING',
         'DEFAULT' => '3000'
     ],
+    "SLIDER_AUTOHEIGHT" => [
+        'PARENT' => 'BASE',
+        'NAME' => GetMessage('AUTOHEIGHT_TITLE'),
+        'TYPE' => 'CHECKBOX',
+        'DEFAULT' => 'Y'
+    ],
 	"NEWS_COUNT" => ["HIDDEN" => "Y"],
 	"FIELD_CODE" => ["HIDDEN" => "Y"],
 	"SORT_BY1" => ["HIDDEN" => "Y"],

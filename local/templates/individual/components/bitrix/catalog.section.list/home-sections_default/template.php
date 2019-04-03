@@ -13,10 +13,8 @@
 $this->setFrameMode(true);
 
 ?>
-<?if ($arResult['SECTIONS']) {
-    //ob_start();
-    ?>
-    <section class="section-home section-categories section-categories__1">
+<section class="section-home section-categories section-categories__1">
+    <?if ($arResult['SECTIONS']) {?>
         <?if($APPLICATION->GetCurPage(false) === '/'){?>
             <div class="section-title">
                 <div class="container">
@@ -51,21 +49,5 @@ $this->setFrameMode(true);
                 }?>
             </div>
         </div>
-    </section>
-<?
-   // $componentContent = ob_get_clean();
-}?>
-<?
-   /* $hash = mb_strimwidth(hash('sha256', $templateName), 0 , 5);
-    preg_match_all('~(?<=class=").*?(?=")~i', $componentContent, $matches);
-    foreach ($matches[0] as $mts) {
-        $mt = explode(' ', $mts);
-        foreach ($mt as $m) {
-            if (stripos($componentContent, $m . '_' . $hash) === false) {
-                $componentContent = str_replace($m, $m . '_' . $hash, $componentContent);
-            }
-        }
-
-    }
-    echo $componentContent;*/
-?>
+    <?}?>
+</section>

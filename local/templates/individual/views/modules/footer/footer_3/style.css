@@ -17,6 +17,16 @@ footer a:hover, footer a:focus, footer a:active {
     padding: 70px 0;
     background-color: #333;
 }
+.footer-top .btn-search {
+    background-color: #3D3D3D;
+    border: 2px solid #fff;
+}
+.footer-top .btn-search:hover {
+    background-color: #fff;
+}
+.footer-top .btn-search:hover svg path {
+    fill: #3D3D3D;
+}
 .footer-nav ul {
     list-style: none;
     padding: 0;
@@ -87,7 +97,9 @@ footer a:hover, footer a:focus, footer a:active {
     padding: 0;
 }
 .footer-top .footer-search input {
-    background-color: #fff;
+    background-color: #3D3D3D;
+    border: none;
+    color: #fff;
 }
 .footer-top .btn-white {
     border-color: #fff;

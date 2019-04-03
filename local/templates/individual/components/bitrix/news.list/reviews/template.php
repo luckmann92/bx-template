@@ -55,7 +55,7 @@ $this->setFrameMode(true);
 				<div class="review__item">
 					<div class="review__item-head">
 					<div class="item-top__left">
-						<div class="review__image review-nav__image" style="background-image: url(<?=$arReview['PREVIEW_PICTURE']['SRC']?>")"></div>
+						<div class="review__image review-nav__image" style="background-image: url(<?=$arReview['PREVIEW_PICTURE']['SRC']?>)"></div>
 					</div>
                     <div class="item-top__right">
                         <div class="review-client__name"><?=$arReview['NAME']?></div>

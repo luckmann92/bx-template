@@ -16,13 +16,11 @@
 .page-section ul li:hover a,
 .stock-title span,
 .header__phone a,
-.settings__tabs-menu a:hover, .settings__tabs-menu a:focus, .settings__tabs-menu a:active, .settings__tabs-menu a.active,
-a
-{
+.settings__tabs-menu a:hover, .settings__tabs-menu a:focus, .settings__tabs-menu a:active, .settings__tabs-menu-item.active a,
+a {
     color: #ff223d;
 }
-.btn-default svg
-{
+.btn-default svg {
     fill: #ff223d;
 }
 .review__image,
@@ -39,7 +37,7 @@ a
 .btn-search, .btn-search:hover, .btn-search:active, .btn-search:focus,
 .btn-primary,
 .btn-default,
-.btn-icon
+.btn-icon,
  {
     border-color: #ff223d;
 }
@@ -56,9 +54,10 @@ a
 .product__item:focus .product__item-link:before, .product__item:hover .product__item-link:before,
 .left__menu .catalog__menu>li.active>.submenu,
 .btn-default:hover, .btn-default:active, .btn-default:focus,
-.settings__tabs-menu a:hover:before, .settings__tabs-menu a:focus:before, .settings__tabs-menu a:active:before, .settings__tabs-menu a.active:before,
+.settings__tabs-menu a:hover:before, .settings__tabs-menu a:focus:before, .settings__tabs-menu a:active:before, .settings__tabs-menu-item.active a:before,
 .settings__tabs-reset:hover span:after, .settings__tabs-reset:active span:after, .settings__tabs-reset:focus span:after,
-.container-section--popular .section-item__name:before {
+.container-section--popular .section-item__name:before,
+.menu__dots, .menu__dots:after, .menu__dots:before {
     background: #ff223d;
 }
 .logo-circle,
@@ -67,25 +66,21 @@ a
 .btn-icon svg path,
 .navN li.navn-next a svg path, .navN li.navn-prev a svg path,
 .btn-search:focus path, .btn-search:hover path, .btn-search:active path 
-.btn-default:hover svg, .btn-default:focus svg, .btn-default:active svg,
-.btn-primary:hover svg, .btn-primary:focus svg, .btn-primary:active svg
-{
+.btn-default:hover svg, .btn-default:focus svg, .btn-default:active svg ,
+.btn-primary:hover svg, .btn-primary:focus svg, .btn-primary:active svg,
+ {
     fill:#ff223d;
 }
-.settings__tabs-reset svg path
-{
+.settings__tabs-reset svg path {
     stroke:#ff223d;
 }
-.review-nav__image:after
-{
+.review-nav__image:after {
     border-color: #ff223d transparent transparent transparent;
 }
 .review__next:before,
-.btn-link:after
-{
+.btn-link:after {
     border-color: transparent transparent transparent #ff223d;
 }
-.review__prev:before
-{
+.review__prev:before {
     border-color: transparent #ff223d transparent transparent;
 }

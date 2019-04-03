@@ -14,8 +14,9 @@ use \Bitrix\Main\Localization\Loc;
 
 $this->setFrameMode(true);
 
-if($arResult['ITEMS']){?>
+?>
 <section class="section-home section-products section-products__1">
+    <?if($arResult['ITEMS']){?>
     <div class="section-title">
         <div class="container">
             <div class="row justify-content-md-between justify-content-sm-start align-items-end align-items-md-center">
@@ -65,5 +66,5 @@ if($arResult['ITEMS']){?>
             <?}?>
         </div>
     </div>
+    <?}?>
 </section>
-<?}?>

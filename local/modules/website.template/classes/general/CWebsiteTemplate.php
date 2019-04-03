@@ -90,7 +90,7 @@ class CWebsiteTemplate {
 
         }
 
-        $templateSettingsFile = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/.settings.json';
+        $templateSettingsFile = $_SERVER['DOCUMENT_ROOT'] . '/.settings.json';
 
         if ($this->type_save == 'session') {
             $_SESSION['TEMPLATE_SETTINGS'] = json_encode($cur_setting);
@@ -253,7 +253,7 @@ class CWebsiteTemplate {
 
     public function getTemplateSetting()
     {
-        $templateSettingsFile = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/.settings.json';
+        $templateSettingsFile = $_SERVER['DOCUMENT_ROOT'] . '/.settings.json';
         $defaultSetting = array(
             'SHOW_PANEL' => COption::GetOptionString($this->module_id, 'WEBSITE_TEMPLATE_SETTING_VIEW_PANEL', 'Y', SITE_ID),
             'TEMPLATE_TYPE' => 'CATALOG',

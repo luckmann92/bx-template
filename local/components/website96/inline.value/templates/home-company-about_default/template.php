@@ -20,7 +20,7 @@
                     </div>
                     <div class="about-item__text"><?if($arParams['BLOCK_DESCRIPTION'] == "Y"){
                             $APPLICATION->IncludeFile(
-                                "include/".SITE_ID."/home-about.php",
+                                "/include/".SITE_ID."/home-about.php",
                                 array(), array(
                                     "SHOW_BORDER" => true,
                                     "MODE" => "html"

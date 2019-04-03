@@ -1,0 +1,19 @@
+.header-top:before,
+.advantages__wrapper:before,
+.header-bottom .catalog__menu li a:hover:before,
+.btn.b-dark:hover, .btn.b-dark:focus, .btn.b-dark:active
+{
+    background-color: #272727;
+}
+.btn.b-dark:hover, .btn.b-dark:focus, .btn.b-dark:active
+{
+    border-color: #ff223d;
+}
+.slide-item .c-dark h2, .slide-item .c-dark h3, .slide-item .c-dark
+{
+    color: #ff223d;
+}
+.btn.b-dark:hover, .btn.b-dark:focus, .btn.b-dark:active
+{
+    color:#fff;
+}

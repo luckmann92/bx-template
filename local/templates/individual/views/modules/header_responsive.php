@@ -50,10 +50,10 @@
                                 );?>
                             </div>
                             <div class="head-nav__links">
-                                <a class="nav__link" href="tel:<?$APPLICATION->IncludeFile("include/".SITE_ID."/contact/phone.php", [], ["SHOW_BORDER" => false, "MODE" => "html"]);?>">
+                                <a class="nav__link" href="tel:<?$APPLICATION->IncludeFile("/include/".SITE_ID."/contact/phone.php", [], ["SHOW_BORDER" => false, "MODE" => "html"]);?>">
                                     <span class="icon__svg icon__phone"><?=GetContentSvgIcon('phone');?></span>
                                     <span><?$APPLICATION->IncludeFile(
-                                            "include/".SITE_ID."/contact/phone.php",
+                                            "/include/".SITE_ID."/contact/phone.php",
                                             array(
                                                 "SHOW_BORDER" => false,
                                                 "MODE" => "html"
@@ -64,7 +64,7 @@
                                 <a class="nav__link" href="<?=SITE_DIR?>contacts/">
                                     <span class="icon__svg icon__address"><?=GetContentSvgIcon('address');?></span>
                                     <span><?$APPLICATION->IncludeFile(
-                                            "include/".SITE_ID."/contact/address.php",
+                                            "/include/".SITE_ID."/contact/address.php",
                                             array(
                                                 "SHOW_BORDER" => false,
                                                 "MODE" => "html"
@@ -79,7 +79,7 @@
             </nav>
             <div class="col-md-3 col-sm-6 col-6 head-logo d-flex align-items-center">
                 <a href="<?=SITE_DIR?>" class="d-inline-flex align-items-center head-logo__link" style="height:70px">
-                    <?$APPLICATION->IncludeFile('include/'.SITE_ID.'/logo.php',
+                    <?$APPLICATION->IncludeFile('/include/'.SITE_ID.'/logo.php',
                         ['SETTING' => $arParams['SETTING']],
                         ['SHOW_BORDER' => false, 'MODE' => 'php']
                     );?></a>
@@ -89,13 +89,13 @@
                     <div class="col-12 head-phone__content">
                         <span class="head-phone__icon"><?=GetContentSvgIcon('phone')?></span>
                         <a class="head-phone__value" href="tel:<?$APPLICATION->IncludeFile(
-                            "include/".SITE_ID."/contact/phone.php",
+                            "/include/".SITE_ID."/contact/phone.php",
                             array(), array(
                                 "SHOW_BORDER" => false,
                                 "MODE" => "text"
                             )
                         );?>"><?$APPLICATION->IncludeFile(
-                                "include/".SITE_ID."/contact/phone.php",
+                                "/include/".SITE_ID."/contact/phone.php",
                                 array(), array(
                                     "SHOW_BORDER" => true,
                                     "MODE" => "text"

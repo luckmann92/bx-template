@@ -20,7 +20,9 @@ if($arResult['ITEMS']){?>
                      data-dots="<?=count($arResult['ITEMS']) > 0 ? 'true':'false'?>"
                      data-arrows="<?=$arParams['SLIDER_ARROWS'] == 'N' ? 'false' : 'true'?>"
                      data-speed="<?=$arParams['SLIDER_TIME'] > 0 ? $arParams['SLIDER_TIME'] : '0'?>"
-                     data-autoplay="<?=$arParams['SLIDER_AUTOPLAY'] == 'Y' ? 'true' : 'false'?>">
+                     data-autoplay="<?=$arParams['SLIDER_AUTOPLAY'] == 'Y' ? 'true' : 'false'?>"
+                     data-autoheight="<?=$arParams['SLIDER_AUTOHEIGHT'] == 'Y' ? 'true' : 'false'?>"
+                >
                     <?foreach ($arResult['ITEMS'] as $k => $arSlide){
                         $this->AddEditAction($arSlide['ID'], $arSlide['EDIT_LINK'], CIBlock::GetArrayByID($arSlide["IBLOCK_ID"], "ELEMENT_EDIT"));
                         $this->AddDeleteAction($arSlide['ID'], $arSlide['DELETE_LINK'], CIBlock::GetArrayByID($arSlide["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));

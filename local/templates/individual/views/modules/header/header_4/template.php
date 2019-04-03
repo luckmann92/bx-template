@@ -79,14 +79,14 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                 </div>
                 <div class="col-lg-auto d-flex align-items-center header__logo header-logo--desc">
                     <a href="<?=SITE_DIR?>">
-                        <?$APPLICATION->IncludeFile('include/'.SITE_ID.'/logo.php',
+                        <?$APPLICATION->IncludeFile('/include/'.SITE_ID.'/logo.php',
                             ['SETTING' => $arParams['SETTING']],
                             ['SHOW_BORDER' => false, 'MODE' => 'php']
                         );?>
                     </a>
                     <div class="header__desc">
                         <p><?$APPLICATION->IncludeFile(
-                                "include/".SITE_ID."/slogan.php",
+                                "/include/".SITE_ID."/slogan.php",
                                 array(), array(
                                     "SHOW_BORDER" => true,
                                     "MODE" => "text"
@@ -100,7 +100,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                     </div>
                     <div class="header__text">
                         <?$APPLICATION->IncludeFile(
-                            "include/".SITE_ID."/contact/address.php",
+                            "/include/".SITE_ID."/contact/address.php",
                             array(), array(
                                 "SHOW_BORDER" => true,
                                 "MODE" => "text"
@@ -114,13 +114,13 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                     </div>
                     <div class="header__text">
                         <a class="header__number" href="tel:<?$APPLICATION->IncludeFile(
-                            "include/".SITE_ID."/contact/phone.php",
+                            "/include/".SITE_ID."/contact/phone.php",
                             array(), array(
                                 "SHOW_BORDER" => false,
                                 "MODE" => "text"
                             )
                         );?>"><?$APPLICATION->IncludeFile(
-                                "include/".SITE_ID."/contact/phone.php",
+                                "/include/".SITE_ID."/contact/phone.php",
                                 array(), array(
                                     "SHOW_BORDER" => true,
                                     "MODE" => "text"

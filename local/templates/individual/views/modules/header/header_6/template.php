@@ -83,13 +83,13 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                     </div>
                     <div class="header__text">
                         <a class="header__number" href="tel:<?$APPLICATION->IncludeFile(
-                            "include/".SITE_ID."/contact/phone.php",
+                            "/include/".SITE_ID."/contact/phone.php",
                             array(), array(
                                 "SHOW_BORDER" => false,
                                 "MODE" => "text"
                             )
                         );?>"><?$APPLICATION->IncludeFile(
-                                "include/".SITE_ID."/contact/phone.php",
+                                "/include/".SITE_ID."/contact/phone.php",
                                 array(), array(
                                     "SHOW_BORDER" => true,
                                     "MODE" => "text"
@@ -126,7 +126,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                 </div>
                 <div class="col-lg-auto d-flex align-items-center header__logo header-logo--desc">
                     <a href="<?=SITE_DIR?>">
-                        <?$APPLICATION->IncludeFile('include/'.SITE_ID.'/logo.php',
+                        <?$APPLICATION->IncludeFile('/include/'.SITE_ID.'/logo.php',
                             ['SETTING' => $arParams['SETTING']],
                             ['SHOW_BORDER' => false, 'MODE' => 'php']
                         );?>
@@ -137,8 +137,10 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         <?=GetContentSvgIcon('address')?>
                     </div>
                     <div class="header__text">
-                        <div>г. Екатеринбург, ул.</div>
-                        <div>Генеральская, 3, оф.208</div>
+                        <?$APPLICATION->IncludeFile('/include/'.SITE_ID.'/contact/address.php',
+                            ['SETTING' => $arParams['SETTING']],
+                            ['SHOW_BORDER' => false, 'MODE' => 'php']
+                        );?>
                     </div>
                 </div>
                 <div class="col-lg-auto header__block header__search header__search--desktop">

@@ -32,7 +32,7 @@
                     <a href="/contacts/" class="address__link d-flex">
                         <span class="icon__geo"><?= GetContentSvgIcon('address');?></span>
                         <span class="address-value"><?$APPLICATION->IncludeFile(
-                                "include/".SITE_ID."/contact/address.php",
+                                "/include/".SITE_ID."/contact/address.php",
                                 array(), array(
                                     "SHOW_BORDER" => true,
                                     "MODE" => "text"
@@ -47,7 +47,7 @@
             <div class="row justify-content-between align-items-center">
                 <div class="col d-flex align-items-center header-logo">
                     <a href="<?=SITE_DIR?>" class="d-flex align-items-center">
-                        <?$APPLICATION->IncludeFile('include/'.SITE_ID.'/logo.php',
+                        <?$APPLICATION->IncludeFile('/include/'.SITE_ID.'/logo.php',
                             ['SETTING' => $arParams['SETTING']],
                             ['SHOW_BORDER' => false, 'MODE' => 'php']
                         );?>
@@ -73,13 +73,13 @@
                     <div class="header-phone">
                         <?=GetContentSvgIcon('phone')?>
                         <a href="tel:<?$APPLICATION->IncludeFile(
-                            "include/".SITE_ID."/contact/phone.php",
+                            "/include/".SITE_ID."/contact/phone.php",
                             array(), array(
                                 "SHOW_BORDER" => false,
                                 "MODE" => "text"
                             )
                         );?>"><?$APPLICATION->IncludeFile(
-                                "include/".SITE_ID."/contact/phone.php",
+                                "/include/".SITE_ID."/contact/phone.php",
                                 array(), array(
                                     "SHOW_BORDER" => true,
                                     "MODE" => "text"
@@ -123,7 +123,7 @@
         <nav class="header-bottom">
             <div class="container">
                 <div class="row row-line"><?$APPLICATION->IncludeFile(
-                        "include/".SITE_ID."/header__catalog-menu.php",
+                        "/include/".SITE_ID."/header__catalog-menu.php",
                         array(),
                         array(
                             "SHOW_BORDER" => false,

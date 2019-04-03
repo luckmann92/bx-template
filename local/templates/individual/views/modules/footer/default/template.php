@@ -59,18 +59,18 @@
                     <div class="footer-contact">
                         <div class="col-2 footer-contact__icon"><?=GetContentSvgIcon('phone');?></div>
                         <div class="footer-contact__content">
-                            <div class="footer-contact__name"><?$APPLICATION->IncludeFile("include/".SITE_ID."/contact/phone__title.php",[],["SHOW_BORDER"=>true,"MODE"=>"text"]);?></div>
+                            <div class="footer-contact__name"><?$APPLICATION->IncludeFile("/include/".SITE_ID."/contact/phone__title.php",[],["SHOW_BORDER"=>true,"MODE"=>"text"]);?></div>
                             <a class="footer-contact__link"
-                               href="tel:<?$APPLICATION->IncludeFile("include/".SITE_ID."/contact/phone.php", [],["SHOW_BORDER" => false,"MODE" => "text"]);?>">
-                                <?$APPLICATION->IncludeFile("include/".SITE_ID."/contact/phone.php", [],["SHOW_BORDER"=>true, "MODE" => "text"]);?></a>
+                               href="tel:<?$APPLICATION->IncludeFile("/include/".SITE_ID."/contact/phone.php", [],["SHOW_BORDER" => false,"MODE" => "text"]);?>">
+                                <?$APPLICATION->IncludeFile("/include/".SITE_ID."/contact/phone.php", [],["SHOW_BORDER"=>true, "MODE" => "text"]);?></a>
                         </div>
                     </div>
                     <div class="footer-contact">
                         <div class="col-2 footer-contact__icon"><?=GetContentSvgIcon('address');?></div>
                         <div class="footer-contact__content">
-                            <div class="footer-contact__name"><?$APPLICATION->IncludeFile("include/".SITE_ID."/contact/address__title.php",[],["SHOW_BORDER"=>true,"MODE"=>"text"]);?></div>
+                            <div class="footer-contact__name"><?$APPLICATION->IncludeFile("/include/".SITE_ID."/contact/address__title.php",[],["SHOW_BORDER"=>true,"MODE"=>"text"]);?></div>
                             <a class="footer-contact__link"
-                               href="<?=SITE_DIR?>contacts/"><?$APPLICATION->IncludeFile("include/".SITE_ID."/contact/address.php", [],["SHOW_BORDER"=>true,"MODE" =>"text"]);?></a>
+                               href="<?=SITE_DIR?>contacts/"><?$APPLICATION->IncludeFile("/include/".SITE_ID."/contact/address.php", [],["SHOW_BORDER"=>true,"MODE" =>"text"]);?></a>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
         <div class="container">
             <div class="row justify-content-sm-between align-items-center">
                 <div class="col-auto copyright">
-                    <?$APPLICATION->IncludeFile("include/".SITE_ID."/copyright.php", [], ["SHOW_BORDER" => true, "MODE" => "text"]);?>
+                    <?$APPLICATION->IncludeFile("/include/".SITE_ID."/copyright.php", [], ["SHOW_BORDER" => true, "MODE" => "text"]);?>
                 </div>
                 <div class="col-auto developer">
                     <a rel="nofollow" href="http://website96.ru/" target="_blank" title="Разработано Website96"><?=GetContentSvgIcon('website96')?></a>
@@ -90,19 +90,6 @@
         </div>
     </div>
 </footer>
-<?
-if($_COOKIE["confirm_fz152"] != 'y'){
-    $APPLICATION->IncludeComponent(
-        "website96:inline.value",
-        "fz152",
-        array(
-            "COMPONENT_TEMPLATE" => "fz152",
-            "VALUE" => "Сайт использует файлы cookies и сервис сбора технических данных его посетителей.  Продолжая использовать данный ресурс, вы автоматически соглашаетесь с использованием данных технологий."
-        ),
-        false
-    );
-}
- ?>
 
 
 

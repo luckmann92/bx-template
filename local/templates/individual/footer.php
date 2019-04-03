@@ -119,6 +119,18 @@ $APPLICATION->IncludeFile(
     )
 );
 
+if($_COOKIE["confirm_fz152"] != 'y'){
+    $APPLICATION->IncludeComponent(
+        "website96:inline.value",
+        "fz152",
+        array(
+            "COMPONENT_TEMPLATE" => "fz152",
+            "VALUE" => "Сайт использует файлы cookies и сервис сбора технических данных его посетителей.  Продолжая использовать данный ресурс, вы автоматически соглашаетесь с использованием данных технологий."
+        ),
+        false
+    );
+}
+
 $APPLICATION->IncludeFile(
     "views/scripts.php",
     array(
@@ -130,9 +142,7 @@ $APPLICATION->IncludeFile(
     )
 );
 
-
 $APPLICATION->ShowBodyScripts();
-
 ?>
 </body>
 </html>

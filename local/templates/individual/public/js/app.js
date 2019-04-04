@@ -145,6 +145,13 @@ $(document).ready(function() {
         ]
     });*/
 
+    $('.slider-home[data-autoheight = true]').on('setPosition', function () {
+        $(this).find('.slick-slide').height('auto');
+        var slickTrack = $(this).find('.slick-track');
+        var slickTrackHeight = $(slickTrack).height();
+        $(this).find('.slick-slide').css('height', slickTrackHeight + 'px');
+    });
+
     $('input[type="tel"]').inputmask('+7 (999) 999-99-99');
 
     $('.js-init-clear__cart').on('click', function(e){

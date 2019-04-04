@@ -58,7 +58,8 @@ a
 .btn-default:hover, .btn-default:active, .btn-default:focus,
 .settings__tabs-menu a:hover:before, .settings__tabs-menu a:focus:before, .settings__tabs-menu a:active:before, .settings__tabs-menu-item.active a:before,
 .settings__tabs-reset:hover span:after, .settings__tabs-reset:active span:after, .settings__tabs-reset:focus span:after,
-.container-section--popular .section-item__name:before
+.container-section--popular .section-item__name:before,
+.sub__category:hover .sub__categoty-name, .sub__category:focus .sub__categoty-name
 {
     background: ACTION;
 }

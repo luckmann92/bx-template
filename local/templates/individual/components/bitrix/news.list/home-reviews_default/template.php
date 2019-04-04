@@ -98,7 +98,7 @@ $this->setFrameMode(true);
                 {
                     breakpoint: 576,
                     settings: {
-                        slidesToShow: 1
+                        slidesToShow: 2
                     }
                 }
             ]

@@ -119,3 +119,10 @@
         padding-left: 70px;
     }
 }
+
+@media screen and (min-width: 320px) and (max-width: 576px) {
+    .review-nav__image {
+        width: 60px;
+        height: 60px;
+    }
+}

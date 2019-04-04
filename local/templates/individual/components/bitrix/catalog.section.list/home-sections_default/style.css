@@ -14,7 +14,9 @@
 }
 
 .container-section--popular .section-item__image img[lazy-images] {
+    object-fit: cover;
     height: 100%;
+    width: 100%;
 }
 
 .container-section--popular .section-item__name {

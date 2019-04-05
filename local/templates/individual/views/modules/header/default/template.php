@@ -45,7 +45,7 @@
     <div class="header-middle">
         <div class="container">
             <div class="row justify-content-between align-items-center">
-                <div class="col d-flex align-items-center header-logo">
+                <div class="d-flex align-items-center header-logo">
                     <a href="<?=SITE_DIR?>" class="d-flex align-items-center">
                         <?$APPLICATION->IncludeFile('/include/'.SITE_ID.'/logo.php',
                             ['SETTING' => $arParams['SETTING']],
@@ -53,7 +53,7 @@
                         );?>
                     </a>
                 </div>
-                <div class="col header-search">
+                <div class="header-search">
                     <?$APPLICATION->IncludeComponent(
                         "bitrix:search.suggest.input",
                         ".default",
@@ -69,7 +69,7 @@
                         false
                     );?>
                 </div>
-                <div class="col header-contact">
+                <div class="header-contact">
                     <div class="header-phone">
                         <?=GetContentSvgIcon('phone')?>
                         <a href="tel:<?$APPLICATION->IncludeFile(

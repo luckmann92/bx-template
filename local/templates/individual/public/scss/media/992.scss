@@ -13,6 +13,12 @@
     display: flex;
     justify-content: flex-end;
   }
+  .head-nav {
+    flex-grow: 0;
+  }
+  .header-responsive .row>div {
+    padding: 0 10px;
+  }
 
   /* SLIDERS */
   .slide-item, .stock-item {

@@ -217,10 +217,13 @@
     .slide-item {
         padding-left: 0;
         padding-right: 0;
-        padding-bottom: 40px;
+        padding-bottom: 60px;
     }
     .slider-home .slick-arrow {
         display:none!important;
+    }
+    .slider-dots {
+        bottom: 24px;
     }
 }
 

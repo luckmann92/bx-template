@@ -104,6 +104,9 @@
 .header__desc p {
     margin: 0;
 }
+.header__address {
+    max-width: 230px;
+}
 .header__phone {
     display: inline-flex;
     margin-right: 30px;
@@ -198,9 +201,6 @@
 @media screen and (min-width: 320px) and (max-width: 1200px) {
     .header__menu {
         padding: 0;
-    }
-    .header__block {
-        padding: 0 5px;
     }
     .header__desc {
         margin-left: 5px;

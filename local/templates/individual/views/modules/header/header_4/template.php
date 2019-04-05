@@ -5,8 +5,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 <header class="header">
     <nav class="header__top">
         <div class="container">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-lg-auto header__block header__menu">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="header__block header__menu">
                     <button class="js-init__menu--desktop header__hamburger">
                         <span></span>
                     </button>
@@ -77,7 +77,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-auto d-flex align-items-center header__logo header-logo--desc">
+                <div class="d-flex align-items-center header__logo header-logo--desc">
                     <a href="<?=SITE_DIR?>">
                         <?$APPLICATION->IncludeFile('/include/'.SITE_ID.'/logo.php',
                             ['SETTING' => $arParams['SETTING']],
@@ -94,7 +94,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                             );?></p>
                     </div>
                 </div>
-                <div class="col-lg-auto header__block header__address">
+                <div class="header__block header__address">
                     <div class="header__pic">
                         <?=GetContentSvgIcon('address')?>
                     </div>
@@ -108,7 +108,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         );?>
                     </div>
                 </div>
-                <div class="col-lg-auto header__block header__phone">
+                <div class="header__block header__phone">
                     <div class="header__pic">
                         <?=GetContentSvgIcon('phone')?>
                     </div>
@@ -155,7 +155,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         );?>
                     </div>
                 </div>
-                <div class="col-lg-auto header__block header__search header__search--desktop">
+                <div class="header__block header__search header__search--desktop">
                     <div class="header__loupe">
                         <button class="header__loupe-pic">
                             <?=GetContentSvgIcon('search-big')?>

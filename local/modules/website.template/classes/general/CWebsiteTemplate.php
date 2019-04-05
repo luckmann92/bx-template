@@ -330,6 +330,9 @@ class CWebsiteTemplate {
                 ),
                 '4' => array(
                     'NAME' => 'Вариант 4'
+                ),
+                '5' => array(
+                    'NAME' => 'Вариант 5'
                 )
             ),
             'ADVANTAGE' => array(

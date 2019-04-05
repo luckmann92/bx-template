@@ -7,7 +7,7 @@
 <?
 $APPLICATION->IncludeComponent(
 	"bitrix:news.list", 
-	"home-slider_default", 
+	"home-slider_" . $arParams['SETTING']['SLIDER'],
 	array(
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",

@@ -5,8 +5,8 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 <header class="header">
     <nav class="header__top">
         <div class="container">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-lg-auto d-flex align-items-center header__logo header-logo--desc">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center header__logo header-logo--desc">
                     <a href="<?=SITE_DIR?>">
                         <?$APPLICATION->IncludeFile('/include/'.SITE_ID.'/logo.php',
                             ['SETTING' => $arParams['SETTING']],
@@ -20,7 +20,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         );?></p>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-auto header-search">
+                <div class="header-search">
                     <?$APPLICATION->IncludeComponent(
                         "bitrix:search.suggest.input",
                         ".default",
@@ -36,7 +36,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         false
                     );?>
                 </div>
-                <div class="col-lg-auto header__block header__address">
+                <div class="header__block header__address">
                     <div class="header__phone">
                         <?=GetContentSvgIcon('phone')?>
                         <a href="tel:<?$APPLICATION->IncludeFile(
@@ -107,7 +107,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
 		"COMPONENT_TEMPLATE" => "header-top_2",
 		"COMPOSITE_FRAME_MODE" => "A",
 		"COMPOSITE_FRAME_TYPE" => "AUTO",
-		"MAX_ITEMS" => "6"
+		"MAX_ITEMS" => "5"
 	),
 	false
 ); ?>

@@ -7,7 +7,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
     <nav class="header__top">
         <div class="container">
             <div class="row justify-content-between align-items-center">
-                <div class="col-lg-auto d-flex align-items-center header__logo header-logo--desc">
+                <div class="d-flex align-items-center header__logo header-logo--desc">
                     <a href="<?=SITE_DIR?>">
                         <?$APPLICATION->IncludeFile('/include/'.SITE_ID.'/logo.php',
                             ['SETTING' => $arParams['SETTING']],
@@ -15,7 +15,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         );?>
                     </a>
                 </div>
-                <div class="col-xl-4 col-lg-auto header-search">
+                <div class="header-search">
                     <?$APPLICATION->IncludeComponent(
                         "bitrix:search.suggest.input",
                         ".default",
@@ -31,7 +31,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         false
                     );?>
                 </div>
-                <div class="col-lg-auto header__block header__address">
+                <div class="header__block header__address">
                     <div class="header__pic">
                         <?=GetContentSvgIcon('address')?>
                     </div>
@@ -47,7 +47,7 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) die();
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-auto header__block header__address">
+                <div class="header__block header__address">
                     <div class="header__pic">
                         <?=GetContentSvgIcon('phone')?>
                     </div>

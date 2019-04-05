@@ -1,12 +1,16 @@
 .header-bottom .catalog__menu li a:hover:before,
 .header__bottom,
-.btn.b-dark:hover, .btn.b-dark:focus, .btn.b-dark:active
+.btn.b-dark:hover, .btn.b-dark:focus, .btn.b-dark:active,
+.header__list li.more__menu .submenu li a
 {
     background-color: #ff223d;
 }
 .btn.b-dark:hover, .btn.b-dark:focus, .btn.b-dark:active
 {
     border-color: #ff223d;
+}
+.header__list li.more__menu .submenu li a {
+    color: #000;
 }
 .btn.b-dark:hover, .btn.b-dark:focus, .btn.b-dark:active,
 .header__bottom .header__list li a

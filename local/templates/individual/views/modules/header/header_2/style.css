@@ -95,7 +95,7 @@
     transition: 300ms;
 }
 .header__list li a.js-init_more_menu {
-    padding-left: 40px;
+    padding-left: 50px;
     padding-right: 15px;
 }
 .header__list li.more__menu {

@@ -68,4 +68,3 @@ if (!defined('ADMIN_SECTION')) {
         }
     });
 }
-

@@ -6,8 +6,8 @@
 <div class="page page--home">
 <?
 $APPLICATION->IncludeComponent(
-	"bitrix:news.list",
-	"home-slider_" . $arParams['SETTING']['SLIDER'],
+	"bitrix:news.list", 
+	"home-slider_default", 
 	array(
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -71,7 +71,8 @@ $APPLICATION->IncludeComponent(
 		"ACTIVE_COMPONENT" => "Y",
 		"COMPOSITE_FRAME_MODE" => "Y",
 		"COMPOSITE_FRAME_TYPE" => "STATIC",
-		"SLIDER_ARROWS" => "Y"
+		"SLIDER_ARROWS" => "Y",
+		"SLIDER_AUTOHEIGHT" => "N"
 	),
 	false
 );

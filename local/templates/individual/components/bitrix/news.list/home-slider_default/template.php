@@ -74,9 +74,9 @@ if($arResult['ITEMS']){?>
             adaptiveHeight: true,
             responsive:[
                 {
-                    breakpoint: 750,
+                    breakpoint: 992,
                     settings: {
-                        dots: false
+                        arrows: false
                     }
                 }
             ]

@@ -64,10 +64,10 @@ if($arResult['ITEMS']){?>
                         </div>
                         <div class="slider-pics">
                             <?foreach ($arResult['ITEMS'] as $k => $arSlide){?>
-                                <a href="#" class="slider-pic c-shadow"">
+                                <div class="slider-pic c-shadow"">
                                     <div class="slider-pic__image" style="background-image:url(<?=$arSlide['PREVIEW_PICTURE']['SRC']?>)"></div>
                                     <h3 class="slider-pic__title"><?=$arSlide['NAME']?></h3>
-                                </a>
+                                </div>
                             <?}?>
                         </div>
                     </div>

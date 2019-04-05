@@ -19,6 +19,7 @@
     padding: 15px 0;
     overflow: hidden;
     border: none!important;
+    cursor: pointer;
 }
 .slider-pic.c-shadow:before {
     content: '';

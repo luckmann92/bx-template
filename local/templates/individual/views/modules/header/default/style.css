@@ -222,7 +222,7 @@
     min-width: 250px;
     position: absolute;
     right: 0;
-    z-index: 1;
+    z-index: 11;
     border-top: 1px solid #eaeaea;
     padding: 0;
     box-shadow: 0 5px 15px rgba(28, 28, 28, 0.15);
@@ -322,4 +322,8 @@
 .type__sidebar .header-phone__column {
     display: flex;
     flex-direction: column;
+}
+
+.header-top_navbar li {
+    margin-right: 20px;
 }

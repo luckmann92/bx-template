@@ -21,6 +21,7 @@
     margin: 0 10px;
     overflow: hidden;
     border: none!important;
+    cursor: pointer;
 }
 .slider-pic.c-shadow:before {
     content: '';
@@ -88,7 +89,7 @@
     -ms-grid-row-span: 5;
 }
 .slider-home .slick-track, .slider-home .slick-list{
-    height: 500px !important;
+    height: 540px !important;
 }
 .slider-pics .slick-track, .slider-pics .slick-list {
     height: 210px!important;

@@ -1,7 +1,8 @@
 .header-top:before, .advantages__wrapper:before,
 .header-bottom .catalog__menu li a:hover:before,
 .header__bottom,
-.btn.b-dark:hover, .btn.b-dark:focus, .btn.b-dark:active
+.btn.b-dark:hover, .btn.b-dark:focus, .btn.b-dark:active,
+.header__list li.more__menu .submenu li a
 {
     background-color: MAIN;
 }
@@ -9,6 +10,7 @@
 {
     border-color: MAIN;
 }
+.header__list li.more__menu .submenu li a,
 .btn.b-dark:hover, .btn.b-dark:focus, .btn.b-dark:active,
 .header__bottom .header__list li a
 {

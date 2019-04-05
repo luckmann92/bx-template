@@ -13,7 +13,7 @@
 		"ROOT_MENU_TYPE" => "catalog_top",
 		"USE_EXT" => "Y",
 		"COMPONENT_TEMPLATE" => "header-catalog",
-		"MAX_ITEMS" => "6",
+		"MAX_ITEMS" => "5",
 		"COMPOSITE_FRAME_MODE" => "A",
 		"COMPOSITE_FRAME_TYPE" => "AUTO"
 	),

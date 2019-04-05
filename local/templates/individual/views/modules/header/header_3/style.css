@@ -15,7 +15,8 @@
     display: flex;
     align-items: center;
     max-width: fit-content;
-    flex: 1 1 auto;
+    flex: 1 1 420px;
+    min-width: 420px;
 }
 .header__pic {
     display: flex;
@@ -29,12 +30,16 @@
     border-radius: 50px;
 }
 .header__desc {
-    max-width: 185px;
+    max-width: 170px;
     line-height: 1.5em;
     margin-left: 22px;
 }
 .header__desc p {
     margin: 0;
+}
+.header-search .inp-search {
+    padding-left: 50px;
+    padding-right: 45px;
 }
 .header__phone {
     display: inline-flex;
@@ -119,7 +124,6 @@
     position: absolute;
     right: 0;
     z-index: 1;
-    border-top: 1px solid #eaeaea;
     padding: 0;
     box-shadow: 0 5px 15px rgba(28, 28, 28, 0.15);
 }
@@ -127,7 +131,6 @@
     text-align: left;
     padding: 15px 25px;
     white-space: normal;
-    color: #333;
 }
 .header__list li.more__menu:hover > a:before, .header__list li.more__menu:focus > a:before {
     opacity: 0.1;

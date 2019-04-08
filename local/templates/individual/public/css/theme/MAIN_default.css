@@ -9,7 +9,8 @@
 {
     border-color: #ff223d;
 }
-.header__list li.more__menu .submenu li a {
+.header .header__list li.more__menu .submenu li a,
+.header .header-bottom .catalog__menu li a {
     color: #000;
 }
 .btn.b-dark:hover, .btn.b-dark:focus, .btn.b-dark:active,

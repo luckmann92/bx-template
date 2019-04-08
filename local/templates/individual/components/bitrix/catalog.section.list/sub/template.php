@@ -15,7 +15,7 @@ if($arResult['SECTIONS']){?>
                              alt="<?=$arSection['PICTURE']['ALT'] ? $arSection['PICTURE']['ALT'] : $arSection['NAME']?>"
                              title="<?=$arSection['PICTURE']['TITLE'] ? $arSection['PICTURE']['TITLE'] : $arSection['NAME']?>">
                     </div>
-                    <div class="sub__categoty-name"><?=$arSection['NAME']?></div>
+                    <div class="sub__categoty-name"><? echo mb_strimwidth($arSection['NAME'], 0, 35, '...');?></div>
                 </a>
             </div>
         <?}?>

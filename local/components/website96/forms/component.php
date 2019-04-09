@@ -1,21 +1,28 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) {
-    require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
-}
+<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
+
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");
+
+use Bitrix\Main\Localization\Loc;
+
+Loc::loadMessages(__FILE__);
+
 $arResponse = array();
+
 $arPolicyField = array(
     'CODE' => 'PRIVACY_POLICY',
     'PROPERTY_TYPE' => 'L',
     'URL' => $arParams['FORM_POLITIC_URL'] ?: '',
-    'NAME' => GetMessage('WEBSITE96_FORMS_COMPONENT_PRIVACY_POLICY'),
-    'HINT' => GetMessage('WEBSITE96_FORMS_COMPONENT_PRIVACY_POLICY_HINT'),
+    'NAME' => Loc::getMessage('WEBSITE96_FORMS_COMPONENT_PRIVACY_POLICY'),
+    'HINT' => Loc::getMessage('WEBSITE96_FORMS_COMPONENT_PRIVACY_POLICY_HINT'),
     'DEFAULT_VALUE' => 'on'
 );
+
 if(is_array($arParams['FORM_REQUIRED_FIELDS'])){
     $arParams['FORM_REQUIRED_FIELDS'][$arPolicyField['CODE']] = $arPolicyField['CODE'];
 }
 
-if(!isset($arParams['IBLOCK_ID']) || strlen($arParams['IBLOCK_ID']) == 0){
-    echo GetMessage("WEBSITE96_FORMS_COMPONENT_ERROR_NOT_IBLOCK");
+if (!isset($arParams['IBLOCK_ID']) || strlen($arParams['IBLOCK_ID']) == 0){
+    echo Loc::getMessage("WEBSITE96_FORMS_COMPONENT_ERROR_NOT_IBLOCK");
     return false;
 }
 
@@ -32,44 +39,58 @@ if (!isset($_REQUEST["ajax_form"]) || empty($_REQUEST["ajax_form"])) {
 }
 
 
-if(CModule::IncludeModule("iblock") && $arParams['IBLOCK_ID'] > 0) {
-    $arPropList = array();
-    $rsIBlockProps = CIBlockProperty::GetList(array("SORT"=>"ASC"), array('ACTIVE'=>'Y', 'IBLOCK_ID' => $arParams['IBLOCK_ID']));
-    while ($arIBlockProp = $rsIBlockProps->GetNext()){
-        $arPropList[$arIBlockProp['ID']] = $arIBlockProp;
+if (CModule::IncludeModule("iblock") && $arParams['IBLOCK_ID'] > 0) {
+    $arFormBlock = CIBlock::GetByID($arParams['IBLOCK_ID'])->Fetch();
+    //get all properties
+    $PROPERTY_LIST = array();
+    $rsIBlockProps = CIBlockProperty::GetList(
+        array(
+            "SORT" => "ASC"
+        ),
+        array(
+            'ACTIVE'=>'Y',
+            'IBLOCK_ID' => $arParams['IBLOCK_ID']
+        )
+    );
+    while ($PROPERTY = $rsIBlockProps->GetNext()){
+        $PROPERTY_LIST[$PROPERTY['ID']] = $PROPERTY;
     }
-    if(is_array($arParams['FORM_FIELDS']) && count($arParams['FORM_FIELDS']) > 0){
-        foreach ($arParams['FORM_FIELDS'] as $i => $propertyID) {
-            if($arParams['FORM_PRODUCT_ADD'] == "Y" && $arParams['FORM_PRODUCT_ID'] > 0){
-                if($arPropList[$propertyID]['PROPERTY_TYPE'] == 'E'){
-                    $arFilter = array('IBLOCK_ID' => $arPropList[$propertyID]["LINK_BLOCK_ID"], 'ID' => $arParams['FORM_PRODUCT_ID'], 'ACTIVE' => 'Y');
-                    $arSelect = array("ID", "IBLOCK_ID", "NAME", "PREVIEW_PICTURE", "SORT", "DETAIL_PAGE_URL", "PROPERTY_*");
-                    $rsElement = CIBlockElement::GetList(array(), $arFilter, false, array(), $arSelect);
-                    while ($ob = $rsElement->GetNextElement()){
-                        $propertyTYPE = $arPropList[$propertyID]['PROPERTY_TYPE'];
-                        $propertyCODE = $arPropList[$propertyID]['CODE'];
-                        $arPropList[$propertyID] = $ob->GetFields();
-                        $arPropList[$propertyID]['CODE'] = $propertyCODE;
-                        $arPropList[$propertyID]['PROPERTY_TYPE'] = $propertyTYPE;
-                        $arPropList[$propertyID]['PROPERTIES'] = $ob->GetProperties();
-                        if($arPropList[$propertyID]['PREVIEW_PICTURE']){
-                            $pictureID = $arPropList[$propertyID]['PREVIEW_PICTURE'];
-                            $pictureURL = CFile::ResizeImageGet(
-                                CFile::GetByID($pictureID)->Fetch(),
-                                array(
-                                    'width' => 96,
-                                    'height' => 96
-                                ), BX_RESIZE_IMAGE_PROPORTIONAL_ALT,
-                                true)['src'];
-                            $arPropList[$propertyID]['PREVIEW_PICTURE'] = $pictureURL;
+
+    if (is_array($arParams['FORM_FIELDS']) && count($arParams['FORM_FIELDS']) > 0){
+        foreach ($arParams['FORM_FIELDS'] as $key => $ID) {
+
+            switch ($PROPERTY_LIST[$ID]['PROPERTY_TYPE']) {
+                case 'E':
+                    if ($arParams['FORM_PRODUCT_ADD'] == "Y" && $arParams['FORM_PRODUCT_ID'] > 0) {
+                        $rsProduct = CIBlockElement::GetList(
+                            array(),
+                            array(
+                                'IBLOCK_ID' => $PROPERTY_LIST[$ID]['LINK_BLOCK_ID'],
+                                'ID' => $arParams['FORM_PRODUCT_ID']
+                            ), false,
+                            array('ID', 'IBLOCK_ID', 'NAME', 'PREVIEW_PICTURE', 'PROPERTY_*')
+                        );
+
+                        while ($arProduct = $rsProduct->GetNextElement()) {
+                            $PROPERTY_LIST[$ID]['VALUE'] = $arProduct->GetFields();
+                            $PROPERTY_LIST[$ID]['VALUE']['PREVIEW_PICTURE'] =
+                                CFile::ResizeImageGet(
+                                    CFile::GetByID($PROPERTY_LIST[$ID]['VALUE']['PREVIEW_PICTURE'])->Fetch(),
+                                    array(
+                                        'width' => 150,
+                                        'height' => 150
+                                    ), BX_RESIZE_IMAGE_PROPORTIONAL_ALT,
+                                    true)['src'];
+                            $PROPERTY_LIST[$ID]['VALUE']['PROPERTIES'] = $arProduct->GetProperties();
                         }
                     }
-                }
+                    break;
             }
+            $arResult['FIELDS'][$ID] = $PROPERTY_LIST[$ID];
         }
-        $arPropList['PRIVACY_POLICY'] = $arPolicyField;
-        $arResult['FIELDS'] = $arPropList;
     }
+    //add policy politic field
+    $arResult['FIELDS'][$arPolicyField['CODE']] = $arPolicyField;
 }
 
 if(isset($_REQUEST['ajax_send']) && $_REQUEST['ajax_send'] == "Y" && check_bitrix_sessid()) {
@@ -78,33 +99,51 @@ if(isset($_REQUEST['ajax_send']) && $_REQUEST['ajax_send'] == "Y" && check_bitri
     if(!is_array($arFields))
         $arFields = Array();
 
-    $strBodyMessage = 'Данные с формы обраной связи';
+    $strBodyMessage = Loc::getMessage('WEBSITE96_FORMS_COMPONENT_DATA_FORMS') . $arFormBlock['NAME'];
     $strBodyMessage .= "\n\n";
     $strBodyMessage .= '------------------------------------------'."\n\n";
 
-    foreach ($arParams['FORM_REQUIRED_FIELDS'] as $i => $propertyID) {
-        $propertyCODE = $arResult['FIELDS'][$propertyID]['CODE'];
+    $arError = array();
 
-        if(!isset($arFields[$propertyCODE]) || empty($arFields[$propertyCODE]) || $arFields[$propertyCODE] == null){
-            if ($arResult['FIELDS'][$propertyID]['PROPERTY_TYPE'] == "S") {
-                $arResponse['error'][$propertyCODE] = $arResult['FIELDS'][$propertyID]['HINT'] ? $arResult['FIELDS'][$propertyID]['HINT'] : '"' . $arResult['FIELDS'][$propertyID]['NAME'] . '"' . GetMessage('WEBSITE96_FORMS_COMPONENT_ERROR_EMPTY_FIELD');
-            } elseif ($arResult['FIELDS'][$propertyID]['PROPERTY_TYPE'] == "L") {
-                $arResponse['error'][$arResult['FIELDS'][$propertyID]['CODE']] = GetMessage('WEBSITE96_FORMS_COMPONENT_ERROR_AGREEMENT');
+    foreach ($arParams['FORM_REQUIRED_FIELDS'] as $key => $ID) {
+        $PROPERTY_CODE = $arResult['FIELDS'][$ID]['CODE'];
+
+        if (!isset($arFields[$PROPERTY_CODE]) || empty($arFields[$PROPERTY_CODE]) || $arFields[$PROPERTY_CODE] == NULL) {
+            switch ($arResult['FIELDS'][$ID]['PROPERTY_TYPE']) {
+                case 'S':
+                    $arError[$PROPERTY_CODE] = $arResult['FIELDS'][$ID]['HINT'] ?
+                        $arResult['FIELDS'][$ID]['HINT'] : '"' . $arResult['FIELDS'][$ID]['NAME'] . '"' .
+                        Loc::getMessage('WEBSITE96_FORMS_COMPONENT_ERROR_EMPTY_FIELD');
+                    break;
+                case 'L':
+                    $arError[$PROPERTY_CODE] = Loc::getMessage('WEBSITE96_FORMS_COMPONENT_ERROR_AGREEMENT');
+                break;
             }
-        } else {
-            if($arResult['FIELDS'][$propertyID]['PROPERTY_TYPE'] == "S") {
-                $strBodyMessage .= $arResult['FIELDS'][$propertyID]['NAME'].': '.htmlspecialcharsback($arFields[$propertyCODE])."\n";
-            } elseif($arResult['FIELDS'][$propertyID]['PROPERTY_TYPE'] == "E") {
-                $strBodyMessage .= 'Выбранный элемент: '.$arResult['FIELDS'][$propertyID]['NAME']."\n";
-            }
+
         }
 
     }
-    $strBodyMessage .= '------------------------------------------';
-    $strBodyMessage .= "\n\n";
-    $strBodyMessage .= 'Письмо сгенерировано автоматически и не требует ответа';
 
-    if(!is_array($arResponse['error'])){
+    if (count($arError) <= 0) {
+        foreach ($arFields as $CODE => $VALUE) {
+            foreach ($arResult['FIELDS'] as $ID => $arField) {
+                if ($CODE == $arField['CODE']) {
+                    switch ($arField['PROPERTY_TYPE']) {
+                        case 'S':
+                            $strBodyMessage .= $arField['NAME'].': '.htmlspecialcharsback($arFields[$CODE])."\n";
+                            break;
+                        case 'E':
+                            $strBodyMessage .= $arField['NAME'].': '.htmlspecialcharsback($arResult['FIELDS'][$ID]['VALUE']['NAME'])." (id: ".$arResult['FIELDS'][$ID]['VALUE']["ID"].")\n";
+                            break;
+                    }
+                }
+            }
+        }
+        $strBodyMessage .= "\n\n";
+        $strBodyMessage .= '------------------------------------------';
+        $strBodyMessage .= "\n\n";
+        $strBodyMessage .= Loc::getMessage('WEBSITE96_FORMS_COMPONENT_EMAIL_SIGN');
+
         $el = new CIBlockElement;
 
         $arElementFields = array(
@@ -140,13 +179,16 @@ if(isset($_REQUEST['ajax_send']) && $_REQUEST['ajax_send'] == "Y" && check_bitri
             }
 
             if(CEvent::Send($arIBlockMessage['CODE'], SITE_ID, array('MESSAGE' => $strBodyMessage),'N', $arEventID['ID'])){
-                $arResponse['success'] = 'Заявка отправлена!';
+                $arResponse['success'] = Loc::getMessage('WEBSITE96_FORMS_COMPONENT_EMAIL_SENT');
             }
         } else {
-            $arResponse['error']['ADD_MESSAGE'] = 'Ошибка: '.$el->LAST_ERROR;
+            $arError['ADD_MESSAGE'] = Loc::getMessage('WEBSITE96_FORMS_COMPONENT_ERROR').': '.$el->LAST_ERROR;
         }
     }
 
+    if (count($arError) > 0) {
+        $arResponse['error'] = $arError;
+    }
 
     $APPLICATION->RestartBuffer();
     echo json_encode($arResponse);

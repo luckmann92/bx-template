@@ -34,7 +34,7 @@ class CWebsiteTemplate {
         if ($this->type_save == 'session') {
             unset($_SESSION['TEMPLATE_SETTINGS']);
         } else {
-            $templateSettingsFile = $_SERVER['DOCUMENT_ROOT'] . SITE_TEMPLATE_PATH . '/.settings.json';
+            $templateSettingsFile = $_SERVER['DOCUMENT_ROOT'] . '/.settings.json';
             return unlink($templateSettingsFile) ? $this->getTemplateSetting() : false;
         }
     }

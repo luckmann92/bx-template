@@ -15,16 +15,19 @@ class CWebsiteTemplate {
     public $footers = array();
     public $headers = array();
     public $settings = array();
-    public $type_templates = array(
-        'COMPANY' => 'Сайт компании',
-        'CATALOG' => 'Сайт с каталогом/услугами',
-        'SHOP' => 'Интернет-магазин'
-    );
+    public $type_templates = array();
     public $font_sizes = array();
 
     public function __construct($type_save = 'session')
     {
         $this->type_save = $type_save;
+        if ($this->type_save == 'session') {
+            $this->type_templates = array(
+                'COMPANY' => 'Сайт компании',
+                'CATALOG' => 'Сайт с каталогом/услугами',
+                'SHOP' => 'Интернет-магазин'
+            );
+        }
         $this->settings = $this->getTemplateSetting();
         return $this->settings;
     }

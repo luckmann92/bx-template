@@ -102,6 +102,12 @@
 }
 .sub__category-image {
   display:inline-flex;
+  justify-content: center;
+  min-height: 142px;
+  background-image: url(../../../../../../../local/templates/individual/public/images/image-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 .section-item__name {
   position: absolute;

@@ -12,16 +12,13 @@
     top: 0;
     left: 0;
     z-index: 1;
+    background-image: url(../../../../../../../local/templates/individual/public/images/image-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     overflow: hidden;
     -webkit-transition: 250ms;
     transition: 250ms;
-}
-
-.container-section--popular .section-item__image img[lazy-images] {
-    height: 100%;
 }
 
 .section-item:hover .section-item__image {
@@ -72,5 +69,12 @@
     .container-section--popular {
         grid-template-columns: repeat(2,1fr);
         -ms-grid-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 576px) {
+    .container-section--popular {
+        grid-template-columns: repeat(1,1fr);
+        -ms-grid-columns: 1fr;
     }
 }

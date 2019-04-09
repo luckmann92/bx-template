@@ -1,4 +1,3 @@
-/*
 $(document).ready(function() {
     $('.js-init__menu--desktop').on('click', function(){
         console.log(123);
@@ -12,6 +11,7 @@ $(document).ready(function() {
                     opacity: 1
                 }
             },
+
             beforeOpen: function() {
                 $('.head-nav__modal--desktop').show().addClass('animated').addClass('slideInUp');
                 $('.js-init__menu--desktop').addClass('box-modal_close').addClass('fixed');
@@ -31,4 +31,4 @@ $(document).ready(function() {
             }
         });
     });
-});*/
+});

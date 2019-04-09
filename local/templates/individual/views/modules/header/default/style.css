@@ -74,7 +74,6 @@
     align-items: center;
 }
 .header-logo img {
-    flex: 1 1 100%;
     width: auto;
 }
 .header-logo:focus, .header-logo:active {

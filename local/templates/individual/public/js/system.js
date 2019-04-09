@@ -135,45 +135,6 @@ $(document).ready(function() {
             .closest('.settings__panel').find('.settings__panel-content').removeClass('active').eq($(this).index()).addClass('active');
     });
 
-
-    /*$('.cart__panel-show').on('click', function(){
-        $.arcticmodal({
-            type: 'ajax',
-            url: '/?action=info',
-            overlay: {
-                css: {
-                    backgroundColor: '#000',
-                    opacity: .65
-                }
-            },
-            openEffect: {
-                speed: 200
-            },
-            closeEffect: {
-                speed: 200
-            },
-            beforeOpen: function (data, el) {
-                $('.arcticmodal-container table').addClass('cart__container');
-            },
-            afterLoadingOnShow: function (data, el) {
-                $('.box__modal-cart').addClass('slideInRight');
-                $(document).mouseup(function (e){
-                    var div = $(".cart__panel");
-                    if (!div.is(e.target)
-                        && div.has(e.target).length === 0) {
-                        modalClose();
-                    }
-                });
-            },
-            beforeClose: function (data, el) {
-                $('.box__modal-cart').addClass('slideOutRight');
-            },
-            success: function(response) {
-
-            }
-        });
-    });*/
-
 });
 
 //select

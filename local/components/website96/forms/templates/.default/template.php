@@ -1,7 +1,5 @@
 <?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
-/*echo '<pre>';
-var_dump($arParams);
-echo '</pre>';*/
+
 if(isset($_REQUEST['ajax_form']) && !empty($_REQUEST['ajax_form'])){?>
     <div class="callback__modal-form modal__box">
         <span onclick="modalClose();" class="modal__close"></span>
@@ -10,30 +8,32 @@ if(isset($_REQUEST['ajax_form']) && !empty($_REQUEST['ajax_form'])){?>
             <form method="POST" action="<?=POST_FORM_ACTION_URI; ?>" class="modal__form">
                 <input type="hidden" name="ajax_send" value="Y"/>
                 <?=bitrix_sessid_post();?>
-                <?foreach ($arResult['FIELDS'] as $arField){?>
-                    <div class="form__group<?=$arField['IBLOCK_CODE'] == 'catalog' ? ' product__order-item' : ''?>">
+                <?foreach ($arResult['FIELDS'] as $arField){
+                    //dump($arField);
+                    ?>
+                    <div class="form__group<?=$arField['VALUE']['IBLOCK_CODE'] == 'catalog' ? ' product__order-item' : ''?>">
                     <?switch ($arField['PROPERTY_TYPE']) {
                         case 'E':
-                            if($arField['IBLOCK_CODE'] == 'catalog'){?>
+                            if($arField['VALUE']['IBLOCK_CODE'] == 'catalog'){?>
                                 <div class="product__order-image"
-                                     style="background-image: url(<?=$arField['PREVIEW_PICTURE']?>)";>
+                                     style="background-image: url(<?=$arField['VALUE']['PREVIEW_PICTURE']?>)";>
                                 </div>
                                 <div class="product__order-content">
-                                    <div class="product__order-name"><?=$arField['NAME']?></div>
-                                    <?if($arField['PROPERTIES']['PRODUCT_PRICE']['VALUE']){?>
+                                    <div class="product__order-name"><?=$arField['VALUE']['NAME']?></div>
+                                    <?if($arField['VALUE']['PROPERTIES']['PRODUCT_PRICE']['VALUE']){?>
                                         <div class="product__order-price">
-                                            <span class="product-price"><?=$arField['PROPERTIES']['PRODUCT_PRICE']['VALUE']?></span>
-                                            <?=$arField['PROPERTIES']['PRODUCT_OLD_PRICE']['VALUE'] ? '<span class="product-price price__old">' . $arField['PROPERTIES']['PRODUCT_OLD_PRICE']['VALUE'] . '</span>' : ''; ?>
+                                            <span class="product-price"><?=$arField['VALUE']['PROPERTIES']['PRODUCT_PRICE']['VALUE']?></span>
+                                            <?=$arField['VALUE']['PROPERTIES']['PRODUCT_OLD_PRICE']['VALUE'] ? '<span class="product-price price__old">' . $arField['VALUE']['PROPERTIES']['PRODUCT_OLD_PRICE']['VALUE'] . '</span>' : ''; ?>
                                         </div>
                                     <?} else {?>
-                                        <?if($arField['PROPERTIES']['PRODUCT_STATUS']['VALUE']){?>
-                                            <div class="product__status <?=$arField['PROPERTIES']['PRODUCT_STATUS']['VALUE_XML_ID']?>"><?=$arField['PROPERTIES']['PRODUCT_STATUS']['VALUE']?></div>
+                                        <?if($arField['VALUE']['PROPERTIES']['PRODUCT_STATUS']['VALUE']){?>
+                                            <div class="product__status <?=$arField['VALUE']['PROPERTIES']['PRODUCT_STATUS']['VALUE_XML_ID']?>"><?=$arField['VALUE']['PROPERTIES']['PRODUCT_STATUS']['VALUE']?></div>
                                         <?}?>
                                     <?}?>
                                 </div>
                                 <input type="hidden"
                                        name="FIELDS[<?=$arField['CODE']?>]"
-                                       value="<?=$arField['ID']?>">
+                                       value="<?=$arField['VALUE']['ID']?>">
                             <?}
                             break;
                         case 'S':

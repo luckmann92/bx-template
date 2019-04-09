@@ -56,17 +56,9 @@ function windowManagerShow(event) {
 
     return false;
 }*/
-$(window).resize(function() {
-
-});
 $(document).ready(function() {
 
-    $('.slider-home[data-autoheight = false]').on('setPosition', function () {
-        $(this).find('.slick-slide').height('auto');
-        var slickTrack = $(this).find('.slick-track');
-        var slickTrackHeight = $(slickTrack).height();
-        $(this).find('.slick-slide').css('height', slickTrackHeight + 'px');
-    });
+
 
     $('input[type="tel"]').inputmask('+7 (999) 999-99-99');
 
@@ -116,7 +108,6 @@ $(document).ready(function() {
 
     $('.js-init__menu--desktop').on('click', function(){
         if($(this).hasClass('fixed')){
-            console.log(123);
             $.arcticmodal('close');
         }
         $('.head-nav__modal--desktop').arcticmodal({

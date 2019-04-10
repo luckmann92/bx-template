@@ -29,14 +29,4 @@ $(document).ready(function() {
             }
         });
     });
-
-    $('.header__search--desktop').on('click', function(){
-        if($(this).hasClass('fixed')){
-            $('.header__search--desktop').removeClass('fixed');
-            $('.header__search-panel').removeClass('open');
-        } else {
-            $('.header__search--desktop').addClass('fixed');
-            $('.header__search-panel').addClass('open');
-        }
-    });
 });

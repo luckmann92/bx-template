@@ -536,5 +536,13 @@
       margin-right: 0;
     }
   }
-
+  .papers__item {
+    flex-direction: column-reverse;
+  }
+  .papers__date {
+    margin-bottom: 10px;
+  }
+  .papers__info {
+    margin-bottom: 20px;
+  }
 }

@@ -17,6 +17,7 @@
 .stock-title span,
 .header__phone a,
 .settings__tabs-menu a:hover, .settings__tabs-menu a:focus, .settings__tabs-menu a:active, .settings__tabs-menu-item.active a,
+.papers__link,
 a {
     color: #ff223d;
 }

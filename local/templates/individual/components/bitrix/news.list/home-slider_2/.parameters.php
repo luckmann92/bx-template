@@ -26,7 +26,7 @@ $arTemplateParameters = array(
         'TYPE' => 'STRING',
         'DEFAULT' => '3000'
     ],
-    "SLIDER_AUTOHEIGHT" => [
+	"SLIDER_AUTOHEIGHT" => [
         'PARENT' => 'BASE',
         'NAME' => GetMessage('AUTOHEIGHT_TITLE'),
         'TYPE' => 'CHECKBOX',

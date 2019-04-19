@@ -1,5 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 \Bitrix\Main\Page\Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/views/modules/header/' . $arParams['SETTING']['HEADER'] . '/style.css');
+\Bitrix\Main\Page\Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . '/views/modules/header/' . $arParams['SETTING']['HEADER'] . '/script.css');
 /** @var array $arParams */
 /** @var array $arResult */
 /** @global CMain $APPLICATION */
@@ -31,29 +32,44 @@ if($arResult['ITEMS']){?>
                      id="<?=$this->GetEditAreaId($arSlide['ID']);?>">
                     <div class="container">
                         <div class="row">
-                            <div class="slide-item__caption slide-item__caption__1 col-lg-5 col-md-8">
+                            <div class="slide-item__caption col-12 offset-lg-5 col-lg-7 offset-md-3 col-md-9">
                                 <div class="section-title c-<?=$arSlide['PROPERTIES']['SLIDE_TITLE_THEME']['VALUE_XML_ID']?>">
                                     <h2><?=$arSlide['NAME']?></h2>
                                 </div>
                                 <?if($arSlide['PREVIEW_TEXT']){?>
                                     <p class="slide-item__anons c-<?=$arSlide['PROPERTIES']['SLIDE_TITLE_THEME']['VALUE_XML_ID']?>"><?=$arSlide['PREVIEW_TEXT']?></p>
                                 <?}?>
-                                <?if($arSlide['PROPERTIES']['LINK_SECTION']['VALUE']){?>
-                                    <a href="<?=$arSlide['PROPERTIES']['LINK_SECTION']['VALUE']?>" target="_blank" class="btn btn-primary b-<?=$arSlide['PROPERTIES']['SLIDE_TITLE_THEME']['VALUE_XML_ID']?>">
-                                        <?=$arSlide['PROPERTIES']['LINK_BUTTON_NAME']['VALUE'] ? $arSlide['PROPERTIES']['LINK_BUTTON_NAME']['VALUE'] : GetMessage('LINK_MORE')?>
-                                    </a>
-                                <?}?>
+                                <div class="slide-item__bottom">
+                                    <div class="slider__arrows-box slider__arrows-content">
+                                        <button type="button" class="slide-prev slick-prev slider-home__prev slick-arrow"></button>
+                                        <button type="button" class="slide-next slick-next slider-home__next slick-arrow"></button>
+                                    </div>
+                                    <?if($arSlide['PROPERTIES']['LINK_SECTION']['VALUE']){?>
+                                        <a href="<?=$arSlide['PROPERTIES']['LINK_SECTION']['VALUE']?>" target="_blank" class="btn btn-primary b-<?=$arSlide['PROPERTIES']['SLIDE_TITLE_THEME']['VALUE_XML_ID']?>">
+                                            <?=$arSlide['PROPERTIES']['LINK_BUTTON_NAME']['VALUE'] ? $arSlide['PROPERTIES']['LINK_BUTTON_NAME']['VALUE'] : GetMessage('LINK_MORE')?>
+                                        </a>
+                                    <?}?>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             <?}?>
         </div>
+        <div class="slider__arrows slider__arrows--content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 offset-lg-5 col-lg-7 offset-md-3 col-md-9">
+                        <div class="slider__arrows-box"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <?if(count($arResult['ITEMS']) > 1){?>
-            <div class="slider-dots slider-dots__1">
+            <div class="slider-dots slider-dots--content">
                 <div class="container">
                     <div class="row justify-content-start">
-                        <div class="col-auto">
+                        <div class="col-12">
                             <div class="slider-home-dots"></div>
                         </div>
                     </div>
@@ -61,25 +77,4 @@ if($arResult['ITEMS']){?>
             </div>
         <?}?>
     </section>
-
-    <script>
-        $('.slider-home').slick({
-            dots: ($('.slider-home').attr('data-dots') == 'true') ? true : false,
-            arrows: ($('.slider-home').attr('data-arrows') == 'true') ? true : false,
-            autoplay: ($('.slider-home').attr('data-autoplay') == 'true') ? true : false,
-            autoplaySpeed:$('.slider-home').attr('data-speed'),
-            appendDots: $('.slider-home-dots'),
-            prevArrow: '<button type="button" class="slide-prev slick-prev"></button>',
-            nextArrow: '<button type="button" class="slide-next slick-next"></button>',
-            adaptiveHeight: true,
-            responsive:[
-                {
-                    breakpoint: 1100,
-                    settings: {
-                        arrows: false
-                    }
-                }
-            ]
-        });
-    </script>
 <?}?>

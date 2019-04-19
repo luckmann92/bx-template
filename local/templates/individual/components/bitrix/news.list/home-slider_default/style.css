@@ -112,8 +112,10 @@
     display: block;
     width: 8px;
     height: 8px;
-    border-top: 2px solid #333;
-    border-left: 2px solid #333;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-left-width: 2px;
+    border-left-style: solid;
 }
 .slide-item__bottom .slide-prev {
     margin-right: 13px;

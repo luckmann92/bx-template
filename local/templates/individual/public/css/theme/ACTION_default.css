@@ -38,7 +38,8 @@ a {
 .btn-search, .btn-search:hover, .btn-search:active, .btn-search:focus,
 .btn-primary,
 .btn-default,
-.btn-icon
+.btn-icon,
+.slide-item__bottom .slide-prev:before, .slide-item__bottom .slide-next:before
  {
     border-color: #ff223d;
 }

@@ -57,6 +57,7 @@
 }
 .slide-item__bottom .btn {
     position: relative;
+    margin-right: 22px;
 }
 .stock-item__caption {
     margin-bottom: 35px;
@@ -87,7 +88,6 @@
 .slide-item__bottom .slider__arrows-box {
     display: flex;
     justify-content: flex-end;
-    margin-left: 22px;
 }
 .slide-item__bottom .slide-prev, .slide-item__bottom .slide-next {
     display: block;
@@ -114,8 +114,10 @@
     display: block;
     width: 8px;
     height: 8px;
-    border-top: 2px solid #333;
-    border-left: 2px solid #333;
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-left-width: 2px;
+    border-left-style: solid;
 }
 .slide-item__bottom .slide-prev {
     margin-right: 13px;

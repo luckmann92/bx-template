@@ -8,10 +8,10 @@ $(document).ready(function() {
 
     $('.slider-home').slick({
         dots: false,
-        arrows: ($('.slider-home').attr('data-arrows') == 'true') ? true : false,
         autoplay: ($('.slider-home').attr('data-autoplay') == 'true') ? true : false,
         autoplaySpeed:$('.slider-home').attr('data-speed'),
         appendDots: $('.slider-home-dots'),
+        fade: true,
         arrows: false,
         adaptiveHeight: true,
         responsive:[

@@ -45,7 +45,7 @@ if($arResult['ITEMS']){?>
                                         <button type="button" class="slide-next slick-next slider-home__next slick-arrow"></button>
                                     </div>
                                     <?if($arSlide['PROPERTIES']['LINK_SECTION']['VALUE']){?>
-                                        <a href="<?=$arSlide['PROPERTIES']['LINK_SECTION']['VALUE']?>" target="_blank" class="btn btn-primary b-<?=$arSlide['PROPERTIES']['SLIDE_TITLE_THEME']['VALUE_XML_ID']?>">
+                                        <a href="<?=$arSlide['PROPERTIES']['LINK_SECTION']['VALUE']?>" target="_blank" class="btn btn-primary btn-slider-big b-<?=$arSlide['PROPERTIES']['SLIDE_TITLE_THEME']['VALUE_XML_ID']?>">
                                             <?=$arSlide['PROPERTIES']['LINK_BUTTON_NAME']['VALUE'] ? $arSlide['PROPERTIES']['LINK_BUTTON_NAME']['VALUE'] : GetMessage('LINK_MORE')?>
                                         </a>
                                     <?}?>

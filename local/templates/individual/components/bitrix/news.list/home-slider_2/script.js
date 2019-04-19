@@ -11,6 +11,7 @@ $(document).ready(function() {
         autoplay: ($('.slider-home').attr('data-autoplay') == 'true') ? true : false,
         autoplaySpeed:$('.slider-home').attr('data-speed'),
         appendDots: $('.slider-home-dots'),
+        fade: true,
         appendArrows: $('.slider__arrows-box'),
         speed: 300,
         adaptiveHeight: true
